@@ -714,13 +714,14 @@ name "fig:different-FA-scenarios"
 \begin_layout Standard
 On the other hand, the literature contains a wide variety of techniques
  for resolving crossing fascicles.
- Nevertheless, all these methods provide only information about 
+ Nevertheless, all these methods provide information only about the orientations
+ of crossing fascicles.
 \end_layout
 
 \begin_layout Standard
 It is thus clear that each fascicle that traverses a voxel should have its
- fiber-specific FA and diffusivities, or fascicle-FA, recently also coined
- fixel-based FA (a fixel is a fiber element) 
+ diffusivities and fiber-specific FA (fascicle-FA), which is recently also
+ coined fixel-based FA (a fixel is a fiber element) 
 \begin_inset Note Comment
 status open
 
@@ -755,6 +756,10 @@ Mention the constrains of using DTI and fODF.
 
 \begin_layout Subsection
 Objetive
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard

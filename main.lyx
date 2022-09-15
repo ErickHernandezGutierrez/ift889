@@ -621,6 +621,10 @@ E_{i}\left(v\right)=\sum_{k=1}^{M}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}D_{k}\l
 \end_layout
 
 \begin_layout Subsection
+DIAMOND
+\end_layout
+
+\begin_layout Subsection
 Problem Statement
 \end_layout
 
@@ -650,11 +654,11 @@ noprefix "false"
 \end_inset
 
 .
- For example, FA of 0.4 is possible from a crossing fiber voxel, but it is
- also possible to obtain that FA from a single fiber population demyelinating
- (going from FA of ~0.7 to 0.4) or from a voxel in that has partial volume
- with a CSF, or isotropic freewater from neuroinflammation contaminating
- the voxel leading to a drop of a high FA voxel to a low FA of 0.4 
+ For example, the following scenarios could lead to the same FA of 
+\begin_inset Formula $0.4$
+\end_inset
+
+ 
 \begin_inset Note Comment
 status open
 
@@ -664,7 +668,24 @@ add refs 19,20,21,22,23 of Mitacs
 
 \end_inset
 
-.
+:
+\end_layout
+
+\begin_layout Itemize
+Crossing fiber voxel.
+\end_layout
+
+\begin_layout Itemize
+Single fiber population demyelinating (going from FA of ~0.7 to 0.4).
+\end_layout
+
+\begin_layout Itemize
+Voxel that has partial volume with a CSF.
+\end_layout
+
+\begin_layout Itemize
+Isotropic freewater from neuroinflammation contaminating the voxel leading
+ to a drop of a high FA voxel to a low FA of 0.4.
 \end_layout
 
 \begin_layout Standard
@@ -720,8 +741,8 @@ On the other hand, the literature contains a wide variety of techniques
 
 \begin_layout Standard
 It is thus clear that each fascicle that traverses a voxel should have its
- fiber-specific FA and diffusivities, or fascicle-FA, recently also coined
- fixel-based FA (a fixel is a fiber element) 
+ diffusivities and fiber-specific FA (fascicle-FA), which is recently also
+ coined fixel-based FA (a fixel is a fiber element) 
 \begin_inset Note Comment
 status open
 
@@ -734,6 +755,49 @@ add ref 24 from Mitacs
 .
  Fixel-based analysis needs to be translated to neurodegenerative diseases
  and this is still a very important open problem.
+\end_layout
+
+\begin_layout Standard
+The most appropiate representation and modeling of multiple fascicles traversing
+ the same voxel remains unclear.
+ Actually, there is a multi-tensor based method, which represents multiple
+ fascicles with multi-tensors fitted using a 
+\series bold
+M
+\series default
+ulti-
+\series bold
+R
+\series default
+esolution 
+\series bold
+D
+\series default
+iscrete 
+\series bold
+S
+\series default
+earch (MRDS) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS"
+literal "false"
+
+\end_inset
+
+.
+ MRDS is capable of providing individual diffusion profiles as well as the
+ orientation of the fasicles.
+ In fact, it has proved to be more robust to noise and crossing fascicles
+ than other methods like DIAMOND and CSD 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS-rats"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
