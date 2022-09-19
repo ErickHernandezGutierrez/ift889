@@ -400,11 +400,19 @@ STD
 \end_layout
 
 \begin_layout Subsubsection
-Constrained Spherical Deconvolution (CSD)
+Spherical Deconvolution Methods
 \end_layout
 
 \begin_layout Standard
-Spherical Deconvolution (SD) 
+
+\series bold
+S
+\series default
+pherical 
+\series bold
+D
+\series default
+econvolution (SD) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SD"
@@ -423,8 +431,23 @@ literal "false"
 \begin_inset Formula $R$
 \end_inset
 
- that represents a single-fiber response, with the expected true fiber orientati
-on distribution 
+ that represents a single-fiber response, with the expected true 
+\series bold
+f
+\series default
+iber 
+\series bold
+O
+\series default
+rientation 
+\series bold
+D
+\series default
+istribution 
+\series bold
+F
+\series default
+unction 
 \begin_inset Formula $F$
 \end_inset
 
@@ -577,14 +600,47 @@ literal "false"
 
 \end_inset
 
- was introduced a modification to SD called Constrained Spherical Deconvolution
- (CSD) that preserves the angular resolution while remaining robust to noise
- effects.
+ was introduced a modification to SD called 
+\series bold
+C
+\series default
+onstrained 
+\series bold
+S
+\series default
+pherical 
+\series bold
+D
+\series default
+econvolution (CSD) that preserves the angular resolution while remaining
+ robust to noise effects.
  In CSD a non-negativity constraint on the estimated fODF is included into
  the formulation, as negative fibre orientation densities are physically
  impossible.
  Besides, this constraint eliminates the need for low-pass filtering the
  obtained fODF.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add SH representation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to perform the deconvolution over the sphere, the spherical representat
+ion 
+\begin_inset Formula $S\left(\theta,\phi\right)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
