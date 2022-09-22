@@ -344,9 +344,7 @@ literal "false"
 
  is a technique that provideds a direct estimation of displacement probability
  surfaces at each voxel from the dMRI data.
- It transforms water diffusivity profiles into displacement probability
- profiles.
- DOT uses the Fourier relationship between the signal attenuation and te
+ DOT uses the Fourier relationship between the signal attenuation and the
  diffusion propagator 
 \begin_inset Formula $p$
 \end_inset
@@ -356,24 +354,34 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-p\left(\mathbf{r},t\right)=\oint_{\varOmega}\int_{0}^{\infty}E\left(\mathbf{q},t\right)exp\left(-2\pi iqt\mathbf{q}^{T}\mathbf{r}\right)dqd\mathbf{q}
-\]
+\begin{equation}
+p\left(\vec{\mathbf{r}},t\right)=\oint_{\mathbf{\mathbb{S}^{2}}}\int_{0}^{\infty}E\left(\vec{\mathbf{q}},t\right)exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)q^{2}dqd\hat{\mathbf{q}},\label{eq:propagator-signal-fourier-relationship}
+\end{equation}
 
 \end_inset
 
-DOT assumes that 
+where 
+\begin_inset Formula $\vec{\mathbf{q}}=q\hat{\mathbf{q}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{\mathbf{r}}=r\hat{\mathbf{r}}$
+\end_inset
+
+.
+ It is assumed that 
 \begin_inset Formula $E$
 \end_inset
 
- attenuates mono-exponentially
+ attenuates mono-exponentially.
+ Therefore,
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-E\left(\mathbf{q},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\mathbf{q}\right)\right),
-\]
+\begin{equation}
+E\left(\vec{\mathbf{q}},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\hat{\mathbf{q}}\right)\right),\label{eq:mono-exponential-attenuation}
+\end{equation}
 
 \end_inset
 
@@ -382,7 +390,97 @@ where
 \end_inset
 
  is the apparent diffusion coefficient or diffusivity profile.
- DOT faces some limitations regarding the HARDI sampling schemes with finite
+ In other words, DOT transforms water diffusivity profiles into displacement
+ probability profiles.
+ In addition, DOT uses the following expasion in terms of spherical wave
+ functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)=\sum_{l=0}^{l_{max}}\sum_{m=-l}^{l}\left(-i\right)^{l}j_{l}\left(2\pi rp\right)Y_{lm}\left(\hat{\mathbf{r}}\right)Y_{lm}^{*}\left(\hat{\mathbf{q}}\right),\label{eq:plane-wave-expansion}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $j_{l}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{lm}$
+\end_inset
+
+ are respectively the spherical Bessel function of the first kind and the
+ spherical harmonic of order 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula $D$
+\end_inset
+
+ can be computed using Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mono-exponential-attenuation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which can be used to compute
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{l}\left(r,\hat{\mathbf{q}}\right)=,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which can be expanded in terms of spherical harmonics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{l}\left(r,\hat{\mathbf{q}}\right)=\sum_{l^{'}=0}^{l_{max}}\sum_{m=-l^{'}}^{l^{'}}a_{l^{'}m^{'}}Y_{l^{'}m^{'}}\left(\hat{\mathbf{q}}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, the dODF can be obtained from 
+\begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
+\end_inset
+
+ by means of the radial projection as in Equation 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+inserta ecuacion 2.16 de la tesis de Rick
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+DOT faces some limitations regarding the HARDI sampling schemes with finite
  support, truncated spherical harmonics and the mono-exponential attenuation.
  In 
 \begin_inset CommandInset citation
@@ -392,7 +490,7 @@ literal "false"
 
 \end_inset
 
- was proposed an extension of the DOT method that mitigates the DOT limitations.
+ was proposed an extension of the DOT method that mitigates these limitations.
 \end_layout
 
 \begin_layout Subsubsection
