@@ -1087,29 +1087,21 @@ Objective
 \end_layout
 
 \begin_layout Standard
-Our main objective is to setup a robust (to noise and crossing fibers) pipeline
- for the automatic extraction and statistical analysis of track-specific
- white matter measures.
+Our main objective is to setup a pipeline for the automatic extraction of
+ track-specific white matter measures robust to crossing fibers to improve
+ brain connectivity mapping through crossing fiber regions and pathologies
+ in the human brain.
  Estimated fixel-based orientations and metrics will be used as indirect
  proxies to axon loss, demyelination and neuroinflammation.
  In particular, the fixel-based radial diffusivity (fixel-RD) could help
- to account for demyelination in MS patients as in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "profilometry"
-literal "false"
-
-\end_inset
-
-.
+ to account for neuroinflammation in MS patients.
  In order to achieve this, there are two main problems that have to be addressed
 :
 \end_layout
 
 \begin_layout Enumerate
 Fast, accurate and robust to noise and fiber crossing voxel-wise estimation
- of fixel-based metrics in diffusion MRI signal using the multi-tensor based
- method MRDS.
+ of fixel-based metrics in diffusion MRI signal using MRDS.
  This demands to improve the model selector step in MRDS to better estimate
  the number of tensors per voxel.
  Besides, parallezation of MRDS is necessary to ensure fast fitting of the
@@ -1117,16 +1109,7 @@ Fast, accurate and robust to noise and fiber crossing voxel-wise estimation
 \end_layout
 
 \begin_layout Enumerate
-Multimetric analysis of white matter tracts in different fiber bundles.
- It's required to adapt the tractometry_flow pipeline to integrate the MRDS
- metrics into the statistical analysis.
-\end_layout
-
-\begin_layout Standard
-Although automating tract-profiling and metrics for white matter could improve
- brain connectivity mapping through crossing fiber regions and pathologies
- in the human brain, we will focus to demostrate the application of our
- pipeline to multiple sclerosis (MS) disease.
+Develop a tractometry pipeline 
 \end_layout
 
 \begin_layout Section
@@ -1652,14 +1635,6 @@ Tractometry
 The basis of tractometry is the statistical analysis that compares different
  groups or assesses individual variability in brain connection structure
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractometry-paper"
-literal "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -1674,8 +1649,8 @@ literal "false"
  allows you to extract tractometry information by combining subjects' streamline
  bundles and diffusion MRI metrics.
  Adapting this pipeline to integrate the MRDS estimated metrics could allow
- us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
- per fiber bundle.
+ us to recover a fixel-FA, fixel-AD and, more importantly, fixel-RD per
+ fiber bundle.
 \end_layout
 
 \begin_layout Section
@@ -1831,7 +1806,17 @@ Winter 2023
 \end_layout
 
 \begin_layout Itemize
-Parallelization of MRDS using CUDA or OpenCL.
+Parallelization of MRDS using CUDA 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+maybe in OpenCL
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1966,6 +1951,11 @@ results of the study using MRDS and tractometry_flow on the myelo_inferno.
 Collaborations
 \end_layout
 
+\begin_layout Standard
+Include collaboration with Rick (maybe go 3-6 months to New York) and Imeka
+ (production of MRDS, preparing code in Rust for MRDS as prototype)
+\end_layout
+
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 \begin_inset Formula $\mathbf{Imeka}$
@@ -1990,8 +1980,8 @@ Collaborations
 
  Collaboration with the NYU MRI Biophysics Group, which is one of the most
  relevant laboratories in the field.
- It will focus on multimetric analysis of white matter tracts in the multi-compa
-rtment standard model (Duration: 3-6 months).
+ It will focus on developing methods to represent crossing fascicles using
+ the multi-compartment standard model (Duration: 3-6 months).
 \end_layout
 
 \begin_layout Section
@@ -1999,7 +1989,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-I need to wait for results on the synthetic data with damage.
+I need to wait for results
 \end_layout
 
 \begin_layout Bibliography
@@ -2233,24 +2223,6 @@ literal "false"
 Theaud, G., Houde, J.-C., Boré, A., Rheault, F., Morency, F., Descoteaux, M.,TractoFlow
 : A robust, efficient and reproducible diffusion MRI pipeline leveraging
  Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "profilometry"
-literal "false"
-
-\end_inset
-
-Dayan M, Monohan E, Pandya S, Kuceyeski A, Nguyen TD, Raj A, Gauthier SA.
- Profilometry: A new statistical framework for the characterization of white
- matter pathways, with application to multiple sclerosis.
- Hum Brain Mapp.
- 2016 Mar;37(3):989-1004.
- doi: 10.1002/hbm.23082.
- Epub 2015 Dec 15.
- PMID: 26667008; PMCID: PMC6867537.
 \end_layout
 
 \begin_layout Bibliography
