@@ -1381,6 +1381,58 @@ re-hacer esta figura horizontal.
 \end_layout
 
 \begin_layout Subsubsection
+ReconBundlesX
+\end_layout
+
+\begin_layout Standard
+Once Tractoflow reconstructs a complete tractogram, the next step is to
+ perform bundle recognition, where the entire tractogram is decomposed into
+ separate bundles.
+ Tractography streamlines are classified as either beloging to a perticular
+ bundle or discarted.
+ For this bundle segmentation, we use the ReconBundlesx flow (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/scilus/rbx_flow
+\end_layout
+
+\end_inset
+
+).
+ ReconBundlesX is a tool to separate a wholebrain tractogram into different
+ bundles divided into separate files 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1,rbx_flow-2,rbx_flow-3,rbx_flow-4"
+literal "false"
+
+\end_inset
+
+.
+ It is multi-atlas and multi-parameter, and more robust to the single atals
+ and single parameter version of RecoBundles published in DIPY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIPY"
+literal "false"
+
+\end_inset
+
+ as it has been shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
 Rician Bias Correction
 \end_layout
 
@@ -1423,11 +1475,7 @@ literal "false"
 .
  MRDS is capable of providing individual diffusion profiles as well as the
  orientation of the fasicles.
- 
-\end_layout
-
-\begin_layout Standard
-MRDS is a general framework for estimating parameters in a multi-compartment
+ MRDS is a general framework for estimating parameters in a multi-compartment
  representation.
  The normalized DWI signal attenuation 
 \begin_inset Formula $E_{i}=S_{i}/S_{0}$
@@ -1565,15 +1613,7 @@ D_{k}=D\left(\theta_{k},\xi_{k}\right)=R\left(\theta_{k}\right)\left[\begin{arra
 \end_layout
 
 \begin_layout Standard
-The proposed algorithm in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MRDS"
-literal "false"
-
-\end_inset
-
- consists in the following steps:
+Therefore, the proposed MRDS algorithm consists in the following steps:
 \end_layout
 
 \begin_layout Enumerate
@@ -2225,6 +2265,23 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "DIPY"
+literal "false"
+
+\end_inset
+
+Garyfallidis E, Brett M, Amirbekian B, Rokem A, van der Walt S, Descoteaux
+ M, Nimmo-Smith I; Dipy Contributors.
+ Dipy, a library for the analysis of diffusion MRI data.
+ Front Neuroinform.
+ 2014 Feb 21;8:8.
+ doi: 10.3389/fninf.2014.00008.
+ PMID: 24600385; PMCID: PMC3931231.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "tractoflow"
 literal "false"
 
@@ -2233,6 +2290,60 @@ literal "false"
 Theaud, G., Houde, J.-C., Boré, A., Rheault, F., Morency, F., Descoteaux, M.,TractoFlow
 : A robust, efficient and reproducible diffusion MRI pipeline leveraging
  Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+Rheault, Francois.
+ Analyse et reconstruction de faisceaux de la matière blanche.
+ page 137-170, (2020), https://savoirs.usherbrooke.ca/handle/11143/17255
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-2"
+literal "false"
+
+\end_inset
+
+Garyfallidis, Eleftherios, et al.
+ Recognition of white matter bundles using local and global streamline-based
+ registration and clustering.
+ NeuroImage 170 (2018) https://doi.org/10.1016/j.neuroimage.2017.07.015
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-3"
+literal "false"
+
+\end_inset
+
+Kurtzer GM, Sochat V, Bauer MW Singularity: Scientific containers for mobility
+ of compute.
+ PLoS ONE 12(5): e0177459 (2017) https://doi.org/10.1371/journal.pone.0177459
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-4"
+literal "false"
+
+\end_inset
+
+P.
+ Di Tommaso, et al.
+ Nextflow enables reproducible computational workflows.
+ Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820
 \end_layout
 
 \begin_layout Bibliography
