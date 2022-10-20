@@ -12,12 +12,12 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "default" "Book Antiqua"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -81,6 +81,1016 @@
 
 \begin_layout Chapter
 Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Speak about methods for multiple fascicle bundles
+\end_layout
+
+\begin_layout Plain Layout
+mention FA profiles with DTI and maybe fODF of CSD (apparent fiber density)
+\end_layout
+
+\begin_layout Plain Layout
+use MItacs application proposal
+\end_layout
+
+\begin_layout Plain Layout
+Read Derek Jones' multi fiber chapter
+\end_layout
+
+\begin_layout Plain Layout
+Leer paper del ISBI 2012 phantom
+\end_layout
+
+\begin_layout Plain Layout
+6 metodos multi fibra (spectrum, qball, multi-tensor, csd, dbf, diamond)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diffusion MRI Background
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Define dMRI
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use Derek Jones' book.
+ Use Maxime's paper HARDI.
+\end_layout
+
+\begin_layout Standard
+There is a Fourier relationship between the signal attenuation and the diffusion
+ propagator such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(\vec{q},t\right)=\int_{\mathbb{R}^{3}}p\left(\vec{r},t\right)exp\left(-2\pi i\vec{q}^{T}\vec{r}\right)d\vec{r}\label{eq:FFT-relationship}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(\mathbf{q},t\right)=\int_{\mathbb{R}^{3}}p\left(\mathbf{r},t\right)exp\left(-2\pi i\mathbf{q}^{T}\mathbf{r}\right)d\mathbf{r}\label{eq:FFT-relationship-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+State-of-the-art
+\end_layout
+
+\begin_layout Subsection
+Diffusion Spectrum Imaging
+\end_layout
+
+\begin_layout Standard
+Diffusion Spectrum Imaging (DSI) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DSI"
+literal "false"
+
+\end_inset
+
+ is a MRI technique that employs the diffusion propagator 
+\begin_inset Formula $p$
+\end_inset
+
+ to describe the diffusion process in each voxel.
+ It uses Fourier relationship between a, sufficient dense, cartesian sample
+ of the signal 
+\begin_inset Formula $S$
+\end_inset
+
+ in the q-space and the diffusion probability density function such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p\left(\vec{\mathbf{r}},t\right)=\mathcal{F}^{-1}\left\{ S\left(\vec{\mathbf{q}},t\right)\right\} =\int_{\mathbb{Q}^{3}}S\left(\vec{\mathbf{q}},t\right)exp\left(i\vec{\mathbf{q}}\cdot\vec{\mathbf{r}}\right)d\vec{\mathbf{q}},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{F}^{-1}$
+\end_inset
+
+ is the 3D inverse Fourier transform.
+ Then, the dODF 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ can be reconstructed by radially projecting 
+\begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Psi\left(\hat{\mathbf{r}}\right)=\intop_{0}^{\infty}p\left(r\hat{\mathbf{r}},t\right)dr,\label{eq:diffusion-propagator-to-dODF}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $r\in\mathbf{\mathbb{R}_{0}^{+}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\mathbf{r}}\in\mathbb{S}^{2}$
+\end_inset
+
+.
+ DSI can detect the multiple fascicle orientation within a voxel.
+ However, it requires strong gradients (
+\begin_inset Formula $0\leq b\leq20,000$
+\end_inset
+
+ 
+\begin_inset Formula $s/mm^{2}$
+\end_inset
+
+) as well as long acquisition time to measure hundreads of directions and
+ b-values.
+ That's why is of real interest in clinical applications.
+\end_layout
+
+\begin_layout Subsection
+Q-Ball Imaging
+\end_layout
+
+\begin_layout Standard
+The Funk-Radon transform (FRT) is employed on HARDI derived data to obtain
+ a diffusion ODF (dODF)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi\left(\hat{\mathbf{u}}\right)=\int_{\varOmega\left(\hat{\mathbf{u}}\right)}S\left(\hat{\mathbf{q}},t\right)d\hat{\mathbf{q}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varOmega\left(\hat{\mathbf{u}}\right)=\left\{ \hat{\mathbf{q}}\in\mathbb{S}^{2}\,|\,\hat{\mathbf{q}}\perp\hat{\mathbf{u}}\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\mathbf{q}}=\vec{\mathbf{q}}/q$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{\mathbf{q}}\in\mathbb{Q}^{3}$
+\end_inset
+
+.
+ FRT uses the fact that the diffusion signal 
+\begin_inset Formula $S$
+\end_inset
+
+ is maximal in the directions perpendicular to the underlying fascicles,
+ see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:funk-radon-transform"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-funk-radon-transform.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:funk-radon-transform"
+
+\end_inset
+
+Illustration of the FRT that QBI uses to reconstruct the dODF using the
+ diffusion MRI measured signal.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HARDI"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The dODF can properly represent the presence and orientation of multiple
+ crossing fascicles.
+ However, the resulted dODF is artificially smooth and inflated compared
+ to the true diffusion ODF.
+ Problematically, this same feature causes q-ball to poorly distinguish
+ fibers crossing at tight angles.
+ Some modifications to QBI have been published.
+ For example, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QBI-SWT"
+literal "false"
+
+\end_inset
+
+ was proposed a spherical wavelet transform to sharpen and denoise the dODF.
+ Additionally, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QBI-CSA"
+literal "false"
+
+\end_inset
+
+ the dODF is normalized using a solid angle factor.
+ Finally, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GQI"
+literal "false"
+
+\end_inset
+
+ a generalization of the q-ball imaging was proposed using a direct transform
+ of the raw signal.
+\end_layout
+
+\begin_layout Subsection
+Diffusion Orientation Transform
+\end_layout
+
+\begin_layout Standard
+The Diffusion Orientation Transform (DOT) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DOT"
+literal "false"
+
+\end_inset
+
+ is a technique that provideds a direct estimation of displacement probability
+ surfaces at each voxel from the dMRI data.
+ DOT uses the Fourier relationship between the signal attenuation and the
+ diffusion propagator 
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p\left(\vec{\mathbf{r}},t\right)=\oint_{\mathbf{\mathbb{S}^{2}}}\int_{0}^{\infty}E\left(\vec{\mathbf{q}},t\right)exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)q^{2}dqd\hat{\mathbf{q}},\label{eq:propagator-signal-fourier-relationship}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\vec{\mathbf{q}}=q\hat{\mathbf{q}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{\mathbf{r}}=r\hat{\mathbf{r}}$
+\end_inset
+
+.
+ It is assumed that 
+\begin_inset Formula $E$
+\end_inset
+
+ attenuates mono-exponentially.
+ Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(\vec{\mathbf{q}},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\hat{\mathbf{q}}\right)\right),\label{eq:mono-exponential-attenuation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the apparent diffusion coefficient or diffusivity profile.
+ In other words, DOT transforms water diffusivity profiles into displacement
+ probability profiles.
+ In addition, DOT uses the following expasion in terms of spherical wave
+ functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)=\sum_{l=0}^{l_{max}}\sum_{m=-l}^{l}\left(-i\right)^{l}j_{l}\left(2\pi rp\right)Y_{lm}\left(\hat{\mathbf{r}}\right)Y_{lm}^{*}\left(\hat{\mathbf{q}}\right),\label{eq:plane-wave-expansion}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $j_{l}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{lm}$
+\end_inset
+
+ are respectively the spherical Bessel function of the first kind and the
+ spherical harmonic of order 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula $D$
+\end_inset
+
+ can be computed using Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mono-exponential-attenuation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which can be used to compute
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{l}\left(r,\hat{\mathbf{q}}\right)=,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which can be expanded in terms of spherical harmonics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{l}\left(r,\hat{\mathbf{q}}\right)=\sum_{l^{'}=0}^{l_{max}}\sum_{m=-l^{'}}^{l^{'}}a_{l^{'}m^{'}}Y_{l^{'}m^{'}}\left(\hat{\mathbf{q}}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, the dODF can be obtained from 
+\begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
+\end_inset
+
+ by means of the radial projection as in Equation 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+inserta ecuacion 2.16 de la tesis de Rick
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+DOT faces some limitations regarding the HARDI sampling schemes with finite
+ support, truncated spherical harmonics and the mono-exponential attenuation.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DOT-revisited"
+literal "false"
+
+\end_inset
+
+ was proposed an extension of the DOT method that mitigates these limitations.
+\end_layout
+
+\begin_layout Subsection
+Symmetric Tensor Decomposition
+\end_layout
+
+\begin_layout Standard
+Symmetric Tensor Decomposition (STD) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "STD"
+literal "false"
+
+\end_inset
+
+ combines the fODF reconstruction of SD and the orientations estimation
+ into one optimization problem.
+ It approximates the fODF using an equivalent lower-rank approximation by
+ a symmetric tensor decomposition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\left(\vec{\mathbf{v}}\right)\simeq\sum_{i=1}^{\widetilde{r}}\gamma_{i}f_{i}^{d}=\sum_{i=1}^{\widetilde{r}}\left(\vec{\alpha}_{i}\cdot\vec{\mathbf{v}}\right)^{d},\;\;\;\widetilde{r}<r,\vec{\alpha}_{i}\in\mathbb{R}^{3},\vec{\mathbf{v}}\in\mathbb{S}^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining this with the SD approach of Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:spherical-deconvolution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we obtain the following non-linear optimization problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underset{\alpha_{j}}{min}\frac{1}{2}\sum_{i=1}^{n}\bigl\Vert S\left(\mathbf{g}_{i},b\right)-S_{0}\int_{\mathbb{S}^{2}}\left(\boldsymbol{\alpha}_{i}\cdot\boldsymbol{v}\right)^{d}R\left(\mathbf{g}_{i},\mathbf{v}\right)d\mathbf{v}\bigr\Vert^{2}\label{eq:symmetric-tensor-decomposition}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Spherical Deconvolution Methods
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S
+\series default
+pherical 
+\series bold
+D
+\series default
+econvolution (SD) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SD"
+literal "false"
+
+\end_inset
+
+ is one of the most popular techniques to recover the principal diffusion
+ directions from the dMRI data.
+ SD considers the HARDI signal 
+\begin_inset Formula $S$
+\end_inset
+
+ as the convolution of the response function, which is an axially symmetric
+ kernel 
+\begin_inset Formula $R$
+\end_inset
+
+ that represents a single-fiber response, with the expected true 
+\series bold
+f
+\series default
+iber 
+\series bold
+O
+\series default
+rientation 
+\series bold
+D
+\series default
+istribution 
+\series bold
+F
+\series default
+unction 
+\begin_inset Formula $F$
+\end_inset
+
+, known as fODF.
+ Given the measurements of 
+\begin_inset Formula $S$
+\end_inset
+
+ along all the 
+\begin_inset Formula $n$
+\end_inset
+
+ gradient directions , the fODF can be reconstructed by solving the following
+ optimization problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underset{F}{min}\frac{1}{2}\sum_{i=1}^{n}\bigl\Vert S\left(\mathbf{g}_{i},b\right)-S_{0}\int_{\mathbb{S}^{2}}F\left(\mathbf{v}\right)R\left(\mathbf{g}_{i},\mathbf{v}\right)d\mathbf{v}\bigr\Vert^{2},\label{eq:spherical-deconvolution}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-spherical-deconvolution-a.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\;\;\;$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-spherical-deconvolution-b.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SD"
+
+\end_inset
+
+Imagen taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HARDI"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This SD technique is ill-posed and affected by noise.
+ Later in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CSD"
+literal "false"
+
+\end_inset
+
+ was introduced a modification to SD called 
+\series bold
+C
+\series default
+onstrained 
+\series bold
+S
+\series default
+pherical 
+\series bold
+D
+\series default
+econvolution (CSD) that preserves the angular resolution while remaining
+ robust to noise effects.
+ In CSD a non-negativity constraint on the estimated fODF is included into
+ the formulation, as negative fibre orientation densities are physically
+ impossible.
+ Besides, this constraint eliminates the need for low-pass filtering the
+ obtained fODF.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add SH representation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to perform the deconvolution over the sphere, the spherical representat
+ion 
+\begin_inset Formula $S\left(\theta,\phi\right)$
+\end_inset
+
+ of 
+\begin_inset Formula $S$
+\end_inset
+
+ can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S\left(\theta,\phi\right)=F\left(\theta,\phi\right)\varotimes R\left(\theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+DBF
+\end_layout
+
+\begin_layout Subsection
+Multi-Tensor
+\end_layout
+
+\begin_layout Standard
+Multi-tensor representation is a natural extension of the the Diffusion
+ Tensor Imaging (DTI) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DTI"
+literal "false"
+
+\end_inset
+
+ where orientated diffusion along the fascicles is represented with a mixture
+ of Gaussian distributions such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{i}\left(v\right)=\sum_{k=1}^{M}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}D_{k}\left(v\right)\mathbf{g}_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+DIAMOND
+\end_layout
+
+\begin_layout Section
+Problem Statement
+\end_layout
+
+\begin_layout Standard
+Although the literature contains a wide variety of techniques for resolving
+ crossing fascicles, most of these methods provide information only about
+ the orientation of crossing fascicles but not about the microstructure.
+\end_layout
+
+\begin_layout Standard
+Classical measures like FA with DTI are very sensitive to white matter anomalies
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+add ref 14,15,16 from Mitacs
+\end_layout
+
+\end_inset
+
+.
+ However, it is now very well-known that FA is not specific, i.e.
+ several different microstructure scenarios may lead to the same FA, see
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:different-FA-scenarios"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For example, the following scenarios could lead to the same FA of 
+\begin_inset Formula $0.4$
+\end_inset
+
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+add refs 19,20,21,22,23 of Mitacs
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Crossing fiber voxel.
+\end_layout
+
+\begin_layout Itemize
+Single fiber population demyelinating (going from FA of ~0.7 to 0.4).
+\end_layout
+
+\begin_layout Itemize
+Voxel that has partial volume with a CSF.
+\end_layout
+
+\begin_layout Itemize
+Isotropic freewater from neuroinflammation contaminating the voxel leading
+ to a drop of a high FA voxel to a low FA of 0.4.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-different-FA-scenarios.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:different-FA-scenarios"
+
+\end_inset
+
+Limitations of DTI and potential of advanced diffusion MRI modeling for
+ improved brain connectivity mapping and track-specific white matter tissue
+ assessment.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is thus clear that each fascicle that traverses a voxel should have its
+ diffusivities (fascicle-MD, fascicle-AD and fascicle-RD) and fiber-specific
+ FA (fascicle-FA), which is recently also coined fixel-based FA (a fixel
+ is a fiber element) 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+add ref 24 from Mitacs
+\end_layout
+
+\end_inset
+
+.
+ Fixel-based analysis needs to be translated to neurodegenerative diseases
+ and this is still a very important open problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mention that most of them do not give information about micro-structure.
+\end_layout
+
+\begin_layout Plain Layout
+Mention the constrains of using DTI and fODF.
+ Mention that MTM could solve the problem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Objective
+\end_layout
+
+\begin_layout Standard
+Our main objective is to setup a robust (to noise and crossing fibers) pipeline
+ for the automatic extraction and statistical analysis of track-specific
+ white matter measures.
+ Estimated fixel-based orientations and metrics will be used as indirect
+ proxies to axon loss, demyelination and neuroinflammation.
+ In particular, the fixel-based radial diffusivity (fixel-RD) could help
+ to account for demyelination in MS patients as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "profilometry"
+literal "false"
+
+\end_inset
+
+.
+ In order to achieve this, there are two main problems that have to be addressed
+:
+\end_layout
+
+\begin_layout Enumerate
+Fast, accurate and robust to noise and fiber crossing voxel-wise estimation
+ of fixel-based metrics in diffusion MRI signal using the multi-tensor based
+ method MRDS.
+ This demands to improve the model selector step in MRDS to better estimate
+ the number of tensors per voxel.
+ Besides, parallezation of MRDS is necessary to ensure fast fitting of the
+ MRDS method to the diffusion MRI signals.
+\end_layout
+
+\begin_layout Enumerate
+Multimetric analysis of white matter tracts in different fiber bundles.
+ It's required to adapt the tractometry_flow pipeline to integrate the MRDS
+ metrics into the statistical analysis.
+\end_layout
+
+\begin_layout Standard
+Although automating tract-profiling and metrics for white matter could improve
+ brain connectivity mapping through crossing fiber regions and pathologies
+ in the human brain, we will focus to demostrate the application of our
+ pipeline to multiple sclerosis (MS) disease.
 \end_layout
 
 \end_body

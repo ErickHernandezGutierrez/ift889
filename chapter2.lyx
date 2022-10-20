@@ -12,12 +12,12 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "default" "Book Antiqua"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -83,113 +83,193 @@
 Methods
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Explain how MRDS works (poner imagen gt y estimado con MRDS)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Explain Tractometry_flow (be short)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Mentions Optimizations for MRDS (number of fascicles selector & cuda)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Preface
+Data
+\end_layout
+
+\begin_layout Subsection
+Synthetic Dataset
+\end_layout
+
+\begin_layout Subsection
+Myelo Inferno Dataset
 \end_layout
 
 \begin_layout Standard
-The potential of the combination between diffusion magnetic resonance imaging
- (diffusion MRI) and tractography in research and clinical neuroscience
- has been illustrated in a vast number of times 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Heidi"
-literal "false"
-
+The acquisitions were done by the Sherbrooke onnectivity Imaging Lab (SCIL).
+ Twenty six young and healthy subjects (75% women and 25% men) were scanned
+ six times.
+ The DWI (112x112 matrix, TR 5615 ms, TE 95 ms, SENSE factor of 2) were
+ acquired on a 3 Tesla MRI (Philips, Ingenia) with a single-shot echo-planar
+ imaging sequence having 3 different shells, 
+\begin_inset Formula $b=300$
 \end_inset
 
-.
- There are plenty of applications such as quantitative comparisons of specific
- white matter pathways in disease, getting insights about normal brain anatomy
- in order to understand the consequences of localised pathology or guide
- interventions and gaining evidence for the presence of qualitatively different
- pathways in congenital disorders or following damage recovery 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Heidi"
-literal "false"
-
+, 
+\begin_inset Formula $1000$
 \end_inset
 
-.
- Other important applications involve tractography with the development
- of human connectome-based atlases for surgical approaches 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Meola"
-literal "false"
-
+, 
+\begin_inset Formula $2000mm^{2}/s$
 \end_inset
 
-.
-\end_layout
+ with respectively 
+\begin_inset Formula $8$
+\end_inset
 
-\begin_layout Standard
-Although tractography has proved its effectiveness, it has a large incidence
- of erroneous streamline trajectories also called 
-\begin_inset Formula $\mathbf{false}$
+, 
+\begin_inset Formula $32$
+\end_inset
+
+ and 
+\begin_inset Formula $60$
+\end_inset
+
+ directions distributed, 
+\begin_inset Formula $7$
 \end_inset
 
  
-\begin_inset Formula $\mathbf{positive}$
+\begin_inset Formula $b=0$
 \end_inset
 
- streamlines.
- No matter which tracking algorithm or approach we take there are always
- presence of false positives in tractography.
- These wrong streamlines do not represent an anatomical reality.
- Recent studies have highlighted that the large number of false positive
- streamlines can lead to misrepresent any connectivity analysis 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Simona"
-literal "false"
+ for a total of 
+\begin_inset Formula $107$
+\end_inset
+
+ images and a 
+\begin_inset Formula $2$
+\end_inset
+
+
+\begin_inset Formula $mm$
+\end_inset
+
+ isotropic spatial resolution.
+ A reversed phase encoded b=0 image is available, to correct EPI distortions,
+ with the same spatial resolution as the DWI.
+ The T1-weighted MPRAGE image (TR 
+\begin_inset Formula $7.9ms$
+\end_inset
+
+, TE 
+\begin_inset Formula $3.5ms$
+\end_inset
+
+) has a 
+\begin_inset Formula $1mm$
+\end_inset
+
+ isotropic spatial resolution.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Explain dataset (ms_6months)
+\end_layout
 
 \end_inset
 
 .
- The COMMIT framework 
+\end_layout
+
+\begin_layout Section
+Preprocessing
+\end_layout
+
+\begin_layout Subsection
+TractoFlow
+\end_layout
+
+\begin_layout Standard
+Tractoflow 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Daducci"
+key "tractoflow"
 literal "false"
 
 \end_inset
 
- has proved to be a powerful tool to prune tractograms from false-postives
- streamlines, see Figure [
+ is a pipeline as nextflows that allows to analyse a whole dataset of diffusion
+ MRI data in only one simple script.
+ TractoFlow pipeline consist of 
+\begin_inset Formula $23$
+\end_inset
+
+ different steps: 
+\begin_inset Formula $14$
+\end_inset
+
+ steps for the diffusion weighted image processing and 
+\begin_inset Formula $8$
+\end_inset
+
+ steps for the T1 weighted image processing, see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:commit-results"
+reference "fig:tractoflow-pipeline"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-].
- Unlike other methods, COMMIT does not consider tractography and tissue
- micro-structure estimation as two separated problems.
- Instead, it combines tractography with local micro-structural features
- in order to make a selection of the best subset of streamlines that best
- fit the dMRI signal.
- However, in its original formulation and implementation, the COMMIT framework
- has some limitations estimating axon caliber.
- COMMIT also suffers from high memory usage when storing precalculated synthetic
- MR signals.
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Figures/fig-commit-results.png
-	scale 35
+	filename tractoflow.png
+	scale 25
 
 \end_inset
 
@@ -202,20 +282,20 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:commit-results"
+name "fig:tractoflow-pipeline"
 
 \end_inset
 
-Qualitative evaluation of the FiberCup phantom.
- Each column represents a particular bundle tracts reconstructed with COMMIT
- (bottom).
- They are visually compared to those recovered by the state-of-the-art global
- tracking algorithm GIBBS (top).
- Blue arrows indicate false positive tracts.
- Figure taken from 
+Processes of the TractoFlow pipeline.
+ In A (blue), the input files required to run the pipeline.
+ In B (green), the DWI processes that take the DWI, the b-values/b-vectors
+ files and the reversed phase encoded b = 0 image.
+ In C (red), the T1 processes that take the T1 weighted image in input.
+ In orange, all processes or images that are optional.
+ Image taken from 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Daducci"
+key "tractoflow"
 literal "false"
 
 \end_inset
@@ -234,89 +314,354 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-This thesis introduces a regularized and accelerated formulation for the
- COMMIT model.
- Here we extend the COMMIT model with a Tikhonov's regularization term added
- to the original formulation to improve the estimation of axon caliber with
- COMMIT.
- Memory constraints have been addressed by proposing a new sampling scheme
- for the half-sphere discretization in COMMIT.
- We exhibit significant reduction in memory usage as well as speedups for
- model fitting.
- Besides, we demostrate improvements in the axon diameter distribution estimatio
-n without decreasing accuracy in the fitting of the measured diffusion MR
- signal.
- For validation of our method, we use synthetic MRI phantom signals and
- the real brain dataset used for the Human Connectome Project (HCP).
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+re-hacer esta figura horizontal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ReconBundlesX
+\end_layout
+
+\begin_layout Standard
+Once Tractoflow reconstructs a complete tractogram, the next step is to
+ perform bundle recognition, where the entire tractogram is decomposed into
+ separate bundles.
+ Tractography streamlines are classified as either beloging to a perticular
+ bundle or discarted.
+ For this bundle segmentation, we use the ReconBundlesx flow (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/scilus/rbx_flow
+\end_layout
+
+\end_inset
+
+).
+ ReconBundlesX is a tool to separate a wholebrain tractogram into different
+ bundles divided into separate files 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1,rbx_flow-2,rbx_flow-3,rbx_flow-4"
+literal "false"
+
+\end_inset
+
+.
+ It is multi-atlas and multi-parameter, and more robust to the single atals
+ and single parameter version of RecoBundles published in DIPY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIPY"
+literal "false"
+
+\end_inset
+
+ as it has been shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Rician Bias Correction
+\end_layout
+
+\begin_layout Standard
+Gudbjartsson correction
 \end_layout
 
 \begin_layout Section
-Outline
+MRDS
 \end_layout
 
 \begin_layout Standard
-This thesis is composed by 
-\begin_inset Formula $5$
+The most appropiate representation and modeling of multiple fascicles traversing
+ the same voxel remains unclear.
+ Actually, there is a multi-tensor based method, which represents multiple
+ fascicles with multi-tensors fitted using a 
+\series bold
+M
+\series default
+ulti-
+\series bold
+R
+\series default
+esolution 
+\series bold
+D
+\series default
+iscrete 
+\series bold
+S
+\series default
+earch (MRDS) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS"
+literal "false"
+
 \end_inset
 
- chapters and one appendix.
- This first chapter represents the storyline linking the different chapters
- together.
- This chapter have general information for introducing the reader to the
- context and background of the thesis.
+.
+ MRDS is capable of providing individual diffusion profiles as well as the
+ orientation of the fasicles.
+ MRDS is a general framework for estimating parameters in a multi-compartment
+ representation.
+ The normalized DWI signal attenuation 
+\begin_inset Formula $E_{i}=S_{i}/S_{0}$
+\end_inset
+
+ at each voxel of a multi-compartment model is represented as
 \end_layout
 
 \begin_layout Standard
-Chapter 
+\begin_inset Formula 
+\begin{equation}
+E_{i}=\sum_{k=1}^{N}\alpha_{k}\Phi_{i}\left(\zeta_{k}\right)+\eta_{i},\;\;\;i=1,2,\ldots,n,\label{eq:multi-compartment-model-representation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of compartments, 
+\begin_inset Formula $n$
+\end_inset
+
+ the number of DEOs 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+define arriba DEO (Diffusion Enconding Directions)
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $\left\{ \alpha_{k}>0\right\} _{k=1}^{N}$
+\end_inset
+
+ denotes the compartment sizes (volume fractions) and 
+\begin_inset Formula $\eta_{i}$
+\end_inset
+
+ represents the signal noise.
+ Besides, 
+\begin_inset Formula $\Phi_{i}\left(\zeta_{k}\right)$
+\end_inset
+
+ is the signal response of the compartment function for the DEO 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ defined by the parameters 
+\begin_inset Formula $\zeta_{k}$
+\end_inset
+
+, which is a vector in the form 
+\begin_inset Formula $\zeta_{k}=\left(\theta_{k},\xi_{k}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\theta_{k}=\left(\theta_{k}^{z},\theta_{k}^{a}\right)$
+\end_inset
+
+ define the zenith (elevation) and azimuth angles of the PDD of the compartment.
+ On the other hand, 
+\begin_inset Formula $\xi_{k}$
+\end_inset
+
+ is the vector of parameters associated with the tissue properties for the
+ compartment 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Assuming Gaussian noise, the error function to be minimized is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\epsilon\left(N,\alpha,\theta,\xi,E\right)=\sum_{i=1}^{n}\left(\sum_{k=1}^{N}\alpha_{k}\Phi_{i}\left(\zeta_{k}\right)-E_{i}\right)\label{eq:MRDS-error-function}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that in a multi-tensor model (MTM) representation we have 
+\begin_inset Formula $\Phi_{i}\left(\zeta_{k}\right)=exp\left(-b_{i}g_{i}^{T}D_{k}g_{i}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\xi_{k}=\left(\lambda_{k}^{\parallel},\lambda_{k}^{\perp}\right)$
+\end_inset
+
+ represents the axial (
+\begin_inset Formula $\parallel$
+\end_inset
+
+) and radial (
+\begin_inset Formula $\perp$
+\end_inset
+
+) diffusivities.
+ The PDD 
+\begin_inset Formula $\theta_{k}$
+\end_inset
+
+ defines the rotation matrix 
+\begin_inset Formula $R\left(\theta_{k}\right)$
+\end_inset
+
+ associated with 
+\begin_inset Formula $D_{k}$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{k}=D\left(\theta_{k},\xi_{k}\right)=R\left(\theta_{k}\right)\left[\begin{array}{ccc}
+\lambda_{k}^{\parallel} & 0 & 0\\
+0 & \lambda_{k}^{\perp} & 0\\
+0 & 0 & \lambda_{k}^{\perp}
+\end{array}\right]R^{T}\left(\theta_{k}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, the proposed MRDS algorithm consists in the following steps:
+\end_layout
+
+\begin_layout Enumerate
+Estimation of the orientations 
+\begin_inset Formula $\left\{ \theta_{k}\right\} _{k=1}^{N}$
+\end_inset
+
+ and the compartment sizes 
+\begin_inset Formula $\left\{ \alpha_{k}\right\} _{k=1}^{N}$
+\end_inset
+
+ for fixed diffusion parameters 
+\begin_inset Formula $\left\{ \xi_{k}\right\} _{k=1}^{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Estimation of the diffusion parameters 
+\begin_inset Formula $\left\{ \xi_{k}\right\} _{k=1}^{N}$
+\end_inset
+
+ for fixed 
+\begin_inset Formula $\left\{ \theta_{k}\right\} _{k=1}^{N}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ \alpha_{k}\right\} _{k=1}^{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Repeat previous steps until convergence.
+\end_layout
+
+\begin_layout Enumerate
+The output of the previos steps consists of the best possible configurations
+ for 
+\begin_inset Formula $1$
+\end_inset
+
+, 
 \begin_inset Formula $2$
 \end_inset
 
- introduces the basic terminology and concepts behind diffusion MRI and
- brain tractography.
- Then, it reviews the COMMIT model and its implementation as a framework,
- which is the fundamental starting point for the thesis.
- Additionally, we also discuss two important limitations of the COMMIT framework.
+ and 
+\begin_inset Formula $3$
+\end_inset
+
+ fascicle orientations and diffusivities.
+ Finally, in this step a model selector determinates the optimal value for
+ the number of bundles for the considered voxel.
+\end_layout
+
+\begin_layout Standard
+MRDS has proved to be more robust to noise and crossing fascicles than other
+ methods like DIAMOND and CSD 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS-rats"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Tractometry
+\end_layout
+
+\begin_layout Standard
+The basis of tractometry is the statistical analysis that compares different
+ groups or assesses individual variability in brain connection structure
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-paper"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-In Chapter 
-\begin_inset Formula $3$
+The nextflow-based tractometry pipeline called tractometry_flow 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1,tractometry_flow-2,tractometry_flow-3"
+literal "false"
+
 \end_inset
 
-, we describe the methods, which offer potential improvements over the limitatio
-ns in the COMMIT framework.
- We provide information and details about the implementation.
- Some of the algorithms of the Chapter 
-\begin_inset Formula $3$
-\end_inset
-
- are located in the appendix.
- The remaining chapters move into the experiments, results, conclusions
- and future work.
- We first, in Chapter 
-\begin_inset Formula $4$
-\end_inset
-
-, describe the experiments designed in order to validate the obtained results
- and we present the obtained results of these experiments.
- Finally, in Chapter 
-\begin_inset Formula $5$
-\end_inset
-
-, we discuss the strengths and weaknesses of the two methods as well as
- the areas of improvement of our work.
-\end_layout
-
-\begin_layout Standard
-Our work is intended for anyone who is interested in understanding or modifying
- the COMMIT framework for performing efficient microstructure informed tractogra
-phy.
- We expect that the reader has elementary knowledge in linear algebra.
- The mathematical level of this book is modest as the reader only requires
- the basics about matrix manipulation.
- Previous exposure to the Python programming language is not required, but
- it is useful in case the reader wants to modify the COMMIT framework.
+ allows you to extract tractometry information by combining subjects' streamline
+ bundles and diffusion MRI metrics.
+ Adapting this pipeline to integrate the MRDS estimated metrics could allow
+ us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
+ per fiber bundle.
 \end_layout
 
 \end_body
