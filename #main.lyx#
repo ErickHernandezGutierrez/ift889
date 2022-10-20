@@ -936,7 +936,7 @@ Problem Statement
 \begin_layout Standard
 Although the literature contains a wide variety of techniques for resolving
  crossing fascicles, most of these methods provide information only about
- the orientations of crossing fascicles but not about the microstructure.
+ the orientation of crossing fascicles but not about the microstructure.
 \end_layout
 
 \begin_layout Standard
@@ -1087,21 +1087,29 @@ Objective
 \end_layout
 
 \begin_layout Standard
-Our main objective is to setup a pipeline for the automatic extraction of
- track-specific white matter measures robust to crossing fibers to improve
- brain connectivity mapping through crossing fiber regions and pathologies
- in the human brain.
+Our main objective is to setup a robust (to noise and crossing fibers) pipeline
+ for the automatic extraction and statistical analysis of track-specific
+ white matter measures.
  Estimated fixel-based orientations and metrics will be used as indirect
  proxies to axon loss, demyelination and neuroinflammation.
  In particular, the fixel-based radial diffusivity (fixel-RD) could help
- to account for neuroinflammation in MS patients.
+ to account for demyelination in MS patients as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "profilometry"
+literal "false"
+
+\end_inset
+
+.
  In order to achieve this, there are two main problems that have to be addressed
 :
 \end_layout
 
 \begin_layout Enumerate
 Fast, accurate and robust to noise and fiber crossing voxel-wise estimation
- of fixel-based metrics in diffusion MRI signal using MRDS.
+ of fixel-based metrics in diffusion MRI signal using the multi-tensor based
+ method MRDS.
  This demands to improve the model selector step in MRDS to better estimate
  the number of tensors per voxel.
  Besides, parallezation of MRDS is necessary to ensure fast fitting of the
@@ -1109,7 +1117,16 @@ Fast, accurate and robust to noise and fiber crossing voxel-wise estimation
 \end_layout
 
 \begin_layout Enumerate
-Develop a tractometry pipeline 
+Multimetric analysis of white matter tracts in different fiber bundles.
+ It's required to adapt the tractometry_flow pipeline to integrate the MRDS
+ metrics into the statistical analysis.
+\end_layout
+
+\begin_layout Standard
+Although automating tract-profiling and metrics for white matter could improve
+ brain connectivity mapping through crossing fiber regions and pathologies
+ in the human brain, we will focus to demostrate the application of our
+ pipeline to multiple sclerosis (MS) disease.
 \end_layout
 
 \begin_layout Section
@@ -1364,6 +1381,47 @@ re-hacer esta figura horizontal.
 \end_layout
 
 \begin_layout Subsubsection
+ReconBundlesX
+\end_layout
+
+\begin_layout Standard
+Once Tractoflow reconstructs a complete tractogram.
+ In order to make an analysis of the metrics along each bundle, it is necessary
+ to decompose the entire tractogram into separate bundles.
+\end_layout
+
+\begin_layout Standard
+ReconBundlesX is a tool to separate a wholebrain tractogram into different
+ bundles divided into separate files 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1,rbx_flow-2,rbx_flow-3,rbx_flow-4"
+literal "false"
+
+\end_inset
+
+.
+ It is multi-atlas and multi-parameter, and more robust to the single atals
+ and single parameter version of RecoBundles published in DIPY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIPY"
+literal "false"
+
+\end_inset
+
+ as it has been shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
 Rician Bias Correction
 \end_layout
 
@@ -1406,11 +1464,7 @@ literal "false"
 .
  MRDS is capable of providing individual diffusion profiles as well as the
  orientation of the fasicles.
- 
-\end_layout
-
-\begin_layout Standard
-MRDS is a general framework for estimating parameters in a multi-compartment
+ MRDS is a general framework for estimating parameters in a multi-compartment
  representation.
  The normalized DWI signal attenuation 
 \begin_inset Formula $E_{i}=S_{i}/S_{0}$
@@ -1548,15 +1602,7 @@ D_{k}=D\left(\theta_{k},\xi_{k}\right)=R\left(\theta_{k}\right)\left[\begin{arra
 \end_layout
 
 \begin_layout Standard
-The proposed algorithm in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MRDS"
-literal "false"
-
-\end_inset
-
- consists in the following steps:
+Therefore, the proposed MRDS algorithm consists in the following steps:
 \end_layout
 
 \begin_layout Enumerate
@@ -1635,6 +1681,14 @@ Tractometry
 The basis of tractometry is the statistical analysis that compares different
  groups or assesses individual variability in brain connection structure
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-paper"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1649,8 +1703,8 @@ literal "false"
  allows you to extract tractometry information by combining subjects' streamline
  bundles and diffusion MRI metrics.
  Adapting this pipeline to integrate the MRDS estimated metrics could allow
- us to recover a fixel-FA, fixel-AD and, more importantly, fixel-RD per
- fiber bundle.
+ us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
+ per fiber bundle.
 \end_layout
 
 \begin_layout Section
@@ -1806,17 +1860,7 @@ Winter 2023
 \end_layout
 
 \begin_layout Itemize
-Parallelization of MRDS using CUDA 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-maybe in OpenCL
-\end_layout
-
-\end_inset
-
-.
+Parallelization of MRDS using CUDA or OpenCL.
 \end_layout
 
 \begin_layout Itemize
@@ -1951,11 +1995,6 @@ results of the study using MRDS and tractometry_flow on the myelo_inferno.
 Collaborations
 \end_layout
 
-\begin_layout Standard
-Include collaboration with Rick (maybe go 3-6 months to New York) and Imeka
- (production of MRDS, preparing code in Rust for MRDS as prototype)
-\end_layout
-
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 \begin_inset Formula $\mathbf{Imeka}$
@@ -1980,8 +2019,8 @@ Include collaboration with Rick (maybe go 3-6 months to New York) and Imeka
 
  Collaboration with the NYU MRI Biophysics Group, which is one of the most
  relevant laboratories in the field.
- It will focus on developing methods to represent crossing fascicles using
- the multi-compartment standard model (Duration: 3-6 months).
+ It will focus on multimetric analysis of white matter tracts in the multi-compa
+rtment standard model (Duration: 3-6 months).
 \end_layout
 
 \begin_layout Section
@@ -1989,7 +2028,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-I need to wait for results
+I need to wait for results on the synthetic data with damage.
 \end_layout
 
 \begin_layout Bibliography
@@ -2215,6 +2254,23 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "DIPY"
+literal "false"
+
+\end_inset
+
+Garyfallidis E, Brett M, Amirbekian B, Rokem A, van der Walt S, Descoteaux
+ M, Nimmo-Smith I; Dipy Contributors.
+ Dipy, a library for the analysis of diffusion MRI data.
+ Front Neuroinform.
+ 2014 Feb 21;8:8.
+ doi: 10.3389/fninf.2014.00008.
+ PMID: 24600385; PMCID: PMC3931231.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "tractoflow"
 literal "false"
 
@@ -2223,6 +2279,78 @@ literal "false"
 Theaud, G., Houde, J.-C., Boré, A., Rheault, F., Morency, F., Descoteaux, M.,TractoFlow
 : A robust, efficient and reproducible diffusion MRI pipeline leveraging
  Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+Rheault, Francois.
+ Analyse et reconstruction de faisceaux de la matière blanche.
+ page 137-170, (2020), https://savoirs.usherbrooke.ca/handle/11143/17255
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-2"
+literal "false"
+
+\end_inset
+
+Garyfallidis, Eleftherios, et al.
+ Recognition of white matter bundles using local and global streamline-based
+ registration and clustering.
+ NeuroImage 170 (2018) https://doi.org/10.1016/j.neuroimage.2017.07.015
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-3"
+literal "false"
+
+\end_inset
+
+Kurtzer GM, Sochat V, Bauer MW Singularity: Scientific containers for mobility
+ of compute.
+ PLoS ONE 12(5): e0177459 (2017) https://doi.org/10.1371/journal.pone.0177459
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-4"
+literal "false"
+
+\end_inset
+
+P.
+ Di Tommaso, et al.
+ Nextflow enables reproducible computational workflows.
+ Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "profilometry"
+literal "false"
+
+\end_inset
+
+Dayan M, Monohan E, Pandya S, Kuceyeski A, Nguyen TD, Raj A, Gauthier SA.
+ Profilometry: A new statistical framework for the characterization of white
+ matter pathways, with application to multiple sclerosis.
+ Hum Brain Mapp.
+ 2016 Mar;37(3):989-1004.
+ doi: 10.1002/hbm.23082.
+ Epub 2015 Dec 15.
+ PMID: 26667008; PMCID: PMC6867537.
 \end_layout
 
 \begin_layout Bibliography

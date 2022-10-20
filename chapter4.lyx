@@ -1,0 +1,323 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Research Activities
+\end_layout
+
+\begin_layout Section
+Preface
+\end_layout
+
+\begin_layout Standard
+The potential of the combination between diffusion magnetic resonance imaging
+ (diffusion MRI) and tractography in research and clinical neuroscience
+ has been illustrated in a vast number of times 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Heidi"
+literal "false"
+
+\end_inset
+
+.
+ There are plenty of applications such as quantitative comparisons of specific
+ white matter pathways in disease, getting insights about normal brain anatomy
+ in order to understand the consequences of localised pathology or guide
+ interventions and gaining evidence for the presence of qualitatively different
+ pathways in congenital disorders or following damage recovery 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Heidi"
+literal "false"
+
+\end_inset
+
+.
+ Other important applications involve tractography with the development
+ of human connectome-based atlases for surgical approaches 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Meola"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Although tractography has proved its effectiveness, it has a large incidence
+ of erroneous streamline trajectories also called 
+\begin_inset Formula $\mathbf{false}$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbf{positive}$
+\end_inset
+
+ streamlines.
+ No matter which tracking algorithm or approach we take there are always
+ presence of false positives in tractography.
+ These wrong streamlines do not represent an anatomical reality.
+ Recent studies have highlighted that the large number of false positive
+ streamlines can lead to misrepresent any connectivity analysis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Simona"
+literal "false"
+
+\end_inset
+
+.
+ The COMMIT framework 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Daducci"
+literal "false"
+
+\end_inset
+
+ has proved to be a powerful tool to prune tractograms from false-postives
+ streamlines, see Figure [
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:commit-results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+].
+ Unlike other methods, COMMIT does not consider tractography and tissue
+ micro-structure estimation as two separated problems.
+ Instead, it combines tractography with local micro-structural features
+ in order to make a selection of the best subset of streamlines that best
+ fit the dMRI signal.
+ However, in its original formulation and implementation, the COMMIT framework
+ has some limitations estimating axon caliber.
+ COMMIT also suffers from high memory usage when storing precalculated synthetic
+ MR signals.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/fig-commit-results.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:commit-results"
+
+\end_inset
+
+Qualitative evaluation of the FiberCup phantom.
+ Each column represents a particular bundle tracts reconstructed with COMMIT
+ (bottom).
+ They are visually compared to those recovered by the state-of-the-art global
+ tracking algorithm GIBBS (top).
+ Blue arrows indicate false positive tracts.
+ Figure taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Daducci"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This thesis introduces a regularized and accelerated formulation for the
+ COMMIT model.
+ Here we extend the COMMIT model with a Tikhonov's regularization term added
+ to the original formulation to improve the estimation of axon caliber with
+ COMMIT.
+ Memory constraints have been addressed by proposing a new sampling scheme
+ for the half-sphere discretization in COMMIT.
+ We exhibit significant reduction in memory usage as well as speedups for
+ model fitting.
+ Besides, we demostrate improvements in the axon diameter distribution estimatio
+n without decreasing accuracy in the fitting of the measured diffusion MR
+ signal.
+ For validation of our method, we use synthetic MRI phantom signals and
+ the real brain dataset used for the Human Connectome Project (HCP).
+\end_layout
+
+\begin_layout Section
+Outline
+\end_layout
+
+\begin_layout Standard
+This thesis is composed by 
+\begin_inset Formula $5$
+\end_inset
+
+ chapters and one appendix.
+ This first chapter represents the storyline linking the different chapters
+ together.
+ This chapter have general information for introducing the reader to the
+ context and background of the thesis.
+\end_layout
+
+\begin_layout Standard
+Chapter 
+\begin_inset Formula $2$
+\end_inset
+
+ introduces the basic terminology and concepts behind diffusion MRI and
+ brain tractography.
+ Then, it reviews the COMMIT model and its implementation as a framework,
+ which is the fundamental starting point for the thesis.
+ Additionally, we also discuss two important limitations of the COMMIT framework.
+ 
+\end_layout
+
+\begin_layout Standard
+In Chapter 
+\begin_inset Formula $3$
+\end_inset
+
+, we describe the methods, which offer potential improvements over the limitatio
+ns in the COMMIT framework.
+ We provide information and details about the implementation.
+ Some of the algorithms of the Chapter 
+\begin_inset Formula $3$
+\end_inset
+
+ are located in the appendix.
+ The remaining chapters move into the experiments, results, conclusions
+ and future work.
+ We first, in Chapter 
+\begin_inset Formula $4$
+\end_inset
+
+, describe the experiments designed in order to validate the obtained results
+ and we present the obtained results of these experiments.
+ Finally, in Chapter 
+\begin_inset Formula $5$
+\end_inset
+
+, we discuss the strengths and weaknesses of the two methods as well as
+ the areas of improvement of our work.
+\end_layout
+
+\begin_layout Standard
+Our work is intended for anyone who is interested in understanding or modifying
+ the COMMIT framework for performing efficient microstructure informed tractogra
+phy.
+ We expect that the reader has elementary knowledge in linear algebra.
+ The mathematical level of this book is modest as the reader only requires
+ the basics about matrix manipulation.
+ Previous exposure to the Python programming language is not required, but
+ it is useful in case the reader wants to modify the COMMIT framework.
+\end_layout
+
+\end_body
+\end_document
