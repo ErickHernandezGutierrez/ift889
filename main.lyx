@@ -33,7 +33,7 @@
 \bibtex_command default
 \index_command default
 \float_placement H
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref false
 \papersize default
@@ -88,6 +88,10 @@
 
 \begin_layout Title
 Thesis Proposal
+\end_layout
+
+\begin_layout Author
+Erick Hernández Gutiérrez
 \end_layout
 
 \begin_layout Standard
@@ -196,12 +200,375 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "DTI"
+key "DTI-1"
+literal "false"
+
+\end_inset
+
+Basser PJ, Mattiello J, Turner R, Le Bihan D.
+ Diffusion tensor echo-planar imaging of human brain.
+ InProceedings of the SMRM 1993 Aug (Vol.
+ 584).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-2"
+literal "false"
+
+\end_inset
+
+Basser PJ, Mattiello J, Le Bihan D.
+ Estimation of the effective self-diffusion tensor from the NMR spin echo.
+ J Magn Reson 1994; 103: 247–254.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-3"
+literal "false"
+
+\end_inset
+
+Basser PJ, Mattiello J, Le Bihan D.
+ MR diffusion tensor spectroscopy and imaging.
+ Biophys J 1994; 66: 259–267.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-formulas-1"
 literal "false"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-formulas-2"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-formulas-3"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "phantom-ISBI-2012"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "workshop-ISBI-2012"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://hardi.epfl.ch/static/events/2012_ISBI/download.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Penthera3T-dataset"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://zenodo.org/record/2602049#.Y1UzCHaZNPY
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-1"
+literal "false"
+
+\end_inset
+
+C.
+ Poupon, B.
+ Rieul, I.
+ Kezele, M.
+ Perrin, F.
+ Poupon, J.F.
+ Mangin New diffusion phantoms dedicated to the study and validation of
+ high-angular-resolution diffusion imaging (HARDI) models Magn.
+ Reson.
+ Med., 60 (2008), pp.
+ 1276-1283, 10.1002/mrm.21789
+\emph on
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-2"
+literal "false"
+
+\end_inset
+
+J.
+ D.
+ Tournier, C.
+ H.
+ Yeh, F.
+ Calamante, K.
+ H.
+ Cho, A.
+ Connelly, and C.
+ P.
+ Lin, “Resolving crossing fibres using constrained spherical decon- volution:
+ Validation using diffusion-weighted imaging phantom data,” NeuroImage,
+ vol.
+ 42, pp.
+ 617–625, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-3"
+literal "false"
+
+\end_inset
+
+F.
+ B.
+ Laun, L.
+ R.
+ Schad, J.
+ Klein, and B.
+ Stieltjes, “How background noise shifts eigenvectors and increases eigenvalues
+ in DTI,” in MAGMA, 2009, vol.
+ 22, pp.
+ 151–158.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-4"
+literal "false"
+
+\end_inset
+
+F.
+ B.
+ Laun, S.
+ Huff, and B.
+ Stieltjes, “On the effects of dephasing due to local gradients in diffusion
+ tensor imaging experiments: Relevance for diffusion tensor imaging fiber
+ phantoms,” Magn.
+ Reson.
+ Imag., vol.
+ 27, pp.
+ 541–548, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-5"
+literal "false"
+
+\end_inset
+
+P.
+ Pullens, A.
+ Roebroeck, and R.
+ Goebel, “Ground truth hardware phantoms for validation of diffusion-weighted
+ MRI applications,” J.
+ Magn.
+ Reson.
+ Imag., vol.
+ 32, pp.
+ 482–488, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-6"
+literal "false"
+
+\end_inset
+
+K.
+ H.
+ Fritzsche, F.
+ B.
+ Laun, H.
+ P.
+ Meinzer, and B.
+ Stieltjes, “Opportu- nities and pitfalls in the quantification of fiber
+ integrity: What can we gain from Q-ball imaging?,” NeuroImage, vol.
+ 51, pp.
+ 242–251, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-7"
+literal "false"
+
+\end_inset
+
+A.
+ Moussavi-Biugui, B.
+ Stieltjes, K.
+ Fritzsche, W.
+ Semmler, and F.
+ B.
+ Laun, “Novel spherical phantoms for Q-ball imaging under in vivo conditions,”
+ Magn.
+ Reson.
+ Med., vol.
+ 65, pp.
+ 190–194, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-8"
+literal "false"
+
+\end_inset
+
+F.
+ L.
+ Zhou, P.
+ L.
+ Hubbard, S.
+ J.
+ Eichhorn, and G.
+ J.
+ Parker, “Coaxially electrospun axon-mimicking fibers for diffusion magnetic
+ resonance imaging,” ACS Appl.
+ Mater Interfaces, vol.
+ 4, pp.
+ 6311–6316, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-9"
+literal "false"
+
+\end_inset
+
+T.
+ A.
+ Kuder, B.
+ Stieltjes, P.
+ Bachert, W.
+ Semmler, and F.
+ B.
+ Laun, “Advanced fit of the diffusion kurtosis tensor by directional weighting
+ and regularization,” Magn.
+ Reson.
+ Med., vol.
+ 67, pp.
+ 1401–1411, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-10"
+literal "false"
+
+\end_inset
+
+M.
+ Bach, K.
+ H.
+ Fritzsche, B.
+ Stieltjes, and F.
+ B.
+ Laun, “Investigation of resolution effects using a specialized diffusion
+ tensor phantom,” Magn.
+ Reson.
+ Med., 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+Ivana Drobnjak, Peter Neher, Cyril Poupon, Tabinda Sarwar, Physical and
+ digital phantoms for validating tractography and assessing artifacts, NeuroImag
+e, Volume 245, 2021, 118704, ISSN 1053-8119, https://doi.org/10.1016/j.neuroimage.20
+21.118704.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "phantoms-compilation-for-dMRI"
+literal "false"
+
+\end_inset
+
+Els Fieremans, Hong-Hsi Lee, Physical and numerical phantoms for the validation
+ of brain microstructural MRI: A cookbook, NeuroImage, Volume 182, 2018,
+ Pages 39-61, ISSN 1053-8119, https://doi.org/10.1016/j.neuroimage.2018.06.046.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -384,6 +751,23 @@ Garyfallidis E, Brett M, Amirbekian B, Rokem A, van der Walt S, Descoteaux
  2014 Feb 21;8:8.
  doi: 10.3389/fninf.2014.00008.
  PMID: 24600385; PMCID: PMC3931231.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+Tournier, J.-D.; Smith, R.
+ E.; Raffelt, D.; Tabbara, R.; Dhollander, T.; Pietsch, M.; Christiaens, D.; Jeurissen
+, B.; Yeh, C.-H.
+ & Connelly, A.
+ MRtrix3: A fast, flexible and open software framework for medical image
+ processing and visualisation.
+ NeuroImage, 2019, 202, 116137
 \end_layout
 
 \begin_layout Bibliography

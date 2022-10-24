@@ -607,140 +607,11 @@ Digital Phantoms
 \end_layout
 
 \begin_layout Standard
-In contrast to physical phantoms, digital phantoms - also called numerical
- phantoms - are digital objects generated with a computer software.
- They consist of multiple components: (1) A structure model defining the
- simulated fiber configuration, (2) a diffusion model describing the water
- diffusion in the structural model, which determinates the signal attenuation
- in the diffusion-weighted signal, and (3) an algorithm that simulates the
- signal using the previous two components.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-digital-phantom-2.jpg
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:digital-phantoms"
-
-\end_inset
-
-Illustration of the Phantomas phantom used for 2nd HARDI Reconstruction
- Challenge5, organized at ISBI 2013.
- It consists of 27 fiber bundles, on a 70 × 70 × 70 grid, with 3 spherical
- CSF regions abstractly mimicking a human brain.
- Image taken from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "phantoms-compilation-for-tractography"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-digital-phantom-3.jpg
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Illustration the 71 tracts used for the 99 brains Fiberfox simulation (a),
- exemplary axial slices of one simulated subject of the 99 brains dataset
- with various artifacts (b), and an exemplary phantom with randomized bundle
- configuration generated using Fiberfox (c).
- Image taken from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "phantoms-compilation-for-tractography"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Both physical and digital phantoms have their own advantages and limitations
- according to the use-cases.
- The most important difference between them is that even with a well defined
- physical phantom, it is not possible to provide such a perfect ground truth
- because of, for example, mechanical limitations or the statistical nature
- of the diffusion process 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "phantoms-compilation-for-tractography"
-literal "false"
-
-\end_inset
-
-.
- Hence, digital phantoms are the only way to obtain a dMRI data with a real
- ground truth.
- That's why we have decided to use a digital phantom for this work.
- We will discuss the selected phantom in the next chapter.
+In contrast to physical phantoms, digital or also called numerical phantoms
+ are objects generated with a computer software.
+ They consist of multiple components: A structure model defining the simulated
+ fiber configuration, a diffusion model describing the water diffusion in
+ the
 \end_layout
 
 \begin_layout Section
@@ -842,8 +713,8 @@ Q-Ball Imaging
 \end_layout
 
 \begin_layout Standard
-The Q-Ball Imaging (QBI) is a method that employ the Funk-Radon transform
- (FRT) on HARDI derived data to obtain a diffusion ODF (dODF)
+The Funk-Radon transform (FRT) is employed on HARDI derived data to obtain
+ a diffusion ODF (dODF)
 \end_layout
 
 \begin_layout Standard
@@ -863,16 +734,16 @@ where
 \end_inset
 
 , 
-\begin_inset Formula $\hat{\mathbf{q}}=\mathbf{q}/q$
+\begin_inset Formula $\hat{\mathbf{q}}=\vec{\mathbf{q}}/q$
 \end_inset
 
  and 
-\begin_inset Formula $\mathbf{q}\in\mathbb{Q}^{3}$
+\begin_inset Formula $\vec{\mathbf{q}}\in\mathbb{Q}^{3}$
 \end_inset
 
 .
  FRT uses the fact that the diffusion signal 
-\begin_inset Formula $S\left(\hat{\mathbf{q}},t\right)$
+\begin_inset Formula $S$
 \end_inset
 
  is maximal in the directions perpendicular to the underlying fascicles,
@@ -944,24 +815,10 @@ The dODF can properly represent the presence and orientation of multiple
  crossing fascicles.
  However, the resulted dODF is artificially smooth and inflated compared
  to the true diffusion ODF.
- Problematically, this same feature causes QBI to poorly distinguish fibers
- crossing at tight angles.
- Some modifications and generalizations to QBI have been published to try
- to achieve most of the QBI limitations 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "QBI-SWT,QBI-CSA,GQI"
-literal "false"
-
-\end_inset
-
-.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-For example, in 
+ Problematically, this same feature causes q-ball to poorly distinguish
+ fibers crossing at tight angles.
+ Some modifications to QBI have been published.
+ For example, in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "QBI-SWT"
@@ -991,11 +848,6 @@ literal "false"
  of the raw signal.
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection
 Diffusion Orientation Transform
 \end_layout
@@ -1022,13 +874,13 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p\left(\vec{\mathbf{r}},t\right)=\oint_{\mathbf{\mathbb{S}^{2}}}\int_{0}^{\infty}E\left(\mathbf{q},t\right)exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)q^{2}dqd\hat{\mathbf{q}},\label{eq:propagator-signal-fourier-relationship}
+p\left(\vec{\mathbf{r}},t\right)=\oint_{\mathbf{\mathbb{S}^{2}}}\int_{0}^{\infty}E\left(\vec{\mathbf{q}},t\right)exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)q^{2}dqd\hat{\mathbf{q}},\label{eq:propagator-signal-fourier-relationship}
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $\mathbf{q}=q\hat{\mathbf{q}}\in\mathbb{Q}^{3}$
+\begin_inset Formula $\vec{\mathbf{q}}=q\hat{\mathbf{q}}$
 \end_inset
 
  and 
@@ -1040,53 +892,11 @@ where
 \begin_inset Formula $E$
 \end_inset
 
- attenuates mono-exponentially, i.e.
- 
-\begin_inset Formula $E\left(\mathbf{q},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\hat{\mathbf{q}}\right)\right)$
-\end_inset
-
-, where 
-\begin_inset Formula $D$
-\end_inset
-
- is the apparent diffusion coefficient or diffusivity profile.
- In other words, DOT transforms water diffusivity profiles into displacement
- probability profiles.
- Finally, the dODF can be obtained from 
-\begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
-\end_inset
-
- by means of the radial projection as in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:diffusion-propagator-to-dODF"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- DOT faces some limitations regarding the HARDI sampling schemes with finite
- support, truncated spherical harmonics and the mono-exponential attenuation.
- In 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "DOT-revisited"
-literal "false"
-
-\end_inset
-
- was proposed an extension of the DOT method that mitigates these limitations.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Therefore,
+ attenuates mono-exponentially.
+ Therefore,
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 E\left(\vec{\mathbf{q}},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\hat{\mathbf{q}}\right)\right),\label{eq:mono-exponential-attenuation}
@@ -1105,7 +915,7 @@ where
  functions
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)=\sum_{l=0}^{l_{max}}\sum_{m=-l}^{l}\left(-i\right)^{l}j_{l}\left(2\pi rp\right)Y_{lm}\left(\hat{\mathbf{r}}\right)Y_{lm}^{*}\left(\hat{\mathbf{q}}\right),\label{eq:plane-wave-expansion}
@@ -1144,7 +954,7 @@ noprefix "false"
 , which can be used to compute
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset Formula 
 \[
 I_{l}\left(r,\hat{\mathbf{q}}\right)=,
@@ -1155,11 +965,11 @@ I_{l}\left(r,\hat{\mathbf{q}}\right)=,
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 which can be expanded in terms of spherical harmonics
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset Formula 
 \[
 I_{l}\left(r,\hat{\mathbf{q}}\right)=\sum_{l^{'}=0}^{l_{max}}\sum_{m=-l^{'}}^{l^{'}}a_{l^{'}m^{'}}Y_{l^{'}m^{'}}\left(\hat{\mathbf{q}}\right).
@@ -1170,7 +980,7 @@ I_{l}\left(r,\hat{\mathbf{q}}\right)=\sum_{l^{'}=0}^{l_{max}}\sum_{m=-l^{'}}^{l^
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Finally, the dODF can be obtained from 
 \begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
 \end_inset
@@ -1188,7 +998,7 @@ inserta ecuacion 2.16 de la tesis de Rick
 .
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 DOT faces some limitations regarding the HARDI sampling schemes with finite
  support, truncated spherical harmonics and the mono-exponential attenuation.
  In 
@@ -1200,11 +1010,6 @@ literal "false"
 \end_inset
 
  was proposed an extension of the DOT method that mitigates these limitations.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection

@@ -84,10 +84,14 @@ Results
 \end_layout
 
 \begin_layout Section
+Preliminary Results
+\end_layout
+
+\begin_layout Subsection
 Experiments on phantom
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Experiments on myelo_inferno
 \end_layout
 
@@ -186,6 +190,10 @@ Results of the tractometry_flow on the myelo_inferno dataset along the IFOF
 \end_layout
 
 \begin_layout Section
+Expected Results
+\end_layout
+
+\begin_layout Subsection
 Experiments on ms_6months
 \end_layout
 

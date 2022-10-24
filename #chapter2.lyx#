@@ -242,7 +242,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-S\left(\mathbf{q}\right)=S_{0}\sum_{k=1}^{N}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}\mathbf{D}_{k}\mathbf{g}_{i}\right),
+S\left(\mathbf{q}\right)=S_{0}\sum_{k=1}^{N}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}\boldsymbol{D}_{k}\mathbf{g}_{i}\right),
 \]
 
 \end_inset
@@ -504,14 +504,17 @@ literal "false"
  This improvement in performance allowed to include a new feature to add
  dispersion to the signal.
  Besides, we modified how the phantom receives the input parameters.
- 
+ For example, lambda values are loaded from an input Nifti image instead
+ of being hard coded in the script.
+ This enables the posibility to simulate damage in the tracts by altering
+ lambda values in a specific spot.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -534,8 +537,7 @@ name "fig:phantom-signal"
 
 \end_inset
 
-From phantom structure and Gaussian mixture to diffusion-Weighted signal
- with noise.
+Diffusion-Weighted Signal Example.
 \end_layout
 
 \end_inset
@@ -549,22 +551,8 @@ From phantom structure and Gaussian mixture to diffusion-Weighted signal
 \end_layout
 
 \begin_layout Standard
-For example, lambda values are loaded from an input Nifti image instead
- of being hard coded in the script.
- This enables the posibility to simulate damage in the tracts by altering
- lambda values with a mask in a specific spot, see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:phantom-damage"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- For the porpuse of this work, we generated two different datasets to simulate
- two different experimental conditions: healthy and demyelinated fiber tracts.
+For the porpuse of this work, we generated two different datasets to simulate
+ two experimental conditions: healthy and demyelinated fiber tracts.
 \end_layout
 
 \begin_layout Enumerate
@@ -608,16 +596,9 @@ Both datasets have
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-phantom-damage.png
-	scale 25
-
-\end_inset
-
 
 \end_layout
 
@@ -631,10 +612,7 @@ name "fig:phantom-damage"
 
 \end_inset
 
-(a) Nifti image with control values (white) for the diffusivities of the
- Bundle 1.
- Values are constant along the bundle.
- (b) Nifti image for Bundle 1 with damage (yellow) values.
+
 \end_layout
 
 \end_inset
@@ -1193,13 +1171,13 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename fig-tractometry-example.png
-	scale 35
+	scale 30
 
 \end_inset
 

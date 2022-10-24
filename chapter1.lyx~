@@ -12,12 +12,12 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "default" "Book Antiqua"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -85,7 +85,7 @@ Introduction
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Speak about methods for multiple fascicle bundles
@@ -166,10 +166,597 @@ E\left(\mathbf{q},t\right)=\int_{\mathbb{R}^{3}}p\left(\mathbf{r},t\right)exp\le
 \end_layout
 
 \begin_layout Section
+Diffusion Tensor Imaging
+\end_layout
+
+\begin_layout Standard
+The principal direction of diffusion in the tissue can be represented with
+ a method called 
+\series bold
+D
+\series default
+iffusion 
+\series bold
+T
+\series default
+ensor 
+\series bold
+I
+\series default
+maging (DTI).
+ It was rigorously formalized for the first time in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DTI-1,DTI-2,DTI-3"
+literal "false"
+
+\end_inset
+
+, which were pioneer works in the field.
+ Assuming Gaussian diffusion, DTI builds the apparent water self-diffusion
+ tensor at each voxel.
+ The structure of the tensor allows to infer the orientation of the diffusion
+ compartments within the voxel.
+ For example, the major eigenvector of the tensor is parallel to the principal
+ fiber orientation, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DTI"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-dti.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DTI"
+
+\end_inset
+
+DTI ellipsoids, prolate, oblate, and spherical tensors.
+ Water molecules diffusion along fibers.
+ The diffusion tensor model captures this orientated diffusion process with
+ the diffusion ellip- soid.
+ Here, the FA of the illustrated tensor is approximately 0.7.
+ The tensor can also be oblate if the first two eigenvalues are equal or
+ spherical if all three are equal.
+ Figure taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HARDI"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The diffusion signal from a single Gaussian diffusion compartment within
+ a voxel is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{i}\coloneqq E\left(\mathbf{g}_{i},b\right)=exp\left(-b\mathbf{g}_{i}^{T}\mathbf{D}\mathbf{g}_{i}\right),\;\;\;1\leq i\leq n,\label{eq:dti-signal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ is the normalized diffusion signal magnitude for the DEO 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+ is the apparent diffusion tensor mathematically written as a 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ symmetric and positive definite matrix
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=\left(\begin{array}{ccc}
+D_{xx} & D_{xy} & D_{xz}\\
+D_{yx} & D_{yy} & D_{yz}\\
+D_{zx} & D_{zy} & D_{zz}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The diffusion tensor can be decomposed into its eigenvectors 
+\begin_inset Formula $\mathbf{e}_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{e}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{e}_{3}$
+\end_inset
+
+ and eigenvalues 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{3}$
+\end_inset
+
+ using traditional matrix diagonalization methods or they can be obtained
+ direcly from the tensor values as it was documented in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DTI-formulas-1,DTI-formulas-2,DTI-formulas-3"
+literal "false"
+
+\end_inset
+
+.
+ The largest eigenvector 
+\begin_inset Formula $\mathbf{e}_{1}$
+\end_inset
+
+ gives the the Principal Diffusion Direction (PDD) of the tensor.
+ The rest of the eigenvectors determinate the orthogonal planes to it, see
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DTI"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ These eigenvectors and eigenvalues not only determinate the shape of the
+ tensor, but they are closely related to brain tissue properties.
+ For example, the largest eigenvalue 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ is equal to the Axial Diffusivity (AD), while 
+\begin_inset Formula $\frac{\lambda_{2}+\lambda_{3}}{2}$
+\end_inset
+
+ give information about the Radial Diffusivity (RD).
+ Besides, from the diffusion tensor eigenvalues, several spherical measures
+ can be extracted such as the Mean Diffusivity (MD) 
+\begin_inset Formula $MD=\frac{\lambda_{1}+\lambda_{2}+\lambda_{3}}{3}$
+\end_inset
+
+, Fractional Anisotropy (FA) 
+\begin_inset Formula $FA=\frac{3}{2}\sqrt{\frac{\left(\lambda_{1}-\lambda_{2}\right)^{2}+\left(\lambda_{1}-\lambda_{3}\right)^{2}+\left(\lambda_{2}-\lambda_{3}\right)^{2}}{\lambda_{1}^{2}+\lambda_{1}^{2}+\lambda_{1}^{2}}}$
+\end_inset
+
+, among others.
+ These measures have been widely used in publications within the field and
+ constitute an important component for this work.
+\end_layout
+
+\begin_layout Section
+Phantoms
+\end_layout
+
+\begin_layout Standard
+Either in neuroscience research or clinical applications, validation is
+ a requirement.
+ Estimation of the fiber tracts and tissue profiles is extremely challenging.
+ Besides, it is well-known that there is not in-vivo data with a real ground
+ truth (GT) that could be used for validation.
+ An extensively and successfully substitute for in vivo GT is the use of
+ synthetic phantoms.
+ They constitute a controllable scenario that provides precise information
+ of the underlying microstructural properties (e.g.
+ local fiber orientation, geometrical configuration of fiber tracts, tissue
+ properties, etc.).
+ There are plenty of phantoms in the state-of-the-art that serve as validation
+ tools for quantitatively and qualitatively evaluation of the performance
+ of tractography 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+ and microstructural estimation of diffusion MRI metrics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantoms-compilation-for-dMRI"
+literal "false"
+
+\end_inset
+
+.
+ Phantoms can be classified into two groups: physical and digital phantoms.
+\end_layout
+
+\begin_layout Subsection
+Physical Phantoms
+\end_layout
+
+\begin_layout Standard
+It is possible to build hardware objects with arrangements of fibers crafted
+ using synthetic, natural or glass fibers filled or soaked in a liquid 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "physical-phantom-1,physical-phantom-2,physical-phantom-3,physical-phantom-4,physical-phantom-5,physical-phantom-6,physical-phantom-7,physical-phantom-8,physical-phantom-9,physical-phantom-10"
+literal "false"
+
+\end_inset
+
+.
+ This emulates the water diffusion in restricted tissue.
+ These phantoms can be imaged using a magnetic resonance scanner to get
+ a diffusion-weighted signal because they are real world objects.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-physical-phantom.jpg
+	scale 41.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of 
+\begin_inset Formula $90°$
+\end_inset
+
+ and 
+\begin_inset Formula $45°$
+\end_inset
+
+ physical phantoms resulting from a manual wiring of acrylic fibers (outer
+ diameter of 
+\begin_inset Formula $17$
+\end_inset
+
+ 
+\begin_inset Formula $\mu m$
+\end_inset
+
+) inside a container incorporating the negative mask of the target fiber
+ bundles.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "physical-phantom-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\;\;\;$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-physical-phantom-2.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Filling of a diffusion MRI tractography phantom under vacuum conditions
+ and post-sonication to avoid the presence of air bubbles inside the fiber
+ bundles.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:physical-phantom"
+
+\end_inset
+
+Example of physical phantoms used for tractography validation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Digital Phantoms
+\end_layout
+
+\begin_layout Standard
+In contrast to physical phantoms, digital phantoms - also called numerical
+ phantoms - are digital objects generated with a computer software.
+ They consist of multiple components: (1) A structure model defining the
+ simulated fiber configuration, (2) a diffusion model describing the water
+ diffusion in the structural model, which determinates the signal attenuation
+ in the diffusion-weighted signal, and (3) an algorithm that simulates the
+ signal using the previous two components.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-digital-phantom-2.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:digital-phantoms"
+
+\end_inset
+
+Illustration of the Phantomas phantom used for 2nd HARDI Reconstruction
+ Challenge5, organized at ISBI 2013.
+ It consists of 27 fiber bundles, on a 70 × 70 × 70 grid, with 3 spherical
+ CSF regions abstractly mimicking a human brain.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-digital-phantom-3.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Illustration the 71 tracts used for the 99 brains Fiberfox simulation (a),
+ exemplary axial slices of one simulated subject of the 99 brains dataset
+ with various artifacts (b), and an exemplary phantom with randomized bundle
+ configuration generated using Fiberfox (c).
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both physical and digital phantoms have their own advantages and limitations
+ according to the use-cases.
+ The most important difference between them is that even with a well defined
+ physical phantom, it is not possible to provide such a perfect ground truth
+ because of, for example, mechanical limitations or the statistical nature
+ of the diffusion process 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+.
+ Hence, digital phantoms are the only way to obtain a dMRI data with a real
+ ground truth.
+ That's why we have decided to use a digital phantom for this work.
+ We will discuss the selected phantom in the next chapter.
+\end_layout
+
+\begin_layout Section
 State-of-the-art
 \end_layout
 
 \begin_layout Subsection
+Multiple Fascicle Reconstruction Methods
+\end_layout
+
+\begin_layout Standard
+Limitations of DTI came when several fiber populations are present in a
+ voxel.
+\end_layout
+
+\begin_layout Subsubsection
 Diffusion Spectrum Imaging
 \end_layout
 
@@ -250,13 +837,13 @@ where
  That's why is of real interest in clinical applications.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Q-Ball Imaging
 \end_layout
 
 \begin_layout Standard
-The Funk-Radon transform (FRT) is employed on HARDI derived data to obtain
- a diffusion ODF (dODF)
+The Q-Ball Imaging (QBI) is a method that employ the Funk-Radon transform
+ (FRT) on HARDI derived data to obtain a diffusion ODF (dODF)
 \end_layout
 
 \begin_layout Standard
@@ -276,16 +863,16 @@ where
 \end_inset
 
 , 
-\begin_inset Formula $\hat{\mathbf{q}}=\vec{\mathbf{q}}/q$
+\begin_inset Formula $\hat{\mathbf{q}}=\mathbf{q}/q$
 \end_inset
 
  and 
-\begin_inset Formula $\vec{\mathbf{q}}\in\mathbb{Q}^{3}$
+\begin_inset Formula $\mathbf{q}\in\mathbb{Q}^{3}$
 \end_inset
 
 .
  FRT uses the fact that the diffusion signal 
-\begin_inset Formula $S$
+\begin_inset Formula $S\left(\hat{\mathbf{q}},t\right)$
 \end_inset
 
  is maximal in the directions perpendicular to the underlying fascicles,
@@ -357,10 +944,24 @@ The dODF can properly represent the presence and orientation of multiple
  crossing fascicles.
  However, the resulted dODF is artificially smooth and inflated compared
  to the true diffusion ODF.
- Problematically, this same feature causes q-ball to poorly distinguish
- fibers crossing at tight angles.
- Some modifications to QBI have been published.
- For example, in 
+ Problematically, this same feature causes QBI to poorly distinguish fibers
+ crossing at tight angles.
+ Some modifications and generalizations to QBI have been published to try
+ to achieve most of the QBI limitations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QBI-SWT,QBI-CSA,GQI"
+literal "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+For example, in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "QBI-SWT"
@@ -390,7 +991,12 @@ literal "false"
  of the raw signal.
 \end_layout
 
-\begin_layout Subsection
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
 Diffusion Orientation Transform
 \end_layout
 
@@ -416,13 +1022,13 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p\left(\vec{\mathbf{r}},t\right)=\oint_{\mathbf{\mathbb{S}^{2}}}\int_{0}^{\infty}E\left(\vec{\mathbf{q}},t\right)exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)q^{2}dqd\hat{\mathbf{q}},\label{eq:propagator-signal-fourier-relationship}
+p\left(\vec{\mathbf{r}},t\right)=\oint_{\mathbf{\mathbb{S}^{2}}}\int_{0}^{\infty}E\left(\mathbf{q},t\right)exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)q^{2}dqd\hat{\mathbf{q}},\label{eq:propagator-signal-fourier-relationship}
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $\vec{\mathbf{q}}=q\hat{\mathbf{q}}$
+\begin_inset Formula $\mathbf{q}=q\hat{\mathbf{q}}\in\mathbb{Q}^{3}$
 \end_inset
 
  and 
@@ -434,11 +1040,54 @@ where
 \begin_inset Formula $E$
 \end_inset
 
- attenuates mono-exponentially.
- Therefore,
+ attenuates mono-exponentially, i.e.
+ 
+\begin_inset Formula $E\left(\mathbf{q},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\hat{\mathbf{q}}\right)\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the apparent diffusion coefficient or diffusivity profile.
+ In other words, DOT transforms water diffusivity profiles into displacement
+ probability profiles.
+ Finally, the dODF can be obtained from 
+\begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
+\end_inset
+
+ by means of the radial projection as in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:diffusion-propagator-to-dODF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Finally, DOT faces some limitations regarding the HARDI sampling schemes
+ with finite support, truncated spherical harmonics and the mono-exponential
+ attenuation.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DOT-revisited"
+literal "false"
+
+\end_inset
+
+ was proposed an extension of the DOT method that mitigates these limitations.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Therefore,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 E\left(\vec{\mathbf{q}},t\right)=exp\left(-4\pi^{2}tq^{2}D\left(\hat{\mathbf{q}}\right)\right),\label{eq:mono-exponential-attenuation}
@@ -457,7 +1106,7 @@ where
  functions
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 exp\left(-2\pi irq\hat{\mathbf{q}}^{T}\hat{\mathbf{r}}\right)=\sum_{l=0}^{l_{max}}\sum_{m=-l}^{l}\left(-i\right)^{l}j_{l}\left(2\pi rp\right)Y_{lm}\left(\hat{\mathbf{r}}\right)Y_{lm}^{*}\left(\hat{\mathbf{q}}\right),\label{eq:plane-wave-expansion}
@@ -496,7 +1145,7 @@ noprefix "false"
 , which can be used to compute
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 I_{l}\left(r,\hat{\mathbf{q}}\right)=,
@@ -507,11 +1156,11 @@ I_{l}\left(r,\hat{\mathbf{q}}\right)=,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 which can be expanded in terms of spherical harmonics
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 I_{l}\left(r,\hat{\mathbf{q}}\right)=\sum_{l^{'}=0}^{l_{max}}\sum_{m=-l^{'}}^{l^{'}}a_{l^{'}m^{'}}Y_{l^{'}m^{'}}\left(\hat{\mathbf{q}}\right).
@@ -522,7 +1171,7 @@ I_{l}\left(r,\hat{\mathbf{q}}\right)=\sum_{l^{'}=0}^{l_{max}}\sum_{m=-l^{'}}^{l^
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Finally, the dODF can be obtained from 
 \begin_inset Formula $p\left(\vec{\mathbf{r}},t\right)$
 \end_inset
@@ -540,7 +1189,7 @@ inserta ecuacion 2.16 de la tesis de Rick
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 DOT faces some limitations regarding the HARDI sampling schemes with finite
  support, truncated spherical harmonics and the mono-exponential attenuation.
  In 
@@ -554,7 +1203,12 @@ literal "false"
  was proposed an extension of the DOT method that mitigates these limitations.
 \end_layout
 
-\begin_layout Subsection
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
 Symmetric Tensor Decomposition
 \end_layout
 
@@ -567,7 +1221,7 @@ literal "false"
 
 \end_inset
 
- combines the fODF reconstruction of SD and the orientations estimation
+ combines the fODF reconstruction of SD and the orientations approximation
  into one optimization problem.
  It approximates the fODF using an equivalent lower-rank approximation by
  a symmetric tensor decomposition
@@ -576,7 +1230,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-F\left(\vec{\mathbf{v}}\right)\simeq\sum_{i=1}^{\widetilde{r}}\gamma_{i}f_{i}^{d}=\sum_{i=1}^{\widetilde{r}}\left(\vec{\alpha}_{i}\cdot\vec{\mathbf{v}}\right)^{d},\;\;\;\widetilde{r}<r,\vec{\alpha}_{i}\in\mathbb{R}^{3},\vec{\mathbf{v}}\in\mathbb{S}^{2}.
+F\left(\mathbf{v}\right)\simeq\sum_{i=1}^{\widetilde{r}}\gamma_{i}f_{i}^{d}=\sum_{i=1}^{\widetilde{r}}\left(\boldsymbol{\alpha}_{i}\cdot\mathbf{v}\right)^{d},\;\;\;\widetilde{r}<r,\boldsymbol{\alpha}_{i}\in\mathbb{R}^{3},\mathbf{v}\in\mathbb{S}^{2}.
 \]
 
 \end_inset
@@ -609,7 +1263,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Spherical Deconvolution Methods
 \end_layout
 
@@ -860,12 +1514,12 @@ S\left(\theta,\phi\right)=F\left(\theta,\phi\right)\varotimes R\left(\theta\righ
 
 \end_layout
 
-\begin_layout Subsection
-DBF
+\begin_layout Subsubsection
+Diffusion Bases Functions
 \end_layout
 
-\begin_layout Subsection
-Multi-Tensor
+\begin_layout Subsubsection
+Multi-Tensor Methods
 \end_layout
 
 \begin_layout Standard
@@ -884,17 +1538,21 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-E_{i}\left(v\right)=\sum_{k=1}^{M}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}D_{k}\left(v\right)\mathbf{g}_{i}\right)
-\]
+\begin{equation}
+E_{i}\left(v\right)=\sum_{k=1}^{M}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}D_{k}\left(v\right)\mathbf{g}_{i}\right)\label{eq:multi-tensor-representation}
+\end{equation}
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 DIAMOND
+\end_layout
+
+\begin_layout Subsection
+Tractometry Pipelines
 \end_layout
 
 \begin_layout Section

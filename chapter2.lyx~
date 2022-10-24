@@ -12,12 +12,12 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "default" "Book Antiqua"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -85,7 +85,7 @@ Methods
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Explain how MRDS works (poner imagen gt y estimado con MRDS)
@@ -98,7 +98,7 @@ Explain how MRDS works (poner imagen gt y estimado con MRDS)
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Explain Tractometry_flow (be short)
@@ -111,7 +111,7 @@ Explain Tractometry_flow (be short)
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Mentions Optimizations for MRDS (number of fascicles selector & cuda)
@@ -128,6 +128,527 @@ Data
 
 \begin_layout Subsection
 Synthetic Dataset
+\end_layout
+
+\begin_layout Standard
+In order to validate the performance of the proposed method in complex scenarios
+, we opted for the digital phantom from the ISBI 2012 - HARDI Reconstruction
+ Workshop 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantom-ISBI-2012,workshop-ISBI-2012"
+literal "false"
+
+\end_inset
+
+.
+ This phantom has an structure field with specific arrangements of synthetic
+ fibers that mimic challengin crossing configurations.
+ The structure of the phantom consists of a 
+\begin_inset Formula $16\times16\times5$
+\end_inset
+
+ voxels and 
+\begin_inset Formula $3$
+\end_inset
+
+ fiber bundles with a 3D configuration of tracts, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:phantom-structure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The phantom has been used before to evaluate and compare a large selection
+ of reconstruction algorithms for recovering the local intra-voxel fiber
+ structure from diffusion MRI acquisitions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantom-ISBI-2012"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-phantom-structure.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phantom-structure"
+
+\end_inset
+
+The structured field of the digital phantom showing the 3 fiber bundles
+ configuration.
+ The directions of the fiber populations are colred depending on their orientati
+on using the color code 
+\begin_inset Formula $\left(x,y,z\right)\rightarrow\left(r,g,b\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The simulation of the diffusion-weighted signal intensity was numerically
+ simulated in every voxel by adopting the classical Gaussian mixture representat
+ion described in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-representation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S\left(\mathbf{q}\right)=S_{0}\sum_{k=1}^{N}\alpha_{k}exp\left(-b\mathbf{g}_{i}^{T}\mathbf{D}_{k}\mathbf{g}_{i}\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{q}\in\mathbb{Q}^{3}$
+\end_inset
+
+ is the vector in q-space corresponding to the DEO 
+\begin_inset Formula $\mathbf{g}_{i}\in\mathbb{S}^{2}$
+\end_inset
+
+, b-value 
+\begin_inset Formula $b$
+\end_inset
+
+ and diffusion time 
+\begin_inset Formula $t$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathbf{q}=q\mathbf{g}_{i}=\left\Vert \mathbf{q}\right\Vert \mathbf{g}_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $b=4\pi^{2}q^{2}t$
+\end_inset
+
+.
+ For the DEOs 
+\begin_inset Formula $\left\{ \mathbf{g}_{i}\right\} _{i=1}^{n}$
+\end_inset
+
+ and the b-values 
+\begin_inset Formula $b$
+\end_inset
+
+ the Penthera3T adquisition protocol 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Penthera3T-dataset"
+literal "false"
+
+\end_inset
+
+ was used, which has 3 different shells 
+\begin_inset Formula $b=300$
+\end_inset
+
+, 
+\begin_inset Formula $1000$
+\end_inset
+
+, 
+\begin_inset Formula $2000$
+\end_inset
+
+ 
+\begin_inset Formula $mm^{2}/s$
+\end_inset
+
+ with 
+\begin_inset Formula $8$
+\end_inset
+
+, 
+\begin_inset Formula $32$
+\end_inset
+
+ and 
+\begin_inset Formula $60$
+\end_inset
+
+ directions, respectively, and 
+\begin_inset Formula $7$
+\end_inset
+
+ 
+\begin_inset Formula $b=0$
+\end_inset
+
+ for a total of 
+\begin_inset Formula $n=107$
+\end_inset
+
+ directions.
+ Each bundle is determinated by the tensor 
+\begin_inset Formula $\mathbf{D}_{k}$
+\end_inset
+
+, which is given by Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:tensor-matrix"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Assuming axial symmetry, eigenvalues 
+\begin_inset Formula $\lambda_{k,1}$
+\end_inset
+
+,
+\begin_inset Formula $\lambda_{k,2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{k,3}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbf{D}_{k}$
+\end_inset
+
+ are the diffusivities along the parallel axis of the main diffusion 
+\begin_inset Formula $\lambda_{k}^{\parallel}=\lambda_{1}$
+\end_inset
+
+ and the perpendicular axis 
+\begin_inset Formula $\lambda_{k}^{\perp}=\left(\lambda_{2}+\lambda_{3}\right)/2$
+\end_inset
+
+.
+ In the original phantom proposed in the challenge, diffusivities where
+ generated from ranges typically observed in the human brain: 
+\begin_inset Formula $\lambda_{k,1}\in\left[1,2\right]\times10^{-3}$
+\end_inset
+
+ 
+\begin_inset Formula $mm^{2}/s$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{k,2}=\lambda_{k,3}\in\left[0.1,0.6\right]\times10^{-3}$
+\end_inset
+
+ 
+\begin_inset Formula $mm^{2}/s$
+\end_inset
+
+.
+ However, we injected lambda values directly estimated from the myelo_inferno
+ dataset.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-lambdas-histogram.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lambdas-histogram"
+
+\end_inset
+
+Histogram of lambda values estimated by fitting the DTI implementation included
+ in MRtrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+ to the myelo_inferno dataset.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The diffusion properties are constant along the trajectories.
+ The signal 
+\begin_inset Formula $S$
+\end_inset
+
+ has been perturbed as in the original phantom by adding Rician noise such
+ that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{S}\left(\mathbf{q}\right)=\sqrt{\left(S\left(\mathbf{q}\right)+\eta_{1}\right)^{2}+\eta_{2}^{2}},
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\eta_{1},\eta_{2}\sim\mathcal{N}\left(0,\sigma^{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma=S_{0}/SNR$
+\end_inset
+
+.
+ We set the 
+\series bold
+s
+\series default
+ignal-to-
+\series bold
+n
+\series default
+oise 
+\series bold
+r
+\series default
+atio (
+\begin_inset Formula $SNR$
+\end_inset
+
+) to 
+\begin_inset Formula $SNR=12$
+\end_inset
+
+ to simuate challenging levels of noise.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "workshop-ISBI-2012"
+literal "false"
+
+\end_inset
+
+ a MATLAB script for simulating the signal was proportioned.
+ However, we made a faster and more flexible re-implementation of this script
+ in Python.
+ Instead of using an iterative approach, we used vectorized operations to
+ speed the simulation.
+ This improvement in performance allowed to include a new feature to add
+ dispersion to the signal.
+ Besides, we modified how the phantom receives the input parameters.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-phantom-signal.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phantom-signal"
+
+\end_inset
+
+From phantom structure and Gaussian mixture to diffusion-Weighted signal
+ with noise.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, lambda values are loaded from an input Nifti image instead
+ of being hard coded in the script.
+ This enables the posibility to simulate damage in the tracts by altering
+ lambda values with a mask in a specific spot, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:phantom-damage"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For the porpuse of this work, we generated two different datasets to simulate
+ two different experimental conditions: healthy and demyelinated fiber tracts.
+\end_layout
+
+\begin_layout Enumerate
+Control phantom subjects: without any damage and with lambda values similar
+ to the control subjects of the myelo_inferno dataset.
+ These subjects will be 
+\begin_inset Quotes eld
+\end_inset
+
+healthy
+\begin_inset Quotes erd
+\end_inset
+
+ subjects.
+\end_layout
+
+\begin_layout Enumerate
+MS phantom subjects: with localized 
+\begin_inset Quotes eld
+\end_inset
+
+damage
+\begin_inset Quotes erd
+\end_inset
+
+ simulating demyelination, i.e.
+ spots in the bundle with increased RD values, and hence lower overall FA
+ and MD values.
+ This is of special interest considering the localized nature of MS lesions.
+\end_layout
+
+\begin_layout Standard
+Both datasets have 
+\begin_inset Formula $26$
+\end_inset
+
+ subjects to match the number of subjects in the myelo_inferno dataset.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-phantom-damage.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phantom-damage"
+
+\end_inset
+
+(a) Nifti image with control values (white) for the diffusivities of the
+ Bundle 1.
+ Values are constant along the bundle.
+ (b) Nifti image for Bundle 1 with damage (yellow) values.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -394,13 +915,13 @@ MRDS
 The most appropiate representation and modeling of multiple fascicles traversing
  the same voxel remains unclear.
  Actually, there is a multi-tensor based method, which represents multiple
- fascicles with multi-tensors fitted using a 
+ fascicles with multi-tensors fitted using the 
 \series bold
 M
 \series default
-ulti-
+ulti
 \series bold
-R
+ R
 \series default
 esolution 
 \series bold
@@ -410,7 +931,7 @@ iscrete
 \series bold
 S
 \series default
-earch (MRDS) 
+earch (MRDS) approach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MRDS"
@@ -507,11 +1028,19 @@ define arriba DEO (Diffusion Enconding Directions)
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Note that in a multi-tensor model (MTM) representation we have 
+Note that in the particular case of a 
+\series bold
+m
+\series default
+ulti-
+\series bold
+t
+\series default
+ensor 
+\series bold
+m
+\series default
+odel (MTM) representation we have 
 \begin_inset Formula $\Phi_{i}\left(\zeta_{k}\right)=exp\left(-b_{i}g_{i}^{T}D_{k}g_{i}\right)$
 \end_inset
 
@@ -545,20 +1074,16 @@ Note that in a multi-tensor model (MTM) representation we have
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 D_{k}=D\left(\theta_{k},\xi_{k}\right)=R\left(\theta_{k}\right)\left[\begin{array}{ccc}
 \lambda_{k}^{\parallel} & 0 & 0\\
 0 & \lambda_{k}^{\perp} & 0\\
 0 & 0 & \lambda_{k}^{\perp}
-\end{array}\right]R^{T}\left(\theta_{k}\right).
-\]
+\end{array}\right]R^{T}\left(\theta_{k}\right).\label{eq:tensor-matrix}
+\end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Therefore, the proposed MRDS algorithm consists in the following steps:
 \end_layout
 
@@ -662,6 +1187,44 @@ literal "false"
  Adapting this pipeline to integrate the MRDS estimated metrics could allow
  us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
  per fiber bundle.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-tractometry-example.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tractometry Ilustration.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
