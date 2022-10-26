@@ -12,12 +12,12 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "default" "Book Antiqua"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -89,98 +89,13 @@ Expected Schedule
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-Fall 2022
-\end_layout
+\begin_inset Graphics
+	filename Schedule.png
+	scale 40
 
-\begin_layout Itemize
-Attending ISMRM 2022 Workshop on Diffusion MRI.
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-Running MRDS on myelo_inferno control subjects.
-\end_layout
 
-\begin_layout Itemize
-Submission of the abstract to ISMRM 2023 (November 9th).
-\end_layout
-
-\begin_layout Itemize
-Thesis Proposal Presentation.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Winter 2023
-\end_layout
-
-\begin_layout Itemize
-Parallelization of MRDS using CUDA or OpenCL.
-\end_layout
-
-\begin_layout Itemize
-Improving model selector in MRDS using NUFO maps and/or tractography with
- COMMIT.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Summer 2023
-\end_layout
-
-\begin_layout Itemize
-Preparing abstract about MRDS modifications.
-\end_layout
-
-\begin_layout Itemize
-Attending ISMRM 2023 Annual Meeting & Exhibition.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Fall 2023
-\end_layout
-
-\begin_layout Itemize
-Submission to ISMRM 2024
-\end_layout
-
-\begin_layout Itemize
-Intership with NYU MRI Biophysics Group.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Winter 2024
-\end_layout
-
-\begin_layout Itemize
-Submission to a journal.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Summer 2024
-\end_layout
-
-\begin_layout Itemize
-Thesis writing
-\end_layout
-
-\begin_layout Itemize
-Intership with Imeka integrating MRDS.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Fall 2024
-\end_layout
-
-\begin_layout Itemize
-Thesis Submission
-\end_layout
-
-\begin_layout Itemize
-Thesis Defense
 \end_layout
 
 \begin_layout Section

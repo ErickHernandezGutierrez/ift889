@@ -95,6 +95,23 @@ Erick Hernández Gutiérrez
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+MS has also become well known to the general public because it is common
+ and it has been in the focus of the neuroscience reasearch.
+ Most people know someone with MS disease.
+ Personally, I had a first hand experience with the disease as my father
+ had it for almost 20 years before to pass away in 2021.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -156,6 +173,65 @@ filename "chapter5.lyx"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "MTM-1"
+literal "false"
+
+\end_inset
+
+Tuch DS, Reese TG, Wiegell MR, Makris N, Belliveau JW, Wedeen VJ.
+ High angular resolution diffusion imaging reveals intravoxel white matter
+ fiber heterogeneity.
+ Magn Reson Med.
+ 2002 Oct;48(4):577-82.
+ doi: 10.1002/mrm.10268.
+ PMID: 12353272.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-2"
+literal "false"
+
+\end_inset
+
+Hosey T, Williams G, Ansorge R (2005) Inference of multiple fiber orientations
+ in high angular resolution diffusion imaging.
+ Magn Reson Med 54: 1480–1489.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-3"
+literal "false"
+
+\end_inset
+
+Kreher BW, Schneider JF, Mader I, Martin E, Hennig J, et al.
+ (2005) Multitensor approach for analysis and tracking of complex fiber
+ configurations.
+ Magn Reson Med 54: 1216–1225.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-4"
+literal "false"
+
+\end_inset
+
+Melie-Garcia L, C-Rodriguez EJ, Aleman-Gomez Y, Lin CP, Iturria-Medina Y,
+ et al.
+ (2008) A Bayesian framework to identify principal intravoxel diffusion
+ profiles based on diffusion-weighted MR imaging.
+ Neuroimage 42: 750–770.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "MRDS-rats"
 literal "false"
 
@@ -168,6 +244,36 @@ literal "false"
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "MRDS"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DBF"
+literal "false"
+
+\end_inset
+
+Ramirez-Manzanares, M.
+ Rivera, B.
+ C.
+ Vemuri, P.
+ Carney, and T.
+ Mareci.
+ Diffusion basis functions decomposition for estimating white matter intravoxel
+ fiber geometry.
+ IEEE Transactions on Medical Imaging, 26(8):1091–1102, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pre-DIAMOND"
 literal "false"
 
 \end_inset
@@ -858,6 +964,75 @@ Dayan M, Monohan E, Pandya S, Kuceyeski A, Nguyen TD, Raj A, Gauthier SA.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "tractometry-1"
+literal "false"
+
+\end_inset
+
+Bells S, Cercignani M, Deoni S, Assaf Y, Pasternak O, Evans C, Leemans A,
+ Jones D (2011).
+ Tractometry-comprehensive multi-modal quantitative assessment of white
+ matter along specific tracts, in: 17th Annual General Meeting of the British
+ Chapter of the ISMRM.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-2"
+literal "false"
+
+\end_inset
+
+De Santis S, Drakesmith M, Bells S, Assaf Y, Jones D (2014): Why diffusion
+ tensor mri does well only some of the time: Variance and covariance of
+ white matter tissue microstructure attributes in the living human brain.
+ NeuroImage 89:35–44.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-3"
+literal "false"
+
+\end_inset
+
+Jones D, Travis A, Eden G, Pierpaoli C, Basser P (2005): Pasta: Pointwise
+ assessment of streamline tractography attributes.
+ Magn Reson Med 53:1462–1467.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-4"
+literal "false"
+
+\end_inset
+
+Corouge I, Fletcher P, Joshi S, Gouttard S, Gerig G (2006): Fiber tract-oriented
+ statistics for quantitative diffusion tensor mri analysis.
+ Medical Image Analysis 10:786–798.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-5"
+literal "false"
+
+\end_inset
+
+Maddah M, Grimson W, Warfield S, Wells W (2008): A unified framework for
+ clustering and quantitative analysis of white matter fiber tracts.
+ Med Image Analysis 12:191–202.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "tractometry-paper"
 literal "false"
 
@@ -913,6 +1088,39 @@ P.
  Di Tommaso, et al.
  Nextflow enables reproducible computational workflows.
  Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "RD-demyelination"
+literal "false"
+
+\end_inset
+
+Song et.
+ al 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-1"
+literal "false"
+
+\end_inset
+
+Diffusion MRI in multiple sclerosis M.
+ Rovaris, A.
+ Gass, R.
+ Bammer, S.
+ J.
+ Hickman, O.
+ Ciccarelli, D.
+ H.
+ Miller, M.
+ Filippi Neurology Nov 2005, 65 (10) 1526-1532; DOI: 10.1212/01.wnl.0000184471.83948.
+e0
 \end_layout
 
 \end_body

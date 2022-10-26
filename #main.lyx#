@@ -1,0 +1,1105 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage[font=small,labelfont=bf]{caption}
+\setlength{\parindent}{0pt}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Book Antiqua"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3.25cm
+\topmargin 3.2cm
+\rightmargin 3.25cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Thesis Proposal
+\end_layout
+
+\begin_layout Author
+Erick Hernández Gutiérrez
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+MS has also become well known to the general public because it is common
+ and because it has been in the focus of the neuroscience reasearch.
+ Most people know someone with MS disease.
+ Personally, I had a first
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter1.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter2.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter3.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter4.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter5.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-1"
+literal "false"
+
+\end_inset
+
+Tuch DS, Reese TG, Wiegell MR, Makris N, Belliveau JW, Wedeen VJ.
+ High angular resolution diffusion imaging reveals intravoxel white matter
+ fiber heterogeneity.
+ Magn Reson Med.
+ 2002 Oct;48(4):577-82.
+ doi: 10.1002/mrm.10268.
+ PMID: 12353272.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-2"
+literal "false"
+
+\end_inset
+
+Hosey T, Williams G, Ansorge R (2005) Inference of multiple fiber orientations
+ in high angular resolution diffusion imaging.
+ Magn Reson Med 54: 1480–1489.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-3"
+literal "false"
+
+\end_inset
+
+Kreher BW, Schneider JF, Mader I, Martin E, Hennig J, et al.
+ (2005) Multitensor approach for analysis and tracking of complex fiber
+ configurations.
+ Magn Reson Med 54: 1216–1225.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MTM-4"
+literal "false"
+
+\end_inset
+
+Melie-Garcia L, C-Rodriguez EJ, Aleman-Gomez Y, Lin CP, Iturria-Medina Y,
+ et al.
+ (2008) A Bayesian framework to identify principal intravoxel diffusion
+ profiles based on diffusion-weighted MR imaging.
+ Neuroimage 42: 750–770.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MRDS-rats"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MRDS"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DBF"
+literal "false"
+
+\end_inset
+
+Ramirez-Manzanares, M.
+ Rivera, B.
+ C.
+ Vemuri, P.
+ Carney, and T.
+ Mareci.
+ Diffusion basis functions decomposition for estimating white matter intravoxel
+ fiber geometry.
+ IEEE Transactions on Medical Imaging, 26(8):1091–1102, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pre-DIAMOND"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DIAMOND"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DSI"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-1"
+literal "false"
+
+\end_inset
+
+Basser PJ, Mattiello J, Turner R, Le Bihan D.
+ Diffusion tensor echo-planar imaging of human brain.
+ InProceedings of the SMRM 1993 Aug (Vol.
+ 584).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-2"
+literal "false"
+
+\end_inset
+
+Basser PJ, Mattiello J, Le Bihan D.
+ Estimation of the effective self-diffusion tensor from the NMR spin echo.
+ J Magn Reson 1994; 103: 247–254.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-3"
+literal "false"
+
+\end_inset
+
+Basser PJ, Mattiello J, Le Bihan D.
+ MR diffusion tensor spectroscopy and imaging.
+ Biophys J 1994; 66: 259–267.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-formulas-1"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-formulas-2"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DTI-formulas-3"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "phantom-ISBI-2012"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "workshop-ISBI-2012"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://hardi.epfl.ch/static/events/2012_ISBI/download.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Penthera3T-dataset"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://zenodo.org/record/2602049#.Y1UzCHaZNPY
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-1"
+literal "false"
+
+\end_inset
+
+C.
+ Poupon, B.
+ Rieul, I.
+ Kezele, M.
+ Perrin, F.
+ Poupon, J.F.
+ Mangin New diffusion phantoms dedicated to the study and validation of
+ high-angular-resolution diffusion imaging (HARDI) models Magn.
+ Reson.
+ Med., 60 (2008), pp.
+ 1276-1283, 10.1002/mrm.21789
+\emph on
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-2"
+literal "false"
+
+\end_inset
+
+J.
+ D.
+ Tournier, C.
+ H.
+ Yeh, F.
+ Calamante, K.
+ H.
+ Cho, A.
+ Connelly, and C.
+ P.
+ Lin, “Resolving crossing fibres using constrained spherical decon- volution:
+ Validation using diffusion-weighted imaging phantom data,” NeuroImage,
+ vol.
+ 42, pp.
+ 617–625, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-3"
+literal "false"
+
+\end_inset
+
+F.
+ B.
+ Laun, L.
+ R.
+ Schad, J.
+ Klein, and B.
+ Stieltjes, “How background noise shifts eigenvectors and increases eigenvalues
+ in DTI,” in MAGMA, 2009, vol.
+ 22, pp.
+ 151–158.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-4"
+literal "false"
+
+\end_inset
+
+F.
+ B.
+ Laun, S.
+ Huff, and B.
+ Stieltjes, “On the effects of dephasing due to local gradients in diffusion
+ tensor imaging experiments: Relevance for diffusion tensor imaging fiber
+ phantoms,” Magn.
+ Reson.
+ Imag., vol.
+ 27, pp.
+ 541–548, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-5"
+literal "false"
+
+\end_inset
+
+P.
+ Pullens, A.
+ Roebroeck, and R.
+ Goebel, “Ground truth hardware phantoms for validation of diffusion-weighted
+ MRI applications,” J.
+ Magn.
+ Reson.
+ Imag., vol.
+ 32, pp.
+ 482–488, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-6"
+literal "false"
+
+\end_inset
+
+K.
+ H.
+ Fritzsche, F.
+ B.
+ Laun, H.
+ P.
+ Meinzer, and B.
+ Stieltjes, “Opportu- nities and pitfalls in the quantification of fiber
+ integrity: What can we gain from Q-ball imaging?,” NeuroImage, vol.
+ 51, pp.
+ 242–251, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-7"
+literal "false"
+
+\end_inset
+
+A.
+ Moussavi-Biugui, B.
+ Stieltjes, K.
+ Fritzsche, W.
+ Semmler, and F.
+ B.
+ Laun, “Novel spherical phantoms for Q-ball imaging under in vivo conditions,”
+ Magn.
+ Reson.
+ Med., vol.
+ 65, pp.
+ 190–194, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-8"
+literal "false"
+
+\end_inset
+
+F.
+ L.
+ Zhou, P.
+ L.
+ Hubbard, S.
+ J.
+ Eichhorn, and G.
+ J.
+ Parker, “Coaxially electrospun axon-mimicking fibers for diffusion magnetic
+ resonance imaging,” ACS Appl.
+ Mater Interfaces, vol.
+ 4, pp.
+ 6311–6316, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-9"
+literal "false"
+
+\end_inset
+
+T.
+ A.
+ Kuder, B.
+ Stieltjes, P.
+ Bachert, W.
+ Semmler, and F.
+ B.
+ Laun, “Advanced fit of the diffusion kurtosis tensor by directional weighting
+ and regularization,” Magn.
+ Reson.
+ Med., vol.
+ 67, pp.
+ 1401–1411, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physical-phantom-10"
+literal "false"
+
+\end_inset
+
+M.
+ Bach, K.
+ H.
+ Fritzsche, B.
+ Stieltjes, and F.
+ B.
+ Laun, “Investigation of resolution effects using a specialized diffusion
+ tensor phantom,” Magn.
+ Reson.
+ Med., 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "phantoms-compilation-for-tractography"
+literal "false"
+
+\end_inset
+
+Ivana Drobnjak, Peter Neher, Cyril Poupon, Tabinda Sarwar, Physical and
+ digital phantoms for validating tractography and assessing artifacts, NeuroImag
+e, Volume 245, 2021, 118704, ISSN 1053-8119, https://doi.org/10.1016/j.neuroimage.20
+21.118704.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "phantoms-compilation-for-dMRI"
+literal "false"
+
+\end_inset
+
+Els Fieremans, Hong-Hsi Lee, Physical and numerical phantoms for the validation
+ of brain microstructural MRI: A cookbook, NeuroImage, Volume 182, 2018,
+ Pages 39-61, ISSN 1053-8119, https://doi.org/10.1016/j.neuroimage.2018.06.046.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "STD"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SD"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "CSD"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MSMT-CSD"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DOT"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DOT-revisited"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "QBI"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "QBI-SWT"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "QBI-CSA"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "GQI"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "HARDI"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "abstract-ISMRM-2021"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "abstract-ISMRM-2022"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DiSCo-challenge"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "abstract-workshop-ISMRM-2022"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "DIPY"
+literal "false"
+
+\end_inset
+
+Garyfallidis E, Brett M, Amirbekian B, Rokem A, van der Walt S, Descoteaux
+ M, Nimmo-Smith I; Dipy Contributors.
+ Dipy, a library for the analysis of diffusion MRI data.
+ Front Neuroinform.
+ 2014 Feb 21;8:8.
+ doi: 10.3389/fninf.2014.00008.
+ PMID: 24600385; PMCID: PMC3931231.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+Tournier, J.-D.; Smith, R.
+ E.; Raffelt, D.; Tabbara, R.; Dhollander, T.; Pietsch, M.; Christiaens, D.; Jeurissen
+, B.; Yeh, C.-H.
+ & Connelly, A.
+ MRtrix3: A fast, flexible and open software framework for medical image
+ processing and visualisation.
+ NeuroImage, 2019, 202, 116137
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractoflow"
+literal "false"
+
+\end_inset
+
+Theaud, G., Houde, J.-C., Boré, A., Rheault, F., Morency, F., Descoteaux, M.,TractoFlow
+: A robust, efficient and reproducible diffusion MRI pipeline leveraging
+ Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+Rheault, Francois.
+ Analyse et reconstruction de faisceaux de la matière blanche.
+ page 137-170, (2020), https://savoirs.usherbrooke.ca/handle/11143/17255
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-2"
+literal "false"
+
+\end_inset
+
+Garyfallidis, Eleftherios, et al.
+ Recognition of white matter bundles using local and global streamline-based
+ registration and clustering.
+ NeuroImage 170 (2018) https://doi.org/10.1016/j.neuroimage.2017.07.015
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-3"
+literal "false"
+
+\end_inset
+
+Kurtzer GM, Sochat V, Bauer MW Singularity: Scientific containers for mobility
+ of compute.
+ PLoS ONE 12(5): e0177459 (2017) https://doi.org/10.1371/journal.pone.0177459
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbx_flow-4"
+literal "false"
+
+\end_inset
+
+P.
+ Di Tommaso, et al.
+ Nextflow enables reproducible computational workflows.
+ Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "profilometry"
+literal "false"
+
+\end_inset
+
+Dayan M, Monohan E, Pandya S, Kuceyeski A, Nguyen TD, Raj A, Gauthier SA.
+ Profilometry: A new statistical framework for the characterization of white
+ matter pathways, with application to multiple sclerosis.
+ Hum Brain Mapp.
+ 2016 Mar;37(3):989-1004.
+ doi: 10.1002/hbm.23082.
+ Epub 2015 Dec 15.
+ PMID: 26667008; PMCID: PMC6867537.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-1"
+literal "false"
+
+\end_inset
+
+Bells S, Cercignani M, Deoni S, Assaf Y, Pasternak O, Evans C, Leemans A,
+ Jones D (2011).
+ Tractometry-comprehensive multi-modal quantitative assessment of white
+ matter along specific tracts, in: 17th Annual General Meeting of the British
+ Chapter of the ISMRM.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-2"
+literal "false"
+
+\end_inset
+
+De Santis S, Drakesmith M, Bells S, Assaf Y, Jones D (2014): Why diffusion
+ tensor mri does well only some of the time: Variance and covariance of
+ white matter tissue microstructure attributes in the living human brain.
+ NeuroImage 89:35–44.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-3"
+literal "false"
+
+\end_inset
+
+Jones D, Travis A, Eden G, Pierpaoli C, Basser P (2005): Pasta: Pointwise
+ assessment of streamline tractography attributes.
+ Magn Reson Med 53:1462–1467.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-4"
+literal "false"
+
+\end_inset
+
+Corouge I, Fletcher P, Joshi S, Gouttard S, Gerig G (2006): Fiber tract-oriented
+ statistics for quantitative diffusion tensor mri analysis.
+ Medical Image Analysis 10:786–798.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-5"
+literal "false"
+
+\end_inset
+
+Maddah M, Grimson W, Warfield S, Wells W (2008): A unified framework for
+ clustering and quantitative analysis of white matter fiber tracts.
+ Med Image Analysis 12:191–202.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-paper"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+Cousineau, M., P-M.
+ Jodoin, E.
+ Garyfallidis, M-A.
+ Cote, F.C.
+ Morency, V.
+ Rozanski, M.
+ Grand'Maison, B.J.
+ Bedell, and M.
+ Descoteaux.
+ "A test-retest study on Parkinson's PPMI dataset yields statistically significa
+nt white matter fascicles." NeuroImage: Clinical 16, 222-233 (2017) doi:10.1016/j.n
+icl.2017.07.020
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-2"
+literal "false"
+
+\end_inset
+
+Kurtzer GM, Sochat V, Bauer MW Singularity: Scientific containers for mobility
+ of compute.
+ PLoS ONE 12(5): e0177459 (2017) https://doi.org/10.1371/journal.pone.0177459
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-3"
+literal "false"
+
+\end_inset
+
+P.
+ Di Tommaso, et al.
+ Nextflow enables reproducible computational workflows.
+ Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "RD-demyelination"
+literal "false"
+
+\end_inset
+
+Song et.
+ al 2022.
+\end_layout
+
+\end_body
+\end_document
