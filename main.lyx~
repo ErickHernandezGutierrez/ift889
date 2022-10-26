@@ -96,7 +96,7 @@ Erick Hernández Gutiérrez
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 MS has also become well known to the general public because it is common
@@ -879,6 +879,92 @@ Tournier, J.-D.; Smith, R.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "tractography-1"
+literal "false"
+
+\end_inset
+
+V.
+ J.
+ Wedeen, T.
+ L.
+ Davis, R.
+ M.
+ Weisskoff, R.
+ B.
+ H.
+ Tootell, B.
+ R.
+ Rosen, and J.
+ W.
+ Belliveau.
+ “White Matter Connectivity Explored by MRI”.
+ In: Proceedings of The Organization for Human Brain Mapping (OHBM) Annual
+ Meeting.
+ The Organization for Human Brain Mapping.
+ Paris, France, 1995: 69.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-2"
+literal "false"
+
+\end_inset
+
+Mori S, Crain BJ, Chacko VP, van Zijl PC.
+ Three-dimensional tracking of axonal projections in the brain by magnetic
+ resonance imaging.
+ Ann Neurol.
+ 1999 Feb;45(2):265-9.
+ doi: 10.1002/1531-8249(199902)45:2<265::aid-ana21>3.0.co;2-3.
+ PMID: 9989633.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-3"
+literal "false"
+
+\end_inset
+
+Mori, S.
+ and van Zijl, P.C.M.
+ (2002), Fiber tracking: principles and strategies – a technical review.
+ NMR Biomed., 15: 468-480.
+ https://doi.org/10.1002/nbm.781
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "COMMIT"
+literal "false"
+
+\end_inset
+
+A.
+ Daducci, E.
+ J.
+ Canales-Rodríguez, H.
+ Zhang, T.
+ B.
+ Dyrby, D.
+ C.
+ Alexander, and J.-P.
+ Thiran.
+ “Accelerated Microstructure Imaging via Convex Optimization (AMICO) from
+ diffusion MRI data”.
+ NeuroImage.
+ 105:32–44.
+ 2015
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "tractoflow"
 literal "false"
 
@@ -1100,6 +1186,27 @@ literal "false"
 
 Song et.
  al 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-1"
+literal "false"
+
+\end_inset
+
+Diffusion MRI in multiple sclerosis M.
+ Rovaris, A.
+ Gass, R.
+ Bammer, S.
+ J.
+ Hickman, O.
+ Ciccarelli, D.
+ H.
+ Miller, M.
+ Filippi Neurology Nov 2005, 65 (10) 1526-1532; DOI: 10.1212/01.wnl.0000184471.83948.
+e0
 \end_layout
 
 \end_body

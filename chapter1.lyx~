@@ -88,10 +88,6 @@ Introduction
 status open
 
 \begin_layout Plain Layout
-Speak about methods for multiple fascicle bundles
-\end_layout
-
-\begin_layout Plain Layout
 mention FA profiles with DTI and maybe fODF of CSD (apparent fiber density)
 \end_layout
 
@@ -175,11 +171,11 @@ Inflammatory processes in the Central Nervous System (CNS) characterized
  by breakdown in the myelin that surrounds axon nerves.
  Breakdowns in the blood-brain barriers allows immunologically active cells
  in the blood to enter the brain and cause patchy damage to myelin.
- These scattered circumscribed lesions (
+ These scattered circumscribed lesions are called 
 \series bold
 plaques
 \series default
-) cause the symptoms of MS slowing or disrupting conduction in the axons
+ and cause the symptoms of MS slowing or disrupting conduction in the axons
  as myelin is necessary for the conduction in myelinated nerves.
  The plaques are characterized by inflammation, demyelination and scarring
  (
@@ -208,13 +204,13 @@ literal "false"
 .
  The dMRI showing lesions in some areas, and the spinal fluid tests are
  helpful in diagnosing MS.
- However, they do not correlate will with specific symptoms.
+ However, they do not correlate with specific symptoms.
  That's why they are not used to follow the course of the disease once the
  diagnosis has been made.
  More importantly, they do not make themselves the diagnosis because similar
  changes can occur on other conditions.
  Finally, the presence of characteristic changes on the dMRI images raised
- a massive number of studies and analyses in the recent years.
+ a massive number of studies and analyses.
 \end_layout
 
 \begin_layout Standard
@@ -326,19 +322,6 @@ Some lesions don't show constrast.
 
 \begin_layout Section
 Diffusion MRI Background
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Define dMRI
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -610,6 +593,128 @@ noprefix "false"
 , among others.
  These measures have been widely used in publications within the field and
  constitute an important component for this work.
+\end_layout
+
+\begin_layout Section
+Tractography
+\end_layout
+
+\begin_layout Standard
+Diffusion tractography or white matter fiber tracking is a process, where
+ three-dimensional axonal trajectories can be tracked using information
+ from dMRI data 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractography-1,tractography-2,tractography-3"
+literal "false"
+
+\end_inset
+
+.
+ Captured pathways - also known as 
+\series bold
+streamlines
+\series default
+ or 
+\series bold
+tracks
+\series default
+ - are represented as curves in a 3D space, i.e.
+ a streamline is mathematically written as a set of 
+\begin_inset Formula $M$
+\end_inset
+
+ points 
+\begin_inset Formula $\left\{ \mathbf{p}_{i}\in\mathbb{R}^{3}\right\} _{i=1}^{M}$
+\end_inset
+
+, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:streamline-tractogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ containing all these streamlines is called 
+\series bold
+tractogram
+\series default
+.
+ Tractograms provide a helpful and non-invasive form for inferring the connectiv
+ity structure of the in-vivo white matter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-streamline-tractogram.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:streamline-tractogram"
+
+\end_inset
+
+Illustration of the main diffusion directions (black arrows) forming a vector
+ field.
+ (a) A streamline 
+\begin_inset Formula $s=\left\{ \boldsymbol{p}_{i}\right\} _{i=1}^{8}$
+\end_inset
+
+ (red arrow) is shown following the vector field.
+ It can be seen how the streamline is composed of points in the space (red
+ points).
+ (b) A tractogram 
+\begin_inset Formula $\mathcal{F}=\left\{ s_{i}\right\} _{i=1}^{5}$
+\end_inset
+
+ consisting of 
+\begin_inset Formula $5$
+\end_inset
+
+ different streamlines.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
