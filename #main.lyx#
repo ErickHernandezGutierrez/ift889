@@ -685,6 +685,20 @@ literal "false"
 
 \end_inset
 
+Brachat J, Comon P, Mourrain B, Tsigaridas EP.
+ Symmetric tensor decomposition.
+ Linear Algebra and Applications.
+ 2010; 433(11–12):1851–1872.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SD-STD"
+literal "false"
+
+\end_inset
+
 
 \end_layout
 
@@ -873,7 +887,17 @@ Tournier, J.-D.; Smith, R.
  & Connelly, A.
  MRtrix3: A fast, flexible and open software framework for medical image
  processing and visualisation.
- NeuroImage, 2019, 202, 116137
+ NeuroImage, 2019, 202, 116137.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -934,7 +958,602 @@ Mori, S.
  and van Zijl, P.C.M.
  (2002), Fiber tracking: principles and strategies – a technical review.
  NMR Biomed., 15: 468-480.
- https://doi.org/10.1002/nbm.781
+ https://doi.org/10.1002/nbm.781.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-quantitative"
+literal "false"
+
+\end_inset
+
+Zhang, F., Daducci, A., He, Y., Schiavi, S., Seguin, C., Smith, R., ...
+ & O’Donnell, L.
+ J.
+ (2022).
+ Quantitative mapping of the brain’s structural connectivity using diffusion
+ MRI tractography: A review.
+ Neuroimage, 118870.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-1"
+literal "false"
+
+\end_inset
+
+Tournier, J.D., Calamante, F., Connelly, A., 2010.
+ Improved probabilistic streamlines tractography by 2nd order integration
+ over fibre orientation distributions, in: Proceedings of the International
+ Society for Magnetic Resonance in Medicine, p.
+ 1670.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-2"
+literal "false"
+
+\end_inset
+
+Descoteaux, M., Deriche, R., Knosche, T.R., Anwander, A., 2008.
+ Deterministic and probabilistic tractography based on complex fibre orientation
+ distributions.
+ IEEE transactions on medical imaging 28, 269–286.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-3"
+literal "false"
+
+\end_inset
+
+Behrens, T.E., Berg, H.J., Jbabdi, S., Rushworth, M.F., Woolrich, M.W., 2007.
+ Probabilistic diffusion tractography with multiple fibre orientations:
+ What can we gain? Neuroimage 34, 144–155.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-4"
+literal "false"
+
+\end_inset
+
+Friman, O., Farneback, G., Westin, C.F., 2006.
+ A bayesian approach for stochastic white matter tractography.
+ IEEE transactions on medical imaging 25, 965–978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-5"
+literal "false"
+
+\end_inset
+
+Lazar, M., Alexander, A.L., 2005.
+ Bootstrap white matter tractography (boot-trac).
+ NeuroImage 24, 524–532.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-6"
+literal "false"
+
+\end_inset
+
+Tournier, J.D., Calamante, F., Gadian, D.G., Connelly, A., 2003.
+ Diffusion-weighted magnetic resonance imaging fibre tracking using a front
+ evolution algorithm.
+ NeuroImage 20, 276–288.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-7"
+literal "false"
+
+\end_inset
+
+Jackowski, M., Kao, C.Y., Qiu, M., Constable, R.T., Staib, L.H., 2005.
+ White matter tractography by anisotropic wavefront evolution and diffusion
+ tensor imaging.
+ Medical image analysis 9, 427–440.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-8"
+literal "false"
+
+\end_inset
+
+Fernandez-Miranda, J.C., Pathak, S., Engh, J., Jarbo, K., Verstynen, T., Yeh,
+ F.C., Wang, Y., Mintz, A., Boada, F., Schneider, W., et al., 2012.
+ High-definition fiber tractography of the human brain: neuroanatomical
+ validation and neurosurgical applications.
+ Neurosurgery 71, 430–453.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-9"
+literal "false"
+
+\end_inset
+
+Malcolm, J.G., Shenton, M.E., Rathi, Y., 2010.
+ Filtered multitensor tractography.
+ IEEE transactions on medical imaging 29, 1664–1675.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-10"
+literal "false"
+
+\end_inset
+
+Reddy, C.P., Rathi, Y., 2016.
+ Joint multi-fiber noddi parameter estimation and tractography using the
+ unscented information filter.
+ Frontiers in neuroscience 10, 166.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-11"
+literal "false"
+
+\end_inset
+
+Wasserthal, J., Neher, P.F., Hirjak, D., Maier-Hein, K.H., 2019.
+ Combined tract segmentation and orientation mapping for bundle-specific
+ tractography.
+ Medical image analysis 58, 101559.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-active-development-12"
+literal "false"
+
+\end_inset
+
+Feng, Y., He, J., 2020.
+ Asymmetric fiber trajectory distribution estimation using streamline differenti
+al equation.
+ Medical image analysis 63, 101686.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-front-evolution-1"
+literal "false"
+
+\end_inset
+
+Pichon, E., Westin, C.F., Tannenbaum, A.R., 2005.
+ A Hamilton-JacobiBellman approach to high angular resolution diffusion
+ tractography.
+ Medical image computing and computer-assisted intervention 8, 180– 187.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-front-evolution-2"
+literal "false"
+
+\end_inset
+
+Sepasian, N., ten Thije Boonkkamp, J., Ter Haar Romeny, B., Vilanova Bartroli,
+ A., 2012.
+ Multivalued geodesic ray-tracing for computing brain connections using
+ diffusion tensor imaging.
+ SIAM Journal on Imaging Sciences 5, 483–504.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-1"
+literal "false"
+
+\end_inset
+
+Mangin, J.F., Poupon, C., Cointepas, Y., Riviere, D., Papadopoulos-Orfanos, D.,
+ Clark, C.A., Regis, J., Le Bihan, D., 2002.
+ A framework ´ based on spin glass models for the inference of anatomical
+ connectivity from diffusion-weighted MR data - a technical review.
+ NMR in Biomedicine 15, 481–492.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-2"
+literal "false"
+
+\end_inset
+
+Kreher, B.W., Mader, I., Kiselev, V.G., 2008.
+ Gibbs tracking: A novel approach for the reconstruction of neuronal pathways.
+ Magnetic Resonance in Medicine 60, 953–963.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-3"
+literal "false"
+
+\end_inset
+
+Fillard, P., Poupon, C., Mangin, J.F., 2009.
+ A Novel Global Tractography Algorithm Based on an Adaptive Spin Glass Model,
+ in: Medical Image Computing and Computer-Assisted Intervention, Springer.
+ pp.
+ 927–934.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-4"
+literal "false"
+
+\end_inset
+
+Reisert, M., Mader, I., Anastasopoulos, C., Weigel, M., Schnell, S., Kiselev,
+ V., 2011.
+ Global fiber reconstruction becomes practical.
+ NeuroImage 54, 955–962.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-5"
+literal "false"
+
+\end_inset
+
+Mangin, J.F., Fillard, P., Cointepas, Y., Le Bihan, D., Frouin, V., Poupon, C.,
+ 2013.
+ Toward global tractography.
+ Mapping the Connectome 80, 290–296.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-6"
+literal "false"
+
+\end_inset
+
+Christiaens, D., Reisert, M., Dhollander, T., Sunaert, S., Suetens, P., Maes,
+ F., 2015.
+ Global tractography of multi-shell diffusion-weighted imaging data using
+ a multi-tissue model.
+ NeuroImage 123, 89–101.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-7"
+literal "false"
+
+\end_inset
+
+Teillac, A., Beaujoin, J., Poupon, F., Mangin, J.F., Poupon, C., 2017.
+ A novel anatomically-constrained global tractography approach to monitor
+ sharp turns in gyri, in: International Conference on Medical Image Computing
+ and Computer-assisted Intervention, Springer.
+ pp.
+ 532–539.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-8"
+literal "false"
+
+\end_inset
+
+Wu, X., Xie, M., Zhou, J., Anderson, A.W., Gore, J.C., Ding, Z., 2012b.
+ Globally optimized fiber tracking and hierarchical clustering — a unified
+ framework.
+ Magnetic Resonance Imaging 30, 485–495.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-9"
+literal "false"
+
+\end_inset
+
+Battocchio, M., Schiavi, S., Descoteaux, M., Daducci, A., 2020.
+ Improving tractography accuracy using dynamic filtering, in: CDMRI, p.
+ accepted to appear.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-10"
+literal "false"
+
+\end_inset
+
+Lemkaddem, A., Skioldebrand, D., Dal Palu, A., Thiran, J.P., Daducci, A., 2014.
+ Global tractography with embedded anatomical priors for quantitative connectivi
+ty analysis.
+ Frontiers in Neurology 5, 232.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-global-11"
+literal "false"
+
+\end_inset
+
+Close, T.G., Tournier, J.D., Johnston, L.A., Calamante, F., Mareels, I., Connelly,
+ A., 2015.
+ Fourier Tract Sampling (FouTS): A framework for improved inference of white
+ matter tracts from diffusion MRI by explicitly modelling tract volume.
+ NeuroImage 120, 412–427.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-machine-learning-1"
+literal "false"
+
+\end_inset
+
+Poulin, P., Jorgens, D., Jodoin, P.M., Descoteaux, M., 2019.
+ Tractogra- ¨ phy and machine learning: Current state and open challenges.
+ Magnetic resonance imaging 64, 37–48.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-machine-learning-2"
+literal "false"
+
+\end_inset
+
+Neher, P.F., Cotˆ e, M.A., Houde, J.C., Descoteaux, M., Maier-Hein, ´ K.H., 2017.
+ Fiber tractography using machine learning.
+ Neuroimage 158, 417–429.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-machine-learning-3"
+literal "false"
+
+\end_inset
+
+Wegmayr, V., Giuliari, G., Holdener, S., Buhmann, J., 2018.
+ Data-driven fiber tractography with neural networks, in: 2018 IEEE 15th
+ international symposium on biomedical imaging (ISBI 2018), IEEE.
+ pp.
+ 1030– 1033.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-machine-learning-4"
+literal "false"
+
+\end_inset
+
+Sarwar, T., Seguin, C., Ramamohanarao, K., Zalesky, A., 2020.
+ Towards deep learning for connectome mapping: A block decomposition framework.
+ NeuroImage 212, 116654.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-geodesic-1"
+literal "false"
+
+\end_inset
+
+O’Donnell, L., Haker, S., Westin, C.F., 2002.
+ New approaches to estimation of white matter connectivity in diffusion
+ tensor MRI: Elliptic pdes and geodesics in a tensor-warped space, in: Internati
+onal Conference on Medical Image Computing and Computer-Assisted Intervention,
+ Springer.
+ pp.
+ 459–466.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-geodesic-2"
+literal "false"
+
+\end_inset
+
+Jbabdi, S., Woolrich, M., Andersson, J., Behrens, T., 2007.
+ A Bayesian framework for global tractography.
+ NeuroImage 37, 116–129.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-geodesic-3"
+literal "false"
+
+\end_inset
+
+Jbabdi, S., Bellec, P., Toro, R., Daunizeau, J., Pelegrini-Issac, M., Benali,
+ H., 2008.
+ Accurate anisotropic fast marching for diffusion-based geodesic tractography.
+ Journal of Biomedical Imaging 2008, 1–12.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-geodesic-4"
+literal "false"
+
+\end_inset
+
+Wu, X., Xu, Q., Xu, L., Zhou, J., Anderson, A.W., Ding, Z., 2009.
+ Genetic white matter fiber tractography with global optimization.
+ Journal of Neuroscience Methods 184, 375–379.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-review-1"
+literal "false"
+
+\end_inset
+
+Neher, P.F., Descoteaux, M., Houde, J.C., Stieltjes, B., Maier-Hein, K.H., 2015.
+ Strengths and weaknesses of state of the art fiber tractography pipelines–a
+ comprehensive in-vivo and phantom evaluation study using tractometer.
+ Medical image analysis 26, 287–305.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-review-2"
+literal "false"
+
+\end_inset
+
+Jeurissen, B., Descoteaux, M., Mori, S., Leemans, A., 2019.
+ Diffusion MRI fiber tractography of the brain.
+ NMR in Biomedicine 32, e3785.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-review-3"
+literal "false"
+
+\end_inset
+
+Rheault, F., Poulin, P., Caron, A.V., St-Onge, E., Descoteaux, M., 2020b.
+ Common misconceptions, hidden biases and modern challenges of dMRI tractography.
+ Journal of Neural Engineering 17, 11001.
+ doi:10.1088/1741-2552/ab6aad.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-review-4"
+literal "false"
+
+\end_inset
+
+Smith, R.E., Connelly, A., Calamante, F., 2020c.
+ Diffusion MRI fiber tractography, in: Advances in Magnetic Resonance Technology
+ and Applications.
+ Elsevier.
+ volume 1, pp.
+ 533–569.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-csd-better-than-dti"
+literal "false"
+
+\end_inset
+
+Farquharson S, Tournier JD, Calamante F, Fabinyi G, Schneider-Kolsky M,
+ Jackson GD, Connelly A.
+ White matter fiber tractography: why we need to move beyond DTI.
+ J Neurosurg.
+ 2013 Jun;118(6):1367-77.
+ doi: 10.3171/2013.2.JNS121294.
+ Epub 2013 Mar 29.
+ PMID: 23540269.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gibbs-tracking"
+literal "false"
+
+\end_inset
+
+Kreher, B., Mader, I., Kiselev, V., 2008.
+ Gibbs tracking: A novel approach for the reconstruction of neuronal pathways.
+ Magn Reson Med 60, 953-63.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "COMMIT"
+literal "false"
+
+\end_inset
+
+A.
+ Daducci, E.
+ J.
+ Canales-Rodríguez, H.
+ Zhang, T.
+ B.
+ Dyrby, D.
+ C.
+ Alexander, and J.-P.
+ Thiran.
+ “Accelerated Microstructure Imaging via Convex Optimization (AMICO) from
+ diffusion MRI data”.
+ NeuroImage.
+ 105:32–44.
+ 2015.
 \end_layout
 
 \begin_layout Bibliography

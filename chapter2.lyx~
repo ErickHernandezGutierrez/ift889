@@ -123,6 +123,44 @@ Mentions Optimizations for MRDS (number of fascicles selector & cuda)
 \end_layout
 
 \begin_layout Section
+Local Modeling
+\end_layout
+
+\begin_layout Section
+Tractometry
+\end_layout
+
+\begin_layout Standard
+The basis of tractometry is the statistical analysis that compares different
+ groups or assesses individual variability in brain connection structure
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-paper"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The nextflow-based tractometry pipeline called tractometry_flow 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1,tractometry_flow-2,tractometry_flow-3"
+literal "false"
+
+\end_inset
+
+ allows you to extract tractometry information by combining subjects' streamline
+ bundles and diffusion MRI metrics.
+ Adapting this pipeline to integrate the MRDS estimated metrics could allow
+ us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
+ per fiber bundle.
+\end_layout
+
+\begin_layout Section
 Data
 \end_layout
 
@@ -511,7 +549,7 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -639,10 +677,6 @@ name "fig:phantom-damage"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -879,7 +913,7 @@ literal "false"
 \end_inset
 
 .
- It is multi-atlas and multi-parameter, and more robust to the single atals
+ It is multi-atlas and multi-parameter, and more robust to the single atlas
  and single parameter version of RecoBundles published in DIPY 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -905,326 +939,6 @@ Rician Bias Correction
 
 \begin_layout Standard
 Gudbjartsson correction
-\end_layout
-
-\begin_layout Section
-MRDS
-\end_layout
-
-\begin_layout Standard
-The most appropiate representation and modeling of multiple fascicles traversing
- the same voxel remains unclear.
- Actually, there is a multi-tensor based method, which represents multiple
- fascicles with multi-tensors fitted using the 
-\series bold
-M
-\series default
-ulti
-\series bold
- R
-\series default
-esolution 
-\series bold
-D
-\series default
-iscrete 
-\series bold
-S
-\series default
-earch (MRDS) approach 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MRDS"
-literal "false"
-
-\end_inset
-
-.
- MRDS is capable of providing individual diffusion profiles as well as the
- orientation of the fasicles.
- MRDS is a general framework for estimating parameters in a multi-compartment
- representation.
- The normalized DWI signal attenuation 
-\begin_inset Formula $E_{i}=S_{i}/S_{0}$
-\end_inset
-
- at each voxel of a multi-compartment model is represented as
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-E_{i}=\sum_{k=1}^{N}\alpha_{k}\Phi_{i}\left(\zeta_{k}\right)+\eta_{i},\;\;\;i=1,2,\ldots,n,\label{eq:multi-compartment-model-representation}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $N$
-\end_inset
-
- is the number of compartments, 
-\begin_inset Formula $n$
-\end_inset
-
- the number of DEOs 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-define arriba DEO (Diffusion Enconding Directions)
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Formula $\left\{ \alpha_{k}>0\right\} _{k=1}^{N}$
-\end_inset
-
- denotes the compartment sizes (volume fractions) and 
-\begin_inset Formula $\eta_{i}$
-\end_inset
-
- represents the signal noise.
- Besides, 
-\begin_inset Formula $\Phi_{i}\left(\zeta_{k}\right)$
-\end_inset
-
- is the signal response of the compartment function for the DEO 
-\begin_inset Formula $g_{i}$
-\end_inset
-
- defined by the parameters 
-\begin_inset Formula $\zeta_{k}$
-\end_inset
-
-, which is a vector in the form 
-\begin_inset Formula $\zeta_{k}=\left(\theta_{k},\xi_{k}\right)$
-\end_inset
-
-, where 
-\begin_inset Formula $\theta_{k}=\left(\theta_{k}^{z},\theta_{k}^{a}\right)$
-\end_inset
-
- define the zenith (elevation) and azimuth angles of the PDD of the compartment.
- On the other hand, 
-\begin_inset Formula $\xi_{k}$
-\end_inset
-
- is the vector of parameters associated with the tissue properties for the
- compartment 
-\begin_inset Formula $k$
-\end_inset
-
-.
- Assuming Gaussian noise, the error function to be minimized is 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\epsilon\left(N,\alpha,\theta,\xi,E\right)=\sum_{i=1}^{n}\left(\sum_{k=1}^{N}\alpha_{k}\Phi_{i}\left(\zeta_{k}\right)-E_{i}\right)\label{eq:MRDS-error-function}
-\end{equation}
-
-\end_inset
-
-Note that in the particular case of a 
-\series bold
-m
-\series default
-ulti-
-\series bold
-t
-\series default
-ensor 
-\series bold
-m
-\series default
-odel (MTM) representation we have 
-\begin_inset Formula $\Phi_{i}\left(\zeta_{k}\right)=exp\left(-b_{i}g_{i}^{T}D_{k}g_{i}\right)$
-\end_inset
-
-, where 
-\begin_inset Formula $\xi_{k}=\left(\lambda_{k}^{\parallel},\lambda_{k}^{\perp}\right)$
-\end_inset
-
- represents the axial (
-\begin_inset Formula $\parallel$
-\end_inset
-
-) and radial (
-\begin_inset Formula $\perp$
-\end_inset
-
-) diffusivities.
- The PDD 
-\begin_inset Formula $\theta_{k}$
-\end_inset
-
- defines the rotation matrix 
-\begin_inset Formula $R\left(\theta_{k}\right)$
-\end_inset
-
- associated with 
-\begin_inset Formula $D_{k}$
-\end_inset
-
- such that
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-D_{k}=D\left(\theta_{k},\xi_{k}\right)=R\left(\theta_{k}\right)\left[\begin{array}{ccc}
-\lambda_{k}^{\parallel} & 0 & 0\\
-0 & \lambda_{k}^{\perp} & 0\\
-0 & 0 & \lambda_{k}^{\perp}
-\end{array}\right]R^{T}\left(\theta_{k}\right).\label{eq:tensor-matrix}
-\end{equation}
-
-\end_inset
-
-Therefore, the proposed MRDS algorithm consists in the following steps:
-\end_layout
-
-\begin_layout Enumerate
-Estimation of the orientations 
-\begin_inset Formula $\left\{ \theta_{k}\right\} _{k=1}^{N}$
-\end_inset
-
- and the compartment sizes 
-\begin_inset Formula $\left\{ \alpha_{k}\right\} _{k=1}^{N}$
-\end_inset
-
- for fixed diffusion parameters 
-\begin_inset Formula $\left\{ \xi_{k}\right\} _{k=1}^{N}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Estimation of the diffusion parameters 
-\begin_inset Formula $\left\{ \xi_{k}\right\} _{k=1}^{N}$
-\end_inset
-
- for fixed 
-\begin_inset Formula $\left\{ \theta_{k}\right\} _{k=1}^{N}$
-\end_inset
-
- and 
-\begin_inset Formula $\left\{ \alpha_{k}\right\} _{k=1}^{N}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Repeat previous steps until convergence.
-\end_layout
-
-\begin_layout Enumerate
-The output of the previos steps consists of the best possible configurations
- for 
-\begin_inset Formula $1$
-\end_inset
-
-, 
-\begin_inset Formula $2$
-\end_inset
-
- and 
-\begin_inset Formula $3$
-\end_inset
-
- fascicle orientations and diffusivities.
- Finally, in this step a model selector determinates the optimal value for
- the number of bundles for the considered voxel.
-\end_layout
-
-\begin_layout Standard
-MRDS has proved to be more robust to noise and crossing fascicles than other
- methods like DIAMOND and CSD 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MRDS-rats"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Section
-Tractometry
-\end_layout
-
-\begin_layout Standard
-The basis of tractometry is the statistical analysis that compares different
- groups or assesses individual variability in brain connection structure
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractometry-paper"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The nextflow-based tractometry pipeline called tractometry_flow 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractometry_flow-1,tractometry_flow-2,tractometry_flow-3"
-literal "false"
-
-\end_inset
-
- allows you to extract tractometry information by combining subjects' streamline
- bundles and diffusion MRI metrics.
- Adapting this pipeline to integrate the MRDS estimated metrics could allow
- us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
- per fiber bundle.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-tractometry-example.png
-	scale 35
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Tractometry Ilustration.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body
