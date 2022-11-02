@@ -349,6 +349,25 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "evaluating-accuracy-dMRI-models"
+literal "false"
+
+\end_inset
+
+Rokem A, Yeatman JD, Pestilli F, Kay KN, Mezer A, van der Walt S, Wandell
+ BA.
+ Evaluating the accuracy of diffusion MRI models in white matter.
+ PLoS One.
+ 2015 Apr 16;10(4):e0123272.
+ doi: 10.1371/journal.pone.0123272.
+ Erratum in: PLoS One.
+ 2015;10(9):e0139150.
+ PMID: 25879933; PMCID: PMC4400066.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "DSI"
 literal "false"
 

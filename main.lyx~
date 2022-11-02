@@ -133,7 +133,7 @@ filename "introduction.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "methods.lyx"
+filename "problem-statement.lyx"
 
 \end_inset
 
@@ -143,7 +143,7 @@ filename "methods.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "problem-statement.lyx"
+filename "methods.lyx"
 
 \end_inset
 
@@ -339,6 +339,17 @@ literal "false"
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "DIAMOND"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "evaluating-accuracy-dMRI-models"
 literal "false"
 
 \end_inset

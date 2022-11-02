@@ -2763,6 +2763,23 @@ noprefix "false"
 \end_inset
 
  matches with DTI.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the whole, one of the main challenges in building accurate models is
+ to find a balance between the complexity and the number of parameters of
+ the model.
+ Models with few parameters have a low level of complexity and are easier
+ to fit.
+ However, these models tend to underfit the data because they do not have
+ enough flexibility to capture variations in the diffusion signal.
+ On the other hand, high complexity models are more robust and capable of
+ capturing variations in the diffusion signal.
+ But they have many parameters to tune and tend to overfit the data.
 \end_layout
 
 \begin_layout Section
@@ -3363,7 +3380,7 @@ Either in neuroscience research or clinical applications, validation is
  Estimation of the fiber tracts and tissue profiles is extremely challenging.
  Besides, it is well-known that there is no in-vivo data with a real ground
  truth (GT) that could be used for validation.
- An extensively and successfully substitute for in vivo GT is the use of
+ An extensively and successfully substitute for in-vivo GT is the use of
  synthetic phantoms.
  They constitute a controllable scenario that provides precise information
  of the underlying microstructural properties (e.g.

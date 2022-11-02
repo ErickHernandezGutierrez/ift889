@@ -120,47 +120,6 @@ Diffusion MRI Background
 \begin_inset Note Note
 status open
 
-\begin_layout Plain Layout
-Use Derek Jones' book.
- Use Maxime's paper HARDI.
-\end_layout
-
-\begin_layout Plain Layout
-There is a Fourier relationship between the signal attenuation and the diffusion
- propagator such that
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-E\left(\vec{q},t\right)=\int_{\mathbb{R}^{3}}p\left(\vec{r},t\right)exp\left(-2\pi i\vec{q}^{T}\vec{r}\right)d\vec{r}\label{eq:FFT-relationship}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-E\left(\mathbf{q},t\right)=\int_{\mathbb{R}^{3}}p\left(\mathbf{r},t\right)exp\left(-2\pi i\mathbf{q}^{T}\mathbf{r}\right)d\mathbf{r}\label{eq:FFT-relationship-1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
 \begin_layout Itemize
 Given the measurements of 
 \begin_inset Formula $S$
@@ -415,6 +374,27 @@ b-value
 \end_inset
 
 .
+ Hence, the measured diffusion signal 
+\begin_inset Formula $S$
+\end_inset
+
+ can be expressed in terms of 
+\begin_inset Formula $\mathbf{q}$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+, or in terms of 
+\begin_inset Formula $\mathbf{g}$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
  The application of a single pulsed gradient SE sequence as described in
  Figure 
 \begin_inset CommandInset ref
@@ -426,7 +406,7 @@ noprefix "false"
 
 \end_inset
 
- produces one diffusion weighted image or signal 
+ produces one diffusion weighted signal 
 \begin_inset Formula $S$
 \end_inset
 
@@ -446,9 +426,17 @@ noprefix "false"
 \end_inset
 
  allows data sampling of the q-space.
- Finally and in general, a reference image, which is not diffusion weighted
- is taken, i.e.
- for which the strength of the diffusion gradient is zero (
+ In most cases, a reference image 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ is taken.
+ This 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ image does not have any diffusion sensitization, i.e.
+ the strength of the diffusion gradient is zero (
 \begin_inset Formula $q=0$
 \end_inset
 
@@ -457,11 +445,11 @@ noprefix "false"
 \end_inset
 
 ).
- In other words, a standard SE image that is usually denoted as 
+ In other words, 
 \begin_inset Formula $S_{0}$
 \end_inset
 
-.
+ is a standard SE image.
 \end_layout
 
 \begin_layout Standard
@@ -526,7 +514,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In most cases, the signal 
+Finally and in general, the signal 
 \begin_inset Formula $S$
 \end_inset
 
@@ -539,30 +527,35 @@ In most cases, the signal
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Hence, the measured diffusion signal 
-\begin_inset Formula $S$
+ In was shown that there is a Fourier relationship between the signal attenuatio
+n 
+\begin_inset Formula $E$
 \end_inset
 
- can be expressed in terms of 
-\begin_inset Formula $\mathbf{q}$
+ and the diffusion propagator 
+\begin_inset Formula $p\left(\mathbf{r},t\right)$
 \end_inset
 
- and 
+, which gives the probability of any displacement 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+ during the diffusion time 
 \begin_inset Formula $t$
 \end_inset
 
-, or in terms of 
-\begin_inset Formula $\mathbf{g}$
+ such that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E\left(\mathbf{q},t\right)=\int_{\mathbb{R}^{3}}p\left(\mathbf{r},t\right)exp\left(-2\pi i\mathbf{q}^{T}\mathbf{r}\right)d\mathbf{r}\label{eq:FFT-relationship-2}
+\end{equation}
+
 \end_inset
 
- and 
-\begin_inset Formula $b$
-\end_inset
 
-.
 \end_layout
 
 \begin_layout Section
@@ -2770,6 +2763,27 @@ noprefix "false"
 \end_inset
 
  matches with DTI.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the whole, one of the main challenges in building accurate models is
+ to find a balance between the complexity and the number of parameters of
+ the model.
+ Models with few parameters have a low level of complexity and are easier
+ to fit.
+ However, these models tend to underfit the data because they do not have
+ enough flexibility to capture variations in the diffusion signal.
+ On the other hand, high complexity models are more capable of capturing
+ variations in the diffusion signal and 
+\end_layout
+
+\begin_layout Standard
+have many parameters to tune and tend to overfit the data.
+ 
 \end_layout
 
 \begin_layout Section
@@ -3370,7 +3384,7 @@ Either in neuroscience research or clinical applications, validation is
  Estimation of the fiber tracts and tissue profiles is extremely challenging.
  Besides, it is well-known that there is no in-vivo data with a real ground
  truth (GT) that could be used for validation.
- An extensively and successfully substitute for in vivo GT is the use of
+ An extensively and successfully substitute for in-vivo GT is the use of
  synthetic phantoms.
  They constitute a controllable scenario that provides precise information
  of the underlying microstructural properties (e.g.
