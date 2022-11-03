@@ -1821,12 +1821,51 @@ Maddah M, Grimson W, Warfield S, Wells W (2008): A unified framework for
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "tractometry-paper"
+key "tractometry-6"
 literal "false"
 
 \end_inset
 
+Yeatman JD, Dougherty RF, Myall NJ, Wandell BA, Feldman HM.
+ Tract profiles of white matter properties: automating fiber-tract quantificatio
+n.
+ PLoS One.
+ 2012;7(11):e49790.
+ doi: 10.1371/journal.pone.0049790.
+ Epub 2012 Nov 14.
+ PMID: 23166771; PMCID: PMC3498174.
+\end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-7"
+literal "false"
+
+\end_inset
+
+Stikov N, Perry L, Mezer A, Rykhlevskaia E, Wandell B, Pauly J, Dougherty
+ R (2011): Bound pool fractions complement diffusion measures to describe
+ white matter micro and macrostructure.
+ NeuroImage 54:1112–1121.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry-8"
+literal "false"
+
+\end_inset
+
+Kruper J, Yeatman JD, Richie-Halford A, Bloom D, Grotheer M, Caffarra S,
+ Kiar G, Karipidis II, Roy E, Chandio BQ, Garyfallidis E, Rokem A.
+ Evaluating the Reliability of Human Brain White Matter Tractometry.
+ Apert Neuro.
+ 2021;1(1):10.52294/e6198273-b8e3-4b63-babb-6e6b0da10669.
+ doi: 10.52294/e6198273-b8e3-4b63-babb-6e6b0da10669.
+ Epub 2021 Nov 17.
+ PMID: 35079748; PMCID: PMC8785971.
 \end_layout
 
 \begin_layout Bibliography
@@ -1848,7 +1887,7 @@ Cousineau, M., P-M.
  Descoteaux.
  "A test-retest study on Parkinson's PPMI dataset yields statistically significa
 nt white matter fascicles." NeuroImage: Clinical 16, 222-233 (2017) doi:10.1016/j.n
-icl.2017.07.020
+icl.2017.07.020.
 \end_layout
 
 \begin_layout Bibliography
@@ -1861,7 +1900,7 @@ literal "false"
 
 Kurtzer GM, Sochat V, Bauer MW Singularity: Scientific containers for mobility
  of compute.
- PLoS ONE 12(5): e0177459 (2017) https://doi.org/10.1371/journal.pone.0177459
+ PLoS ONE 12(5): e0177459 (2017) https://doi.org/10.1371/journal.pone.0177459.
 \end_layout
 
 \begin_layout Bibliography
@@ -1875,7 +1914,38 @@ literal "false"
 P.
  Di Tommaso, et al.
  Nextflow enables reproducible computational workflows.
- Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820
+ Nature Biotechnology 35, 316–319 (2017) https://doi.org/10.1038/nbt.3820.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-quick-bundles"
+literal "false"
+
+\end_inset
+
+Garyfallidis E., Côté M.-A., Rheault F., Sidhu J., Hau J., Petit L., Fortin D.,
+ Cunanne S., Descoteaux M.
+ Recognition of white matter bundles using local and global streamline-based
+ registration and clustering.
+ NeuroImage.
+ 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-minimum-distance-flipped"
+literal "false"
+
+\end_inset
+
+Garyfallidis E., Brett M., Correia M.M., Williams G.B., Nimmo-Smith I.
+ Quickbundles, a method for tractography simplification.
+ Front.
+ Neurosci.
+ 2012;6:175.
 \end_layout
 
 \begin_layout Bibliography
@@ -1909,6 +1979,21 @@ Diffusion MRI in multiple sclerosis M.
  Miller, M.
  Filippi Neurology Nov 2005, 65 (10) 1526-1532; DOI: 10.1212/01.wnl.0000184471.83948.
 e0
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "visualization-dMRI-data"
+literal "false"
+
+\end_inset
+
+Leemans, Alexander.
+ (2010).
+ Visualization of Diffusion MRI Data.
+ 10.1093/med/9780195369779.003.0021.
+ 
 \end_layout
 
 \end_body

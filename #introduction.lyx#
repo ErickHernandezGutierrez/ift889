@@ -1366,33 +1366,13 @@ where
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
-\Psi\left(\hat{\mathbf{r}}\right)=\intop_{0}^{\infty}p\left(r\hat{\mathbf{r}},t\right)r^{2}dr,
-\end{eqnarray*}
+\begin{eqnarray}
+\Psi\left(\hat{\mathbf{r}}\right)=\intop_{0}^{\infty}p\left(r\hat{\mathbf{r}},t\right)r^{2}dr, &  & \hat{\mathbf{r}}\in\mathbb{S}^{2}.\label{eq:diffusion-propagator-to-dODF}
+\end{eqnarray}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Psi\left(\hat{\mathbf{r}}\right)=\intop_{0}^{\infty}p\left(r\hat{\mathbf{r}},t\right)r^{2}dr,\label{eq:diffusion-propagator-to-dODF}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $r\in\mathbf{\mathbb{R}_{0}^{+}}$
-\end_inset
-
- and 
-\begin_inset Formula $\hat{\mathbf{r}}\in\mathbb{S}^{2}$
-\end_inset
-
-.
- DSI can detect the multiple fascicle orientation within a voxel.
+DSI can detect the multiple fascicle orientation within a voxel.
  However, it requires strong gradients (
 \begin_inset Formula $0\leq b\leq20,000$
 \end_inset
@@ -1822,7 +1802,7 @@ pherical
 \series bold
 H
 \series default
-armonics (SH) representation (see Anexo) of the measured signal 
+armonics (SH) representation (see Appendix A) of the measured signal 
 \begin_inset Formula $S$
 \end_inset
 
@@ -3317,6 +3297,23 @@ noprefix "false"
 \end_inset
 
 .
+ The analysis of these metrics along the tracts is called 
+\begin_inset Quotes eld
+\end_inset
+
+tract profiles
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-3,tractometry-4,tractometry-5"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3363,30 +3360,171 @@ The fixel-based metric map has an image per every direction.
 \end_layout
 
 \begin_layout Standard
-The analysis of these metrics along the tracts is called 
-\begin_inset Quotes eld
-\end_inset
-
-tract profiles
-\begin_inset Quotes erd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractometry-3,tractometry-4,tractometry-5"
-literal "false"
-
-\end_inset
-
-.
- There are 
+There are 
 \begin_inset Formula $2$
 \end_inset
 
  types of tractometry reported in the literature: One that considers metrics
  derived from dMRI, while the others consider metrics from modalities other
  than dMRI.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-1,tractometry-2"
+literal "false"
+
+\end_inset
+
+ was compared the 
+\series bold
+Q
+\series default
+uantitative 
+\series bold
+M
+\series default
+agnetization 
+\series bold
+T
+\series default
+ransfer (QMT) imaging and the 
+\series bold
+M
+\series default
+yelin 
+\series bold
+W
+\series default
+ater 
+\series bold
+F
+\series default
+raction (MWF) to dMRI metrics; analysis were reported on a voxel by voxel
+ basis or averages within regions of interest.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-7"
+literal "false"
+
+\end_inset
+
+ an analysis of tract-averaged values was made about the relationship between
+ the proton 
+\series bold
+B
+\series default
+ound 
+\series bold
+P
+\series default
+ool 
+\series bold
+F
+\series default
+raction (BPF) and FA in a set of white matter tracts.
+ Another framework called profilometry has been proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "profilometry"
+literal "false"
+
+\end_inset
+
+ to make a joint analysis of multiple metrics, including both dMRI metrics
+ and metrics non derived from dMRI like the MWF.
+ It was applied to both MS cohort and single MS patients.
+ Several studies have been conducted to investigate the reliability of tractomet
+ry like in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-8,tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+.
+ In particular, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+ was proposed a pipeline called tractometry_flow that independently process
+ each dissected bundle of a whole brain tractogram.
+ First, the tractometry_flow pipeline removes spurious streamlines using
+ hierarchical QuickBundles 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-quick-bundles"
+literal "false"
+
+\end_inset
+
+.
+ Then, centroids are computed as a mean streamline of the bundle using the
+ minimum-distance-flipped metric 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-minimum-distance-flipped"
+literal "false"
+
+\end_inset
+
+.
+ Centroids are subsampled in equidistant points, and All points of every
+ streamline in the each bundle are assigned to the closest centroid point.
+ After that, tractometry_flow projects the metric values of an input metric
+ map to these assigments, and computes an average metric value per subsampled
+ point along the bundle.
+ In order to mitigate the contribution of spurious streamlines to the averaged
+ value in each voxel, all voxels are weighted by its relative geodesic distance
+ to the closest centroid point.
+ In the end, a tract profile is extracted for every combination of metrics
+ and bundles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tractometry_flow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
