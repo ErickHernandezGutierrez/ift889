@@ -121,6 +121,18 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
 filename "introduction.lyx"
@@ -174,6 +186,16 @@ filename "chapter4.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "chapter5.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "appendix.lyx"
 
 \end_inset
 
@@ -354,7 +376,15 @@ literal "false"
 
 \end_inset
 
-
+Rokem A, Yeatman JD, Pestilli F, Kay KN, Mezer A, van der Walt S, Wandell
+ BA.
+ Evaluating the accuracy of diffusion MRI models in white matter.
+ PLoS One.
+ 2015 Apr 16;10(4):e0123272.
+ doi: 10.1371/journal.pone.0123272.
+ Erratum in: PLoS One.
+ 2015;10(9):e0139150.
+ PMID: 25879933; PMCID: PMC4400066.
 \end_layout
 
 \begin_layout Bibliography

@@ -1,0 +1,1123 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Book Antiqua"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "language={C++},keywordstyle={\color{blue}},commentstyle={\color{magenta}\itshape},emphstyle={\color{red}},basicstyle={\ttfamily},stringstyle={\color{green}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Section
+Spherical Harmonics
+\end_layout
+
+\begin_layout Standard
+Spherical harmonics are special functions defined on 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+.
+ They are used to represent any well-behaved spherical functions as they
+ are a complete orthonormal base.
+ They are defined for an order 
+\begin_inset Formula $l\geq0$
+\end_inset
+
+ and degree 
+\begin_inset Formula $-l\leq m\leq l$
+\end_inset
+
+ as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+Y_{l}^{m}\left(\theta,\phi\right)=\sqrt{\frac{\left(2l+1\right)}{4\pi}\frac{\left(l-m\right)!}{\left(l+m\right)!}}P_{l}^{m}\left(cos\theta\right)e^{im\phi}, &  & \left(\theta,\phi\right)\in\mathbb{S}^{2},\label{eq:SH-bases}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $P_{l}^{m}$
+\end_inset
+
+ are the Legendre polynomials.
+ Thus, any well-behaved spherical function signal 
+\begin_inset Formula $S$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ can be represented as its spherical harmonic expansion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+S\left(\theta,\phi\right)=\sum_{l=0}^{\infty}\sum_{m=-l}^{l}c_{l}^{m}Y_{l}^{m}\left(\theta,\phi\right), &  & \left(\theta,\phi\right)\in\mathbb{S}^{2}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usually, the spherical harmonic expansion is truncated at some 
+\begin_inset Formula $l_{max}$
+\end_inset
+
+ because it is impossible to represent an infinite number of terms in the
+ computer.
+ Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+S\left(\theta,\phi\right)\simeq\sum_{l=0}^{l_{max}}\sum_{m=-l}^{l}c_{l}^{m}Y_{l}^{m}\left(\theta,\phi\right), &  & \left(\theta,\phi\right)\in\mathbb{S}^{2}.\label{eq:SH-expansion}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to the nature of the diffusion MRI signals, the data involved are real
+ and symmetric.
+ These two important properties allow to use real basis with no imaginary
+ components, and ignore all odd order terms in the harmonic expansion.
+ Thus, the spherical basis functions 
+\begin_inset Formula $Y_{l}^{m}\left(\theta,\phi\right)$
+\end_inset
+
+ can be simplified as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+Y_{l}^{m}\left(\theta,\phi\right) & = & \begin{cases}
+0 & l\;odd,\\
+\sqrt{\frac{\left(2l+1\right)}{2\pi}\frac{\left(l+m\right)!}{\left(l-m\right)!}}P_{l}^{-m}\left(cos\theta\right)sin\left(-m\phi\right) & m<0,\\
+\sqrt{\frac{\left(2l+1\right)}{2\pi}\frac{\left(l-m\right)!}{\left(l+m\right)!}}P_{l}^{m}\left(cos\theta\right)cos\left(m\phi\right) & m\geq0.
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case, the spherical coefficients 
+\begin_inset Formula $c_{l}^{m}$
+\end_inset
+
+ and their corresponding basis functions 
+\begin_inset Formula $Y_{l}^{m}\left(\theta,\phi\right)$
+\end_inset
+
+ can be conform to a new indexing 
+\begin_inset Formula $j_{l,m}$
+\end_inset
+
+ such that 
+\begin_inset Formula $j_{l,m}=\frac{1}{2}l\left(l+1\right)+m$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mrtrix-spherical-harmonics"
+literal "false"
+
+\end_inset
+
+, and for notation convenience we will take 
+\begin_inset Formula $j\coloneqq1+j_{l,m}$
+\end_inset
+
+, see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:new-indexing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $j_{l,m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $l,m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=0\\
+m=0
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=2\\
+m=-2
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=2\\
+m=-1
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=2\\
+m=0
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=2\\
+m=1
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=2\\
+m=2
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+l=4\\
+m=-4
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:new-indexing"
+
+\end_inset
+
+New indexing of the spherical harmonics coefficients and basis functions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $l$
+\end_inset
+
+ takes only even values and 
+\begin_inset Formula $m\in\left[-l,l\right]$
+\end_inset
+
+, then 
+\begin_inset Formula $j$
+\end_inset
+
+ lies on 
+\begin_inset Formula $\left[1,R\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $R=\frac{1}{2}\left(l_{max}+1\right)\left(l_{max}+2\right)$
+\end_inset
+
+.
+ Thus, the signal can be expressed as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hardi-maxime"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+S\left(\theta,\phi\right)=\sum_{j=0}^{R}c_{j}Y_{j}\left(\theta,\phi\right), &  & \left(\theta,\phi\right)\in\mathbb{S}^{2}.\label{eq:SH-representation}
+\end{eqnarray}
+
+\end_inset
+
+Let's suppose we have a set of 
+\begin_inset Formula $n$
+\end_inset
+
+ gradient directions 
+\begin_inset Formula $\text{\left\{ \mathbf{g}_{i}=\left(\theta_{i},\phi_{i}\right)\in\mathbb{S}^{2}\right\} }_{i=1}^{n}$
+\end_inset
+
+ uniformly distributed on 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+.
+ Along each of these gradient directions 
+\begin_inset Formula $\mathbf{g}_{i}$
+\end_inset
+
+ a 3D diffusion MRI signal 
+\begin_inset Formula $S\left(\theta,\phi\right)$
+\end_inset
+
+ of size 
+\begin_inset Formula $X\times Y\times Z$
+\end_inset
+
+ is measured.
+ Hence, at each imaging voxel, we have a discrete sampling 
+\begin_inset Formula $\left\{ S\left(\theta_{1},\phi_{1}\right),\dots,S\left(\theta_{n},\phi_{n}\right)\right\} $
+\end_inset
+
+ of 
+\begin_inset Formula $S\left(\theta,\phi\right)$
+\end_inset
+
+ along 
+\begin_inset Formula $n$
+\end_inset
+
+ points on the unit sphere.
+ Now, substituting the samples into the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:SH-representation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+S\left(\theta_{1},\phi_{1}\right) & = & \sum_{j=0}^{R}c_{j}Y_{j}\left(\theta_{1},\phi_{1}\right)\\
+ & \dots\\
+S\left(\theta_{n},\phi_{n}\right) & = & \sum_{j=0}^{R}c_{j}Y_{j}\left(\theta_{n},\phi_{n}\right),
+\end{eqnarray*}
+
+\end_inset
+
+The previous linear system can be written in matrix form as 
+\begin_inset Formula $\boldsymbol{S}=\boldsymbol{Y}\boldsymbol{c}$
+\end_inset
+
+, where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\boldsymbol{S}=\left(\begin{array}{c}
+S\left(\theta_{1},\phi_{1}\right)\\
+\vdots\\
+S\left(\theta_{n},\phi_{n}\right)
+\end{array}\right)\in\mathbb{R}^{n}, & \boldsymbol{c}=\left(\begin{array}{c}
+c_{1}\\
+\vdots\\
+c_{R}
+\end{array}\right)\in\mathbb{R}^{R}, & \boldsymbol{Y}=\left(\begin{array}{ccc}
+Y_{1}\left(\theta_{1},\phi_{1}\right) & \cdots & Y_{R}\left(\theta_{1},\phi_{1}\right)\\
+\vdots & \ddots & \vdots\\
+Y_{1}\left(\theta_{n},\phi_{n}\right) & \cdots & Y_{R}\left(\theta_{n},\phi_{n}\right)
+\end{array}\right)\in\mathbb{R}^{n\times R}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, in order to fit the signal, the spherical harmonic coefficients
+ can be obtained with the standard least-squares solution 
+\begin_inset Formula $\boldsymbol{c}=\left(\boldsymbol{Y}^{T}\boldsymbol{Y}\right)^{-1}\boldsymbol{S}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HARDI-Max"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Proof that Multi-Shell HARDI Acquisitions are Required to Fit Multi-Tensor
+ Models
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "multi-tensor-proof"
+literal "false"
+
+\end_inset
+
+ was proved that the tensors and volume fractions of a multi-tensor model
+ cannot be uniquely determined when using single-shell HARDI acquisitions.
+ Considering the multi-tensor model as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{i}\left(\mathbb{D},f\right)=S_{0}\sum_{j=1}^{K}f_{j}S_{i,j},\label{eq:multi-tensor-model}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ is the 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+-weighted image, 
+\begin_inset Formula $\mathbb{D}=\left(\mathbb{D}_{1},\dots,\mathbb{D}_{K}\right)$
+\end_inset
+
+ the tensors representing the total number of 
+\begin_inset Formula $K$
+\end_inset
+
+ fascicles, 
+\begin_inset Formula $S_{i,j}$
+\end_inset
+
+ is the diffusion signal arising from a single fascicle using the single
+ tensor model of Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $S_{i,j}=e^{-b_{i}g_{i}^{T}\mathbb{D}_{j}g_{i}}$
+\end_inset
+
+, and 
+\begin_inset Formula $f$
+\end_inset
+
+ are the volume fractions of each component such that 
+\begin_inset Formula $f_{j}\in[0,1]$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{j}f_{j}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let's consider a model with two fascicles represented by the two diffusion
+ tensors 
+\begin_inset Formula $\mathbb{D}=\left(\mathbb{D}_{1},\mathbb{D}_{2}\right)$
+\end_inset
+
+, the fractions 
+\begin_inset Formula $f=\left(f_{1},1-f_{1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $N$
+\end_inset
+
+ signal measurements 
+\begin_inset Formula $\left\{ y_{i}=S\left(\mathbf{g}_{i},b\right)\right\} _{i=1}^{N}$
+\end_inset
+
+ acquired along the 
+\begin_inset Formula $N$
+\end_inset
+
+ diffusion gradients 
+\begin_inset Formula $\left\{ \mathbf{g}_{i}\right\} _{i=1}^{N}$
+\end_inset
+
+ with a unique non-zero b-value 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathbb{D}$
+\end_inset
+
+ and 
+\begin_inset Formula $f$
+\end_inset
+
+ are generally estimated by a least-square approach
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(\mathbb{D},f\right)=\underset{\mathbb{D},f}{argmin}\sum_{i=1}^{N}\left(S_{i}\left(\mathbb{D},f\right)-y_{i}\right)^{2}.\label{eq:multi-tensor-least-squares}
+\end{equation}
+
+\end_inset
+
+Then, for any 
+\begin_inset Formula $\alpha,\beta>0$
+\end_inset
+
+ the Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ can be written as:
+\begin_inset Formula 
+\begin{eqnarray}
+S_{i}\left(\mathbb{D},f\right) & = & S_{0}\left(f_{1}S_{i,1}+\left(1-f_{1}\right)S_{i,2}\right)=S_{0}\left(\frac{\alpha}{\alpha}f_{1}S_{i,1}+\frac{\beta}{\beta}\left(1-f_{1}\right)S_{i,2}\right)=S_{0}\left(\frac{\alpha}{\alpha}f_{1}e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{1}\mathbf{g}_{i}}+\frac{\beta}{\beta}\left(1-f_{1}\right)e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{2}\mathbf{g}_{i}}\right)=\nonumber \\
+ & = & S_{0}\left(\alpha f_{1}e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{1}\mathbf{g}_{i}-ln\left(\alpha\right)}+\beta\left(1-f_{1}\right)e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{2}\mathbf{g}_{i}-ln\left(\beta\right)}\right).\label{eq:multi-tensor-rewritten}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+S_{i}\left(\mathbb{D},f\right) & = & S_{0}\left(\frac{\alpha}{\alpha}f_{1}e^{-bg_{i}^{T}\mathbb{D}_{1}g_{i}}+\frac{\beta}{\beta}\left(1-f_{1}\right)e^{-bg_{i}^{T}\mathbb{D}_{2}g_{i}}\right)\\
+ & = & S_{0}\left(\alpha f_{1}e^{-bg_{i}^{T}\mathbb{D}_{1}g_{i}-ln\left(\alpha\right)}+\beta\left(1-f_{1}\right)e^{-bg_{i}^{T}\mathbb{D}_{2}g_{i}-ln\left(\beta\right)}\right)\\
+ & = & S_{0}\left(\alpha f_{1}e^{-bg_{i}^{T}\left(\mathbb{D}_{1}+\frac{ln\left(\alpha\right)}{b}\mathbb{I}_{3}\right)g_{i}}+\beta\left(1-f_{1}\right)e^{-bg_{i}^{T}\left(\mathbb{D}_{2}+\frac{ln\left(\beta\right)}{b}\mathbb{I}_{3}\right)g_{i}}\right)\\
+ & = & S_{0}\left(f_{1}^{'}e^{-bg_{i}^{T}\mathbb{D}_{1}^{'}g_{i}}+f_{2}^{'}e^{-bg_{i}^{T}\mathbb{D}_{2}^{'}g_{i}}\right)\\
+ & = & S_{i}\left(\mathbb{D}^{'},f^{'}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because 
+\begin_inset Formula $\mathbf{g}_{i}^{T}\mathbf{g}_{i}=1$
+\end_inset
+
+, we have 
+\begin_inset Formula $ln\left(\alpha\right)=\mathbf{g}_{i}^{T}\left(ln\left(\alpha\right)\mathbb{I}_{3}\right)\mathbf{g}_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathbb{I}_{3}$
+\end_inset
+
+ is the 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ identity matrix.
+ Therefore, substituting previous equality and Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-rewritten"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-least-squares"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ it becomes
+\begin_inset Formula 
+\begin{eqnarray}
+\left(\mathbb{D},f\right) & = & \underset{\mathbb{D},f}{argmin}\sum_{i=1}^{N}\left(S_{0}\left(\alpha f_{1}e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{1}\mathbf{g}_{i}-ln\left(\alpha\right)}+\beta\left(1-f_{1}\right)e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{2}\mathbf{g}_{i}-ln\left(\beta\right)}\right)-y_{i}\right)^{2}\nonumber \\
+ & = & \underset{\mathbb{D},f}{argmin}\sum_{i=1}^{N}\left(S_{0}\left(\alpha f_{1}e^{-b\mathbf{g}_{i}^{T}\left(\mathbb{D}_{1}+\frac{ln\left(\alpha\right)}{b}\mathbb{I}_{3}\right)\mathbf{g}_{i}}+\beta\left(1-f_{1}\right)e^{-b\mathbf{g}_{i}^{T}\left(\mathbb{D}_{2}+\frac{ln\left(\beta\right)}{b}\mathbb{I}_{3}\right)\mathbf{g}_{i}}\right)-y_{i}\right)^{2}.\label{eq:multi-tensor-least-squares-alpha-beta}
+\end{eqnarray}
+
+\end_inset
+
+Now, let's take 
+\begin_inset Formula $\alpha\in(0,1]$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta=\left(1-\alpha f_{1}\right)/\left(1-f_{1}\right)$
+\end_inset
+
+, it is possible to show that 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+, and that taking 
+\begin_inset Formula $f^{'}=\left(f_{1}^{'},f_{2}^{'}\right)=\left(\alpha f_{1},\beta\left(1-f_{1}\right)\right)$
+\end_inset
+
+, it leads 
+\begin_inset Formula $f_{1}^{'}+f_{2}^{'}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $0<f_{1}^{'},f_{2}^{'}\leq1$
+\end_inset
+
+.
+ Additionally, if 
+\begin_inset Formula $\mathbb{D}^{'}=\left(\mathbb{D}_{1}^{'},\mathbb{D}_{2}^{'}\right)=\left(\mathbb{D}_{1}+\frac{ln\left(\alpha\right)}{b}\mathbb{I}_{3},\mathbb{D}_{2}+\frac{ln\left(\beta\right)}{b}\mathbb{I}_{3}\right)$
+\end_inset
+
+, it follows from Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-least-squares-alpha-beta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\mathbb{D},f\right) & = & \underset{\mathbb{D}^{'},f^{'}}{argmin}\sum_{i=1}^{N}\left(S_{0}\left(f_{1}^{'}e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{1}^{'}\mathbf{g}_{i}}+f_{2}^{'}e^{-b\mathbf{g}_{i}^{T}\mathbb{D}_{2}^{'}\mathbf{g}_{i}}\right)-y_{i}\right)^{2}\\
+ & = & \underset{\mathbb{D}^{'},f^{'}}{argmin}\sum_{i=1}^{N}\left(S_{i}\left(\mathbb{D}^{'},f^{'}\right)-y_{i}\right)^{2}.
+\end{eqnarray*}
+
+\end_inset
+
+It indicates that 
+\begin_inset Formula $\left(\mathbb{D}^{'},f^{'}\right)$
+\end_inset
+
+ is also solution of Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-least-squares"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In fact, there is an infinite number of different solutions 
+\begin_inset Formula $\left(\mathbb{D}^{'},f^{'}\right)$
+\end_inset
+
+ by varying the value of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Intuitively, this means that when using a single non-zero b-value, it is
+ not possible to find a unique solution to Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multi-tensor-least-squares"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ That's why multi-tensor approaches have frequently been reported to be
+ numerically challenging and unstable when using single-shell diffusion
+ MRI.
+ However, it is not the case with multi-shell data with multiple non-zero
+ b-values 
+\begin_inset Formula $\left\{ b_{i}\right\} _{i=1}^{N}$
+\end_inset
+
+ because 
+\begin_inset Formula $\mathbb{D}_{i}^{'}=\left(\mathbb{D}_{1}+\frac{ln\left(\alpha\right)}{b_{i}}\mathbb{I}_{3},\mathbb{D}_{2}+\frac{ln\left(\beta\right)}{b_{i}}\mathbb{I}_{3}\right)$
+\end_inset
+
+ is now function of 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

@@ -1366,6 +1366,17 @@ where
 
 \begin_layout Standard
 \begin_inset Formula 
+\begin{eqnarray*}
+\Psi\left(\hat{\mathbf{r}}\right)=\intop_{0}^{\infty}p\left(r\hat{\mathbf{r}},t\right)r^{2}dr,
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
 \begin{equation}
 \Psi\left(\hat{\mathbf{r}}\right)=\intop_{0}^{\infty}p\left(r\hat{\mathbf{r}},t\right)r^{2}dr,\label{eq:diffusion-propagator-to-dODF}
 \end{equation}
@@ -2772,18 +2783,22 @@ noprefix "false"
 \begin_layout Standard
 On the whole, one of the main challenges in building accurate models is
  to find a balance between the complexity and the number of parameters of
- the model.
+ the model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "evaluating-accuracy-dMRI-models"
+literal "false"
+
+\end_inset
+
+.
  Models with few parameters have a low level of complexity and are easier
  to fit.
  However, these models tend to underfit the data because they do not have
  enough flexibility to capture variations in the diffusion signal.
- On the other hand, high complexity models are more capable of capturing
- variations in the diffusion signal and 
-\end_layout
-
-\begin_layout Standard
-have many parameters to tune and tend to overfit the data.
- 
+ On the other hand, high complexity models are more robust and capable of
+ capturing variations in the diffusion signal.
+ But they have many parameters to tune and tend to overfit the data.
 \end_layout
 
 \begin_layout Section
@@ -2899,7 +2914,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename fig-tractography.png
-	scale 40
+	scale 45
 
 \end_inset
 
