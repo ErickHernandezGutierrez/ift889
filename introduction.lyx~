@@ -3360,16 +3360,6 @@ The fixel-based metric map has an image per every direction.
 \end_layout
 
 \begin_layout Standard
-There are 
-\begin_inset Formula $2$
-\end_inset
-
- types of tractometry reported in the literature: One that considers metrics
- derived from dMRI, while the others consider metrics from modalities other
- than dMRI.
-\end_layout
-
-\begin_layout Standard
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3437,16 +3427,6 @@ literal "false"
  to make a joint analysis of multiple metrics, including both dMRI metrics
  and metrics non derived from dMRI like the MWF.
  It was applied to both MS cohort and single MS patients.
- Several studies have been conducted to investigate the reliability of tractomet
-ry like in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractometry-8,tractometry_flow-1"
-literal "false"
-
-\end_inset
-
-.
  In particular, in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3456,7 +3436,8 @@ literal "false"
 \end_inset
 
  was proposed a pipeline called tractometry_flow that independently process
- each dissected bundle of a whole brain tractogram.
+ each dissected bundle of a whole brain tractogram, using DTI-based metrics
+ as well as HARDI-based metrics.
  First, the tractometry_flow pipeline removes spurious streamlines using
  hierarchical QuickBundles 
 \begin_inset CommandInset citation
@@ -3486,7 +3467,96 @@ literal "false"
  value in each voxel, all voxels are weighted by its relative geodesic distance
  to the closest centroid point.
  In the end, a tract profile is extracted for every combination of metrics
- and bundles.
+ and bundles, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tractoflow-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-tractometry_flow.png
+	scale 19.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tractometry_flow"
+
+\end_inset
+
+Important steps of the tractometry_flow pipeline illustrated on the corticospina
+l tract (CST) using the FA metric.
+ (a) Outliers are removed.
+ (b) Centroids are extracted.
+ (c) The bundle is subsampled.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Several studies have been conducted to investigate the reliability of tractometr
+y like in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-8,tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
