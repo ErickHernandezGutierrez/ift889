@@ -1642,6 +1642,57 @@ Kreher, B., Mader, I., Kiselev, V., 2008.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "particle-filter-tracking"
+literal "false"
+
+\end_inset
+
+Girard G, Whittingstall K, Deriche R, Descoteaux M.
+ Towards quantitative connectivity analysis: reducing tractography biases.
+ Neuroimage.
+ 2014 Sep;98:266-78.
+ doi: 10.1016/j.neuroimage.2014.04.074.
+ Epub 2014 May 9.
+ PMID: 24816531.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "BET"
+literal "false"
+
+\end_inset
+
+Smith SM.
+ Fast robust automated brain extraction.
+ Hum Brain Mapp.
+ 2002 Nov;17(3):143-55.
+ doi: 10.1002/hbm.10062.
+ PMID: 12391568; PMCID: PMC6871816.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MP-PCA"
+literal "false"
+
+\end_inset
+
+Veraart J, Novikov DS, Christiaens D, Ades-Aron B, Sijbers J, Fieremans
+ E.
+ Denoising of diffusion MRI using random matrix theory.
+ Neuroimage.
+ 2016 Nov 15;142:394-406.
+ doi: 10.1016/j.neuroimage.2016.08.016.
+ Epub 2016 Aug 11.
+ PMID: 27523449; PMCID: PMC5159209.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "COMMIT"
 literal "false"
 
@@ -1662,6 +1713,17 @@ A.
  NeuroImage.
  105:32–44.
  2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gudbjartsson-correction"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -1931,6 +1993,21 @@ Garyfallidis E., Côté M.-A., Rheault F., Sidhu J., Hau J., Petit L., Fortin D.
  registration and clustering.
  NeuroImage.
  2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-minimum-distance-flipped"
+literal "false"
+
+\end_inset
+
+Garyfallidis E., Brett M., Correia M.M., Williams G.B., Nimmo-Smith I.
+ Quickbundles, a method for tractography simplification.
+ Front.
+ Neurosci.
+ 2012;6:175.
 \end_layout
 
 \begin_layout Bibliography

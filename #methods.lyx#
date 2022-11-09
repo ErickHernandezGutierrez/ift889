@@ -222,8 +222,13 @@ noprefix "false"
 .
 \end_layout
 
+\begin_layout Standard
+Tractoflow uses a fODF-based tractography algorithm [] with a particle filter
+ tractography and relaxation stopping criterion.
+\end_layout
+
 \begin_layout Itemize
-Bet Prelim DWI: a preliminary brain mask is extracted using the Brain Extraction
+Bet Prelim DWI: A preliminary brain mask is extracted using the Brain Extraction
  Tool (BET) command 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -236,7 +241,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Denoising: this step removes the noise induced by the dMRI acquisition.
+Denoising: This step removes the noise induced by the dMRI acquisition.
  It uses the 
 \series bold
 dwidenoise
@@ -261,7 +266,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Eddy/Topup: this step corrects the brain deformation induced by the magnetic
+Eddy/Topup: This step corrects the brain deformation induced by the magnetic
  field susceptibility artifacts.
  After that, Eddy corrects eddy-currents, motion artefacts and performs
  slice-wise outlier detection and correction.
@@ -281,7 +286,7 @@ check for reversed b0 image
 \end_layout
 
 \begin_layout Itemize
-Brain Extraction: the extraction is performed on the 
+Brain Extraction: The extraction is performed on the 
 \begin_inset Formula $b=0$
 \end_inset
 
@@ -291,7 +296,7 @@ Brain Extraction: the extraction is performed on the
 \end_layout
 
 \begin_layout Itemize
-N4 Bias Correction: the center of the brain image is less intense than its
+N4 Bias Correction: The center of the brain image is less intense than its
  outer boundary.
  The N4 Bias Correction normalizes the image intensities to reduce this
  intensity bias.
@@ -323,7 +328,7 @@ Gudbjartsson Correction:
 \end_layout
 
 \begin_layout Itemize
-Crop: the bounding box of the dMRI image is reduced using DIPY 
+Crop: The bounding box of the dMRI image is reduced using DIPY 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DIPY"
@@ -331,58 +336,19 @@ literal "false"
 
 \end_inset
 
- to accelerate the following steps.
-\end_layout
-
-\begin_layout Itemize
-Normalize: intensities in the dMRI image are normalized using the 
-\series bold
-dwinormalise
-\series default
- command included in MRtrix 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MRtrix"
-literal "false"
-
-\end_inset
-
-.
- Normalization is such that the intensity mean value in the water matter
- is 
-\begin_inset Formula $\sim1000$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Resample: the dMRI image is resampled to 
-\begin_inset Formula $1mm$
-\end_inset
-
- isotropic spatial resolution to match the spatial resolution of the T1
- image.
+ to accelerate the following steps
 \end_layout
 
 \begin_layout Itemize
 Local Modeling for Tractography: shells corresponding to b-values 
-\begin_inset Formula $b=0$
-\end_inset
-
-, 
-\begin_inset Formula $1000$
-\end_inset
-
-, 
-\begin_inset Formula $2000$
+\begin_inset Formula $b=0,1000,2000$
 \end_inset
 
  
 \begin_inset Formula $mm^{2}/s$
 \end_inset
 
- are extracted to compute the fODF image.
+ are extracted to compute the fODF.
  The fiber response function used is the average of the subjects.
  The, the fODF is computed using CSD with 
 \begin_inset Formula $l_{max}=8$
@@ -392,9 +358,8 @@ Local Modeling for Tractography: shells corresponding to b-values
 \end_layout
 
 \begin_layout Itemize
-Tractography: Tractoflow uses a fODF-based tractography algorithm [] with
- a probabilistic anatomically-constrained particle filter tracking and relaxatio
-n stopping criterion 
+Tractography: The tractography algorithm used is the probabilistic anatomically-
+constrained particle filter tracking 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "particle-filter-tracking"

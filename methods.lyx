@@ -101,19 +101,6 @@ Explain how MRDS works (poner imagen gt y estimado con MRDS)
 status open
 
 \begin_layout Plain Layout
-Explain Tractometry_flow (be short)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 Mentions Optimizations for MRDS (number of fascicles selector & cuda)
 \end_layout
 
@@ -123,19 +110,482 @@ Mentions Optimizations for MRDS (number of fascicles selector & cuda)
 \end_layout
 
 \begin_layout Section
-Local Modeling
-\end_layout
-
-\begin_layout Section
-Tractography
+Pipeline
 \end_layout
 
 \begin_layout Standard
-Tractoflow uses a fODF-based tractography algorithm [] with a particle filter
- tractography and relaxation stopping criterion.
+The proposed pipeline is composed of 3 main parts: 
 \end_layout
 
-\begin_layout Section
+\begin_layout Enumerate
+Preprocessing of the dMRI and T1 data, and reconstruction of the initial
+ tractogram by using tractography.
+ This step is based in the Tractoflow pipeline 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractoflow"
+literal "false"
+
+\end_inset
+
+ with an additional step for correcting the Rician bias 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gudbjartsson-correction"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Major white matter bundles extraction from the whole-brain tractogram using
+ RecoBundlesX 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1,rbx_flow-2,rbx_flow-3,rbx_flow-4"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fixel-based metrics estimation for each voxel using a GPU-optimized MRDS
+ method applied to the MTM 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Tract profiles extraction for every combination of metrics and bundles using
+ Tractometry_flow adapted to the MRDS metrics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1,tractometry_flow-2,tractometry_flow-3"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Each of these steps is explained with more details in the incoming sections.
+\end_layout
+
+\begin_layout Subsection
+Preprocessing and Tractography
+\end_layout
+
+\begin_layout Standard
+Tractoflow 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractoflow"
+literal "false"
+
+\end_inset
+
+ is a pipeline based on two engines: Nextflow and Singularity that allows
+ to analyze a whole dMRI data set in only one simple script.
+ TractoFlow pipeline consist of 
+\begin_inset Formula $23$
+\end_inset
+
+ different steps: 
+\begin_inset Formula $14$
+\end_inset
+
+ steps for the diffusion weighted image processing and 
+\begin_inset Formula $8$
+\end_inset
+
+ steps for the T1 weighted image processing, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tractoflow-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Bet Prelim DWI: a preliminary brain mask is extracted using the Brain Extraction
+ Tool (BET) command 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BET"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Denoising: this step removes the noise induced by the dMRI acquisition.
+ It uses the 
+\series bold
+dwidenoise
+\series default
+ tool available in MRtrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+ that is based in the MP-PCA method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MP-PCA"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Eddy/Topup: this step corrects the brain deformation induced by the magnetic
+ field susceptibility artifacts.
+ After that, Eddy corrects eddy-currents, motion artefacts and performs
+ slice-wise outlier detection and correction.
+ The preliminary brain mask is used to accelerate this process by only processin
+g voxels in the mask.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+check for reversed b0 image
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Brain Extraction: the extraction is performed on the 
+\begin_inset Formula $b=0$
+\end_inset
+
+ image.
+ Then, brain mask is applied to the whole dMRI image.
+ This second brain extraction gives a distortion-free brain mask.
+\end_layout
+
+\begin_layout Itemize
+N4 Bias Correction: the center of the brain image is less intense than its
+ outer boundary.
+ The N4 Bias Correction normalizes the image intensities to reduce this
+ intensity bias.
+ N4 correction is performed on the 
+\begin_inset Formula $b=0$
+\end_inset
+
+ image with the ANTs command 
+\series bold
+N4BiasFieldCorrection
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "N4-correction"
+literal "false"
+
+\end_inset
+
+.
+ Later, the bias field is applied to the whole dMRI image.
+ It is important that this step comes after the Eddy/Topup to avoid modifying
+ the intensity values that are important for the deformation bias a eddy-current
+ corrections.
+\end_layout
+
+\begin_layout Itemize
+Gudbjartsson Correction: 
+\end_layout
+
+\begin_layout Itemize
+Crop: the bounding box of the dMRI image is reduced using DIPY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIPY"
+literal "false"
+
+\end_inset
+
+ to accelerate the following steps.
+\end_layout
+
+\begin_layout Itemize
+Normalize: intensities in the dMRI image are normalized using the 
+\series bold
+dwinormalise
+\series default
+ command included in MRtrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+.
+ Normalization is such that the intensity mean value in the water matter
+ is 
+\begin_inset Formula $\sim1000$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Resample: the dMRI image is resampled to 
+\begin_inset Formula $1mm$
+\end_inset
+
+ isotropic spatial resolution to match the spatial resolution of the T1
+ image.
+\end_layout
+
+\begin_layout Itemize
+Local Modeling for Tractography: shells corresponding to b-values 
+\begin_inset Formula $b=0$
+\end_inset
+
+, 
+\begin_inset Formula $1000$
+\end_inset
+
+, 
+\begin_inset Formula $2000$
+\end_inset
+
+ 
+\begin_inset Formula $mm^{2}/s$
+\end_inset
+
+ are extracted to compute the fODF image.
+ The fiber response function used is the average of the subjects.
+ The, the fODF is computed using CSD with 
+\begin_inset Formula $l_{max}=8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Tractography: a fODF-based tractography algorithm is used with a probabilistic
+ anatomically-constrained particle filter tracking and relaxation stopping
+ criterion 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "particle-filter-tracking"
+literal "false"
+
+\end_inset
+
+.
+ It uses the fODF image from the previous step, a white-matter mask as seeding
+ mask with 
+\begin_inset Formula $10$
+\end_inset
+
+ seeds per voxel.
+ Other parameters such as the step size, maximum angle, and usual streamline-bas
+ed tracking parameters were left as default.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tractoflow.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tractoflow-pipeline"
+
+\end_inset
+
+Processes of the TractoFlow pipeline.
+ In A (blue), the input files required to run the pipeline.
+ In B (green), the DWI processes that take the DWI, the b-values/b-vectors
+ files and the reversed phase encoded b = 0 image.
+ In C (red), the T1 processes that take the T1 weighted image in input.
+ In orange, all processes or images that are optional.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractoflow"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+re-hacer esta figura horizontal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bundle Extraction
+\end_layout
+
+\begin_layout Standard
+Once Tractoflow reconstructs a complete tractogram, the next step is to
+ perform bundle recognition, where the entire tractogram is decomposed into
+ separate bundles.
+ Tractography streamlines are classified as either beloging to a perticular
+ bundle or discarted.
+ For this bundle segmentation, we use the ReconBundlesx flow (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/scilus/rbx_flow
+\end_layout
+
+\end_inset
+
+).
+ ReconBundlesX is a tool to separate a wholebrain tractogram into different
+ bundles divided into separate files 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1,rbx_flow-2,rbx_flow-3,rbx_flow-4"
+literal "false"
+
+\end_inset
+
+.
+ It is multi-atlas and multi-parameter, and more robust to the single atlas
+ and single parameter version of RecoBundles published in DIPY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIPY"
+literal "false"
+
+\end_inset
+
+ as it has been shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbx_flow-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Local Modeling
+\end_layout
+
+\begin_layout Standard
+We haven seen in previous chapters that there is a variety of local diffusion
+ models and methods that can be used to represent the dMRI data.
+ In this work we have decided to use the MRDS method applied to the MTM
+ in order to estimate fixel-based dMRI metrics.
+ The model selection in the MRDS method is performed using the 
+\series bold
+B
+\series default
+ayesian 
+\series bold
+i
+\series default
+nformation 
+\series bold
+c
+\series default
+riteria (BIC).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MRDS is more simple than DIAMOND when representing the dMRI data.
+ However, MRDS needs less parameters compared with DIAMOND.
+ Thus, we have the hypothesis that MRDS is a viable trade-off between complexity
+ and number of parameters for clinic data.
+ Besides, MRDS has been shown to be more robust to noise than DIAMOND when
+ computing the orientations of the fixels 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS-rats"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MRDS estimate a different diffusivity for all fixels in a voxel.
+ MRDS can be informed with a starting point a priori for a better estimation.
+ We use a in-house implementation of DTI for estimating the initial diffusivitie
+s, considering voxels with a high probability of having a single fixel.
+\end_layout
+
+\begin_layout Subsection
 Tractometry
 \end_layout
 
@@ -790,165 +1240,6 @@ Explain dataset (ms_6months)
 
 \begin_layout Section
 Preprocessing
-\end_layout
-
-\begin_layout Subsection
-TractoFlow
-\end_layout
-
-\begin_layout Standard
-Tractoflow 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractoflow"
-literal "false"
-
-\end_inset
-
- is a pipeline as nextflows that allows to analyse a whole dataset of diffusion
- MRI data in only one simple script.
- TractoFlow pipeline consist of 
-\begin_inset Formula $23$
-\end_inset
-
- different steps: 
-\begin_inset Formula $14$
-\end_inset
-
- steps for the diffusion weighted image processing and 
-\begin_inset Formula $8$
-\end_inset
-
- steps for the T1 weighted image processing, see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:tractoflow-pipeline"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename tractoflow.png
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:tractoflow-pipeline"
-
-\end_inset
-
-Processes of the TractoFlow pipeline.
- In A (blue), the input files required to run the pipeline.
- In B (green), the DWI processes that take the DWI, the b-values/b-vectors
- files and the reversed phase encoded b = 0 image.
- In C (red), the T1 processes that take the T1 weighted image in input.
- In orange, all processes or images that are optional.
- Image taken from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractoflow"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-re-hacer esta figura horizontal.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-ReconBundlesX
-\end_layout
-
-\begin_layout Standard
-Once Tractoflow reconstructs a complete tractogram, the next step is to
- perform bundle recognition, where the entire tractogram is decomposed into
- separate bundles.
- Tractography streamlines are classified as either beloging to a perticular
- bundle or discarted.
- For this bundle segmentation, we use the ReconBundlesx flow (
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://github.com/scilus/rbx_flow
-\end_layout
-
-\end_inset
-
-).
- ReconBundlesX is a tool to separate a wholebrain tractogram into different
- bundles divided into separate files 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rbx_flow-1,rbx_flow-2,rbx_flow-3,rbx_flow-4"
-literal "false"
-
-\end_inset
-
-.
- It is multi-atlas and multi-parameter, and more robust to the single atlas
- and single parameter version of RecoBundles published in DIPY 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "DIPY"
-literal "false"
-
-\end_inset
-
- as it has been shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rbx_flow-1"
-literal "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
