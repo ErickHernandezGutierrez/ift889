@@ -1693,6 +1693,34 @@ Veraart J, Novikov DS, Christiaens D, Ades-Aron B, Sijbers J, Fieremans
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "N4-correction"
+literal "false"
+
+\end_inset
+
+Tustison NJ, Avants BB, Cook PA, Zheng Y, Egan A, Yushkevich PA, Gee JC.
+ N4ITK: improved N3 bias correction.
+ IEEE Trans Med Imaging.
+ 2010 Jun;29(6):1310-20.
+ doi: 10.1109/TMI.2010.2046908.
+ Epub 2010 Apr 8.
+ PMID: 20378467; PMCID: PMC3071855.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gudbjartsson-correction"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "COMMIT"
 literal "false"
 
@@ -1713,17 +1741,6 @@ A.
  NeuroImage.
  105:32–44.
  2015.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "gudbjartsson-correction"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Bibliography

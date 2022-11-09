@@ -2729,7 +2729,7 @@ A matrix-variate distribution
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-S\left(\mathbf{g}_{i},t\right)=S_{0}\int_{\mathbb{D}}P\left(\mathbf{D}\right)exp\left(-b_{i}\mathbf{g}_{i}^{T}\mathbf{D}\mathbf{g}_{i}\right)d\mathbf{D},\label{eq:DIAMOND}
+S\left(\mathbf{g}_{i},b_{i}\right)=S_{0}\int_{\mathbb{D}}P\left(\mathbf{D}\right)exp\left(-b_{i}\mathbf{g}_{i}^{T}\mathbf{D}\mathbf{g}_{i}\right)d\mathbf{D},\label{eq:DIAMOND}
 \end{equation}
 
 \end_inset
@@ -2779,6 +2779,58 @@ literal "false"
  On the other hand, high complexity models are more robust and capable of
  capturing variations in the diffusion signal.
  But they have many parameters to tune and tend to overfit the data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DIAMOND"
+
+\end_inset
+
+(left) Hypothetical multi-compartment model, in which an isotropic (red)
+ and two anisotropic (blue and green) compartments are mixed.
+ For illustration purpose we represent here a 2D multi-compartment model.
+ (middle) Under the hypothesis of purely homogeneous compartments with no
+ exchange, a multi-tensor model is typically used to describe the signal
+ arising from the multi-compartments.
+ The corresponding probability density of diffusivities is composed of a
+ mixture of delta functions.
+ (right) DIAMOND captures the multidimensional diffusivity and heterogeneity
+ of each compartment using peak-shaped distributions of multidimensional
+ diffusivities.
+ The expectation of each matrix-variate distribution captures the compartment
+ overall diffusivity while the distribution concentration captures its microstru
+ctural heterogeneity.
+ Specifically, a distribution with a broad peak indicates a highly heterogeneous
+ compartment.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -3436,8 +3488,8 @@ literal "false"
 \end_inset
 
  was proposed a pipeline called tractometry_flow that independently process
- each dissected bundle of a whole brain tractogram, using DTI-based metrics
- as well as HARDI-based metrics.
+ each dissected bundle of a whole brain tractogram, combining them with
+ DTI-based metrics as well as HARDI-based metrics.
  First, the tractometry_flow pipeline removes spurious streamlines using
  hierarchical QuickBundles 
 \begin_inset CommandInset citation

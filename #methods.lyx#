@@ -114,7 +114,11 @@ Pipeline
 \end_layout
 
 \begin_layout Standard
-The proposed pipeline is composed of 3 main parts: 
+The proposed pipeline is composed of 
+\begin_inset Formula $4$
+\end_inset
+
+ main parts: 
 \end_layout
 
 \begin_layout Enumerate
@@ -179,7 +183,18 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Each of these steps is explained with more details in the incoming sections.
+Each of these steps is explained with more details in the incoming sections,
+ see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:proposed-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -222,13 +237,8 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Standard
-Tractoflow uses a fODF-based tractography algorithm [] with a particle filter
- tractography and relaxation stopping criterion.
-\end_layout
-
 \begin_layout Itemize
-Bet Prelim DWI: A preliminary brain mask is extracted using the Brain Extraction
+Bet Prelim DWI: a preliminary brain mask is extracted using the Brain Extraction
  Tool (BET) command 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -241,7 +251,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Denoising: This step removes the noise induced by the dMRI acquisition.
+Denoising: this step removes the noise induced by the dMRI acquisition.
  It uses the 
 \series bold
 dwidenoise
@@ -266,7 +276,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Eddy/Topup: This step corrects the brain deformation induced by the magnetic
+Eddy/Topup: this step corrects the brain deformation induced by the magnetic
  field susceptibility artifacts.
  After that, Eddy corrects eddy-currents, motion artefacts and performs
  slice-wise outlier detection and correction.
@@ -286,7 +296,7 @@ check for reversed b0 image
 \end_layout
 
 \begin_layout Itemize
-Brain Extraction: The extraction is performed on the 
+Brain Extraction: the extraction is performed on the 
 \begin_inset Formula $b=0$
 \end_inset
 
@@ -296,7 +306,7 @@ Brain Extraction: The extraction is performed on the
 \end_layout
 
 \begin_layout Itemize
-N4 Bias Correction: The center of the brain image is less intense than its
+N4 Bias Correction: the center of the brain image is less intense than its
  outer boundary.
  The N4 Bias Correction normalizes the image intensities to reduce this
  intensity bias.
@@ -324,11 +334,59 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Gudbjartsson Correction: 
+Gudbjartsson Correction: low signal intensities (
+\begin_inset Formula $SNR<2$
+\end_inset
+
+) are biased due to the noise.
+ The underlying noise can be estimated from the dMRI image in the denoising
+ step, and a simple correction scheme is applied to reduce the Rician bias
+ based on the Gudbjartsson correction scheme 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gudbjartsson-correction"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\widetilde{S}\left(\mathbf{g}_{i},b_{i}\right)=\sqrt{\left|M\left(\mathbf{g}_{i},b_{i}\right)^{2}-\sigma^{2}\right|},\label{eq:gudbjartsson-correction}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+where 
+\begin_inset Formula $M\left(\mathbf{g}_{i},b_{i}\right)=\sqrt{S\left(\mathbf{g}_{i},b_{i}\right)^{2}+\sigma^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is the variance of the noise obtained from the denoising step.
+ The correction scheme is applied using the 
+\series bold
+mrcalc
+\series default
+ command from MRtrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
-Crop: The bounding box of the dMRI image is reduced using DIPY 
+Crop: the bounding box of the dMRI image is reduced using DIPY 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DIPY"
@@ -336,19 +394,58 @@ literal "false"
 
 \end_inset
 
- to accelerate the following steps
+ to accelerate the following steps.
+\end_layout
+
+\begin_layout Itemize
+Normalize: intensities in the dMRI image are normalized using the 
+\series bold
+dwinormalise
+\series default
+ command included in MRtrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRtrix"
+literal "false"
+
+\end_inset
+
+.
+ Normalization is such that the intensity mean value in the water matter
+ is 
+\begin_inset Formula $\sim1000$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Resample: the dMRI image is resampled to 
+\begin_inset Formula $1mm$
+\end_inset
+
+ isotropic spatial resolution to match the spatial resolution of the T1
+ image.
 \end_layout
 
 \begin_layout Itemize
 Local Modeling for Tractography: shells corresponding to b-values 
-\begin_inset Formula $b=0,1000,2000$
+\begin_inset Formula $b=0$
+\end_inset
+
+, 
+\begin_inset Formula $1000$
+\end_inset
+
+, 
+\begin_inset Formula $2000$
 \end_inset
 
  
 \begin_inset Formula $mm^{2}/s$
 \end_inset
 
- are extracted to compute the fODF.
+ are extracted to compute the fODF image.
  The fiber response function used is the average of the subjects.
  The, the fODF is computed using CSD with 
 \begin_inset Formula $l_{max}=8$
@@ -358,8 +455,9 @@ Local Modeling for Tractography: shells corresponding to b-values
 \end_layout
 
 \begin_layout Itemize
-Tractography: The tractography algorithm used is the probabilistic anatomically-
-constrained particle filter tracking 
+Tractography: a fODF-based tractography algorithm is used with a probabilistic
+ anatomically-constrained particle filter tracking and relaxation stopping
+ criterion 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "particle-filter-tracking"
@@ -387,8 +485,8 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename tractoflow.png
-	scale 25
+	filename D:/Downloads/fig-tractoflow.png
+	scale 40
 
 \end_inset
 
@@ -405,36 +503,24 @@ name "fig:tractoflow-pipeline"
 
 \end_inset
 
-Processes of the TractoFlow pipeline.
- In A (blue), the input files required to run the pipeline.
- In B (green), the DWI processes that take the DWI, the b-values/b-vectors
- files and the reversed phase encoded b = 0 image.
- In C (red), the T1 processes that take the T1 weighted image in input.
- In orange, all processes or images that are optional.
- Image taken from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractoflow"
-literal "false"
-
+Processes of the TractoFlow pipeline with the additional Rician bias correction
+ process.
+ The input files (blue square) required to run the pipeline.
+ They can be either in BIDS format or separated files.
+ The DWI processes (green square) that take the DWI, the b-values/b-vectors
+ files and the reversed phase encoded 
+\begin_inset Formula $b=0$
 \end_inset
 
-.
+ image.
+ The T1 processes (red square) that take the T1 weighted image in input.
+ The fiber tracking process (light blue) and all processes or images that
+ are optional (orange diamond).
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-re-hacer esta figura horizontal.
 \end_layout
 
 \end_inset
@@ -509,11 +595,11 @@ B
 \series default
 ayesian 
 \series bold
-i
+I
 \series default
 nformation 
 \series bold
-c
+C
 \series default
 riteria (BIC).
 \begin_inset Newline newline
@@ -582,6 +668,59 @@ literal "false"
  Adapting this pipeline to integrate the MRDS estimated metrics could allow
  us to recover a fixel-FA, fixel-MD, fixel-AD and, more importantly, fixel-RD
  per fiber bundle.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-proposed-pipeline.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:proposed-pipeline"
+
+\end_inset
+
+Processes of the proposed pipeline.
+ Input DWI, bval/bvec and T1 files (blue square).
+ The tractoflow preprocessing and tractography step (light blue square).
+ The Resampled DWI from tractoflow is used as input for the local modeling
+ step (violet square) with MRDS.
+ On the other hand, the RecoBundlesX step (yellow square) takes the output
+ tractogram from tractoflow and splits it into separated bundles.
+ Finally, the fixel-based metrics from MRDS and the separated bundles from
+ ReconBundlesX are combined using tractometry_flow to compute the tract
+ profile for every metric and bundle combination (pink square).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1124,7 +1263,63 @@ Myelo Inferno Dataset
 
 \begin_layout Standard
 The acquisitions were done by the Sherbrooke onnectivity Imaging Lab (SCIL).
- Twenty six young and healthy subjects (75% women and 25% men) were scanned
+ The data set includes anatomical, multi-shell diffusion and inhomogeneous
+ magnetization transfer MRI images (3T MRI Philips Healthcare system) collected
+ from 
+\begin_inset Formula $20$
+\end_inset
+
+ healthy adults (mean age 
+\begin_inset Formula $35$
+\end_inset
+
+ years old, standard-deviation 
+\begin_inset Formula $4.7$
+\end_inset
+
+ years old, 
+\begin_inset Formula $4$
+\end_inset
+
+ men and 
+\begin_inset Formula $16$
+\end_inset
+
+ women).
+ Subjects are 
+\begin_inset Formula $75\%$
+\end_inset
+
+ women and 
+\begin_inset Formula $25\%$
+\end_inset
+
+ men because, as we said in Chapter 
+\begin_inset Formula $1$
+\end_inset
+
+, MS is 
+\begin_inset Formula $\sim3$
+\end_inset
+
+ times more common on women than men.
+ Subjects were scanned five tomes over 
+\begin_inset Formula $6$
+\end_inset
+
+ months with a 
+\begin_inset Formula $4$
+\end_inset
+
+-week interval (
+\begin_inset Formula $+-$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Twenty six young and healthy subjects (75% women and 25% men) were scanned
  six times.
  The DWI (112x112 matrix, TR 5615 ms, TE 95 ms, SENSE factor of 2) were
  acquired on a 3 Tesla MRI (Philips, Ingenia) with a single-shot echo-planar
@@ -1201,18 +1396,6 @@ Explain dataset (ms_6months)
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Section
-Preprocessing
-\end_layout
-
-\begin_layout Subsection
-Rician Bias Correction
-\end_layout
-
-\begin_layout Standard
-Gudbjartsson correction
 \end_layout
 
 \end_body
