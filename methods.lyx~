@@ -29,7 +29,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement H
+\float_placement h
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -585,36 +585,22 @@ Local Modeling
 \end_layout
 
 \begin_layout Standard
-We haven seen in previous chapters that there is a variety of local diffusion
- models and methods that can be used to represent the dMRI data.
- In this work we have decided to use the MRDS method applied to the MTM
- in order to estimate fixel-based dMRI metrics.
- The model selection in the MRDS method is performed using the 
-\series bold
-B
-\series default
-ayesian 
-\series bold
-I
-\series default
-nformation 
-\series bold
-C
-\series default
-riteria (BIC).
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-MRDS is more simple than DIAMOND when representing the dMRI data.
+In order to recover the local diffusion profiles for tractometry, we have
+ decided to use the MRDS method applied to the MTM for estimating fixel-based
+ dMRI metrics such that: fixel-AD, fixel-RD, and its derivatives fixel-FA
+ and fixel-MD.
+ MRDS estimate a different diffusivity for all fixels in a voxel.
+ MRDS can be informed with a FRF as starting point for a better convergence
+ when estimating the diffusivities.
+ We use a in-house implementation of DTI for estimating the initial diffusivitie
+s, considering voxels with a high probability of having a single fixel.
+ But the FRF computed wiht tractoflow could be used as well.
+ MRDS is a simpler model than DIAMOND when representing the dMRI data.
  However, MRDS needs less parameters compared with DIAMOND.
  Thus, we have the hypothesis that MRDS is a viable trade-off between complexity
  and number of parameters for clinic data.
  Besides, MRDS has been shown to be more robust to noise than DIAMOND when
- computing the orientations of the fixels 
+ estimating the orientations of the fixels 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MRDS-rats"
@@ -630,10 +616,484 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-MRDS estimate a different diffusivity for all fixels in a voxel.
- MRDS can be informed with a starting point a priori for a better estimation.
- We use a in-house implementation of DTI for estimating the initial diffusivitie
-s, considering voxels with a high probability of having a single fixel.
+We haven seen in previous chapters that there is a variety of local diffusion
+ models and methods that can be used to represent the dMRI data.
+ Note that we have already used the CSD method as local model in the tractoflow
+ pipeline.
+ However, that local model is used only for reconstructing the local directions
+ for tractography.
+ MRDS can be used for tractography as it was shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abstract-ISMRM-2022,DiSCo-challenge"
+literal "false"
+
+\end_inset
+
+.
+ However, the model selection in the MRDS method, which is performed using
+ the 
+\series bold
+B
+\series default
+ayesian 
+\series bold
+I
+\series default
+nformation 
+\series bold
+C
+\series default
+riteria (BIC), tends to overfit the number of orientations per voxel.
+ This leads to a higher number of false positive streamlines compared with
+ CSD 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abstract-ISMRM-2022"
+literal "false"
+
+\end_inset
+
+.
+ That's why we decided to use CSD for the tractography step of the pipeline.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Currently, MRDS faces long fitting times.
+ For some real human brain data sets it takes 
+\begin_inset Formula $2$
+\end_inset
+
+ entire days for fitting a single brain, using modern CPU with tens of cores.
+ We are planning to accelerate the fitting of the MRDS method to the dMRI
+ data by using modern parallel computing techniques.
+ The Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows a preliminary approach to abroad this problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Require {DWI $S$ and initial diffusion parameters $
+\backslash
+xi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Ensure {for every voxel $N_{opt}$, $
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N_{opt}}$, $
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N_{opt}}$ and $
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N_{opt}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For{ in parallel for every voxel $v = (x,y,z)$ }
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+While{ not convergence }
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For{ N=1,2,3 }
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+xi_{k} = 
+\backslash
+xi_0 
+\backslash
+;
+\backslash
+;
+\backslash
+; 
+\backslash
+forall k$
+\end_layout
+
+\begin_layout Plain Layout
+
+	    
+\backslash
+State Estimate $
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ and $
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ for fixed $
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Estimate $
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ for fixed $
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ and $
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndWhile
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $N_{opt} = modsel(
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}, 
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}, 
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N})$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:parallel-MRDS"
+
+\end_inset
+
+Algorithm in parallel fit the MRDS model.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is a first approach for the parallelization of MRDS in the GPU.
+ We will use the Nvidia CUDA toolkit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CUDA"
+literal "false"
+
+\end_inset
+
+ that provides a modern programming language, which allows developers to
+ use the Nvidia CUDA Cores in the Nvidia GPUs for parallel computing.
+ Every voxel computation in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ will be assigned to a single CUDA thread as every CUDA thread is executed
+ in parallel in the GPU, see Figure .
+ We still have to implement it on GPU language and test the performance.
+ We have the hypothesis that this naive approach could improve the performance
+ of the fitting process.
+ However, there are several other aspects of the algorithm that have to
+ be considered during the implementation.
+ For example, in order to efficiently use the CUDA threads, all threads
+ in the GPU should perform the same instruction at the same time.
+ Nonetheless, as every CUDA thread will manage a single voxel, it will happen
+ that some voxels will converge before others, decreasing the performance
+ because some threads will have to wait for others to finish.
+ Thus, Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is still a naive approach, and we will have to address this and others
+ bottlenecks.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-cuda-grid.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:cuda-grid"
+
+\end_inset
+
+Illustration of how the threads are structured in a Nvidia GPU.
+ CUDA threads are grouped in CUDA blocks that are executed in parallel.
+ A CUDA block finishes its computation when all threads belonging to that
+ same CUDA block finish every instruction.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another aspect that can be improved in MRDS is the model selector.
+ For this, it is possible to inform the model selector of MRDS with the
+ 
+\series bold
+Nu
+\series default
+mber of 
+\series bold
+F
+\series default
+iber 
+\series bold
+O
+\series default
+rientation (NuFO) map computed in the local modeling step of tractoflow,
+ which is an index of local watter matter complexity that is estimated from
+ the number of local maxima of the fODF profile in each voxel 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NuFO"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -674,7 +1134,7 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

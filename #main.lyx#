@@ -7,6 +7,7 @@
 \textclass book
 \begin_preamble
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{algorithm,algpseudocode}
 \setlength{\parindent}{0pt}
 \end_preamble
 \use_default_options true
@@ -88,6 +89,10 @@
 
 \begin_layout Title
 Thesis Proposal
+\end_layout
+
+\begin_layout Title
+Multimetric Fixel-based Analysis 
 \end_layout
 
 \begin_layout Author
@@ -337,6 +342,20 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "CUDA"
+literal "false"
+
+\end_inset
+
+NVIDIA, Vingelmann, P.
+ & Fitzek, F.H.P., 2020.
+ CUDA, release: 10.2.
+ 89, Available at: https://developer.nvidia.com/cuda-toolkit.
 \end_layout
 
 \begin_layout Bibliography
@@ -1642,6 +1661,91 @@ Kreher, B., Mader, I., Kiselev, V., 2008.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "particle-filter-tracking"
+literal "false"
+
+\end_inset
+
+Girard G, Whittingstall K, Deriche R, Descoteaux M.
+ Towards quantitative connectivity analysis: reducing tractography biases.
+ Neuroimage.
+ 2014 Sep;98:266-78.
+ doi: 10.1016/j.neuroimage.2014.04.074.
+ Epub 2014 May 9.
+ PMID: 24816531.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "BET"
+literal "false"
+
+\end_inset
+
+Smith SM.
+ Fast robust automated brain extraction.
+ Hum Brain Mapp.
+ 2002 Nov;17(3):143-55.
+ doi: 10.1002/hbm.10062.
+ PMID: 12391568; PMCID: PMC6871816.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MP-PCA"
+literal "false"
+
+\end_inset
+
+Veraart J, Novikov DS, Christiaens D, Ades-Aron B, Sijbers J, Fieremans
+ E.
+ Denoising of diffusion MRI using random matrix theory.
+ Neuroimage.
+ 2016 Nov 15;142:394-406.
+ doi: 10.1016/j.neuroimage.2016.08.016.
+ Epub 2016 Aug 11.
+ PMID: 27523449; PMCID: PMC5159209.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "N4-correction"
+literal "false"
+
+\end_inset
+
+Tustison NJ, Avants BB, Cook PA, Zheng Y, Egan A, Yushkevich PA, Gee JC.
+ N4ITK: improved N3 bias correction.
+ IEEE Trans Med Imaging.
+ 2010 Jun;29(6):1310-20.
+ doi: 10.1109/TMI.2010.2046908.
+ Epub 2010 Apr 8.
+ PMID: 20378467; PMCID: PMC3071855.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gudbjartsson-correction"
+literal "false"
+
+\end_inset
+
+Gudbjartsson H, Patz S.
+ The Rician distribution of noisy MRI data.
+ Magn Reson Med.
+ 1995 Dec;34(6):910-4.
+ doi: 10.1002/mrm.1910340618.
+ Erratum in: Magn Reson Med 1996 Aug;36(2):332.
+ PMID: 8598820; PMCID: PMC2254141.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "COMMIT"
 literal "false"
 
@@ -1674,7 +1778,25 @@ literal "false"
 
 Theaud, G., Houde, J.-C., Boré, A., Rheault, F., Morency, F., Descoteaux, M.,TractoFlow
 : A robust, efficient and reproducible diffusion MRI pipeline leveraging
- Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889
+ Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "NuFO"
+literal "false"
+
+\end_inset
+
+Dell'Acqua, F., Simmons, A., Williams, S.C.
+ and Catani, M.
+ (2013), Can spherical deconvolution provide more information than fiber
+ orientations? Hindrance modulated orientational anisotropy, a true-tract
+ specific index to characterize white matter diffusion.
+ Hum.
+ Brain Mapp., 34: 2464-2483.
+ https://doi.org/10.1002/hbm.22080
 \end_layout
 
 \begin_layout Bibliography
@@ -1925,7 +2047,27 @@ literal "false"
 
 \end_inset
 
+Garyfallidis E., Côté M.-A., Rheault F., Sidhu J., Hau J., Petit L., Fortin D.,
+ Cunanne S., Descoteaux M.
+ Recognition of white matter bundles using local and global streamline-based
+ registration and clustering.
+ NeuroImage.
+ 2017.
+\end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractometry_flow-minimum-distance-flipped"
+literal "false"
+
+\end_inset
+
+Garyfallidis E., Brett M., Correia M.M., Williams G.B., Nimmo-Smith I.
+ Quickbundles, a method for tractography simplification.
+ Front.
+ Neurosci.
+ 2012;6:175.
 \end_layout
 
 \begin_layout Bibliography

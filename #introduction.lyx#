@@ -2640,6 +2640,72 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename results-MRDS-1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 DIAMOND
 \end_layout
@@ -2729,7 +2795,7 @@ A matrix-variate distribution
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-S\left(\mathbf{g}_{i},t\right)=S_{0}\int_{\mathbb{D}}P\left(\mathbf{D}\right)exp\left(-b_{i}\mathbf{g}_{i}^{T}\mathbf{D}\mathbf{g}_{i}\right)d\mathbf{D},\label{eq:DIAMOND}
+S\left(\mathbf{g}_{i},b_{i}\right)=S_{0}\int_{\mathbb{D}}P\left(\mathbf{D}\right)exp\left(-b_{i}\mathbf{g}_{i}^{T}\mathbf{D}\mathbf{g}_{i}\right)d\mathbf{D},\label{eq:DIAMOND}
 \end{equation}
 
 \end_inset
@@ -2779,6 +2845,74 @@ literal "false"
  On the other hand, high complexity models are more robust and capable of
  capturing variations in the diffusion signal.
  But they have many parameters to tune and tend to overfit the data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-DIAMOND.png
+	scale 52.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DIAMOND"
+
+\end_inset
+
+(left) Hypothetical multi-compartment model, in which an isotropic (red)
+ and two anisotropic (blue and green) compartments are mixed.
+ For illustration purpose we represent here a 2D multi-compartment model.
+ (middle) Under the hypothesis of purely homogeneous compartments with no
+ exchange, a multi-tensor model is typically used to describe the signal
+ arising from the multi-compartments.
+ The corresponding probability density of diffusivities is composed of a
+ mixture of delta functions.
+ (right) DIAMOND captures the multidimensional diffusivity and heterogeneity
+ of each compartment using peak-shaped distributions of multidimensional
+ diffusivities.
+ The expectation of each matrix-variate distribution captures the compartment
+ overall diffusivity while the distribution concentration captures its microstru
+ctural heterogeneity.
+ Specifically, a distribution with a broad peak indicates a highly heterogeneous
+ compartment.
+ Imagen taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIAMOND"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -3360,16 +3494,6 @@ The fixel-based metric map has an image per every direction.
 \end_layout
 
 \begin_layout Standard
-There are 
-\begin_inset Formula $2$
-\end_inset
-
- types of tractometry reported in the literature: One that considers metrics
- derived from dMRI, while the others consider metrics from modalities other
- than dMRI.
-\end_layout
-
-\begin_layout Standard
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3437,16 +3561,6 @@ literal "false"
  to make a joint analysis of multiple metrics, including both dMRI metrics
  and metrics non derived from dMRI like the MWF.
  It was applied to both MS cohort and single MS patients.
- Several studies have been conducted to investigate the reliability of tractomet
-ry like in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "tractometry-8,tractometry_flow-1"
-literal "false"
-
-\end_inset
-
-.
  In particular, in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3456,7 +3570,8 @@ literal "false"
 \end_inset
 
  was proposed a pipeline called tractometry_flow that independently process
- each dissected bundle of a whole brain tractogram.
+ each dissected bundle of a whole brain tractogram, combining them with
+ DTI-based metrics as well as HARDI-based metrics.
  First, the tractometry_flow pipeline removes spurious streamlines using
  hierarchical QuickBundles 
 \begin_inset CommandInset citation
@@ -3486,17 +3601,33 @@ literal "false"
  value in each voxel, all voxels are weighted by its relative geodesic distance
  to the closest centroid point.
  In the end, a tract profile is extracted for every combination of metrics
- and bundles.
+ and bundles, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tractoflow-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Graphics
+	filename fig-tractometry_flow.png
+	scale 19.5
+
+\end_inset
+
 
 \end_layout
 
@@ -3510,7 +3641,20 @@ name "fig:tractometry_flow"
 
 \end_inset
 
+Important steps of the tractometry_flow pipeline illustrated on the corticospina
+l tract (CST) using the FA metric.
+ (a) Outliers are removed.
+ (b) Centroids are extracted.
+ (c) The bundle is subsampled.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1"
+literal "false"
 
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -3520,6 +3664,28 @@ name "fig:tractometry_flow"
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Several studies have been conducted to investigate the reliability of tractometr
+y like in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-8,tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset

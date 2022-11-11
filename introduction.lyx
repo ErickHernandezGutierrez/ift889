@@ -1569,8 +1569,19 @@ literal "false"
 \begin_inset Formula $S$
 \end_inset
 
- as the convolution of the response function, which is an axially symmetric
- kernel 
+ as the convolution of the 
+\series bold
+f
+\series default
+iber 
+\series bold
+r
+\series default
+esponse 
+\series bold
+f
+\series default
+unction (FRF), which is an axially symmetric kernel 
 \begin_inset Formula $R$
 \end_inset
 
@@ -2640,6 +2651,154 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename results-MRDS-1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename results-MRDS-2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename results-MRDS-3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:results-MRDS"
+
+\end_inset
+
+Quantitative comparison on simulated data.
+ Reconstructions of the ODFs are shown for the Ground Truth (a), CSD (b)
+ and MRDS (c).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 DIAMOND
 \end_layout
@@ -2785,13 +2944,13 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename fig-DIAMOND.png
-	scale 50
+	scale 52.5
 
 \end_inset
 
@@ -2824,6 +2983,15 @@ name "fig:DIAMOND"
 ctural heterogeneity.
  Specifically, a distribution with a broad peak indicates a highly heterogeneous
  compartment.
+ Imagen taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DIAMOND"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset

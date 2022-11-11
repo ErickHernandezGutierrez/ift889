@@ -7,6 +7,7 @@
 \textclass book
 \begin_preamble
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{algorithm,algpseudocode}
 \setlength{\parindent}{0pt}
 \end_preamble
 \use_default_options true
@@ -87,6 +88,11 @@
 \begin_body
 
 \begin_layout Title
+Multimetric Fixel-based Analysis of Tract Profiles Using Multi-Tensor Based
+ Diffusion MRI Tractometry, With Application to Multiple Sclerosis
+\end_layout
+
+\begin_layout Date
 Thesis Proposal
 \end_layout
 
@@ -337,6 +343,20 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "CUDA"
+literal "false"
+
+\end_inset
+
+NVIDIA, Vingelmann, P.
+ & Fitzek, F.H.P., 2020.
+ CUDA, release: 10.2.
+ 89, Available at: https://developer.nvidia.com/cuda-toolkit.
 \end_layout
 
 \begin_layout Bibliography
@@ -1715,7 +1735,13 @@ literal "false"
 
 \end_inset
 
-
+Gudbjartsson H, Patz S.
+ The Rician distribution of noisy MRI data.
+ Magn Reson Med.
+ 1995 Dec;34(6):910-4.
+ doi: 10.1002/mrm.1910340618.
+ Erratum in: Magn Reson Med 1996 Aug;36(2):332.
+ PMID: 8598820; PMCID: PMC2254141.
 \end_layout
 
 \begin_layout Bibliography
@@ -1753,7 +1779,25 @@ literal "false"
 
 Theaud, G., Houde, J.-C., Boré, A., Rheault, F., Morency, F., Descoteaux, M.,TractoFlow
 : A robust, efficient and reproducible diffusion MRI pipeline leveraging
- Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889
+ Nextflow & Singularity, NeuroImage, https://doi.org/10.1016/j.neuroimage.2020.116889.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "NuFO"
+literal "false"
+
+\end_inset
+
+Dell'Acqua, F., Simmons, A., Williams, S.C.
+ and Catani, M.
+ (2013), Can spherical deconvolution provide more information than fiber
+ orientations? Hindrance modulated orientational anisotropy, a true-tract
+ specific index to characterize white matter diffusion.
+ Hum.
+ Brain Mapp., 34: 2464-2483.
+ https://doi.org/10.1002/hbm.22080
 \end_layout
 
 \begin_layout Bibliography
