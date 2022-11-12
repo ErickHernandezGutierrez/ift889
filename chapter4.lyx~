@@ -91,7 +91,7 @@ Expected Schedule
 \labelwidthstring 00.00.0000
 \begin_inset Graphics
 	filename Schedule.png
-	scale 40
+	scale 37.5
 
 \end_inset
 
@@ -186,10 +186,19 @@ Collaborations
 \begin_inset Formula $\mathbf{NYU}$
 \end_inset
 
- Collaboration with the NYU MRI Biophysics Group, which is one of the most
- relevant laboratories in the field.
+ Possible collaboration with the NYU MRI Biophysics Group, which is one
+ of the most relevant laboratories in the field.
  It will focus on multimetric analysis of white matter tracts in the multi-compa
 rtment standard model (Duration: 3-6 months).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\mathbf{UMC}$
+\end_inset
+
+ Possible collaboration with Chen-Pei Lin applying the proposed pipeline
+ to HARDI multi-shell post mortem Parkinson brain data.
 \end_layout
 
 \end_body

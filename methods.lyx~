@@ -706,7 +706,7 @@ begin{algorithmic}[1]
 
 
 \backslash
-Require {DWI $S$ and initial diffusion parameters $
+Require {Normalized DWI $E$ and initial diffusion parameters $
 \backslash
 xi_0$}
 \end_layout
@@ -1864,19 +1864,12 @@ The acquisitions were done by the Sherbrooke onnectivity Imaging Lab (SCIL).
 \end_inset
 
  isotropic spatial resolution.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Explain dataset (ms_6months)
-\end_layout
-
-\end_inset
-
-.
+ Each inhomogeneous MT (ihMT) MRI for myelin index reconstruction was acquired
+ using a 3D segmented-EPI gradient-echo sequence with different MT preparation
+ pulses (TR/TE = 3.6/112ms, 2 mm isotropic resolution).
+ IhMT uses a magnetization preparation (10 Hann pulses of 0.9 ms duration
+ with 1.5 ms interval at a frequency offset of +/- 7000 Hz) to increase specifici
+ty to myelin.
 \end_layout
 
 \end_body

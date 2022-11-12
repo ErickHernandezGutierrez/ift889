@@ -688,7 +688,7 @@ noprefix "false"
 \begin_inset Float algorithm
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1864,19 +1864,34 @@ The acquisitions were done by the Sherbrooke onnectivity Imaging Lab (SCIL).
 \end_inset
 
  isotropic spatial resolution.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Explain dataset (ms_6months)
-\end_layout
-
+ Each inhomogeneous MT (ihMT) MRI for myelin index reconstruction was acquired
+ using a 3D segmented-EPI gradient-echo sequence with different MT preparation
+ pulses (TR/TE = 
+\begin_inset Formula $3.6/112ms$
 \end_inset
 
-.
+, 
+\begin_inset Formula $2mm$
+\end_inset
+
+ isotropic resolution).
+ IhMT uses a magnetization preparation (
+\begin_inset Formula $10$
+\end_inset
+
+ Hann pulses of 
+\begin_inset Formula $0.9ms$
+\end_inset
+
+ duration with 
+\begin_inset Formula $1.5ms$
+\end_inset
+
+ interval at a frequency offset of 
+\begin_inset Formula $+/-7000Hz$
+\end_inset
+
+) to increase specificity to myelin.
 \end_layout
 
 \end_body

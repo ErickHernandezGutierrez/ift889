@@ -372,8 +372,8 @@ Fast, accurate and robust to noise and fiber crossing voxel-wise estimation
 
 \begin_layout Enumerate
 Multimetric analysis of white matter tracts in different fiber bundles.
- It's required to adapt the tractometry_flow pipeline to integrate the MRDS
- metrics into the statistical analysis.
+ It's required to adapt the tractometry_flow pipeline to integrate the fixel-bas
+ed MRDS metrics into the statistical analysis.
 \end_layout
 
 \begin_layout Standard

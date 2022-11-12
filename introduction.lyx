@@ -319,7 +319,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-It is possible to represent a diffusion gradient 
+It is possible to represent a diffusion gradient, or also called Diffusion
+ Encoding Orientation (DEO), 
 \begin_inset Formula $\mathbf{g}$
 \end_inset
 
@@ -661,7 +662,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The diffusion signal from a single Gaussian diffusion compartment within
+Considering we sample the q-space using 
+\begin_inset Formula $n$
+\end_inset
+
+ DEOs 
+\begin_inset Formula $\left\{ \mathbf{g}_{i}\right\} _{i=1}^{n}$
+\end_inset
+
+.
+ The diffusion signal from a single Gaussian diffusion compartment within
  a voxel is given by
 \end_layout
 
@@ -1237,6 +1247,8 @@ literal "false"
 \begin_layout Standard
 Limitations of DTI came when several fiber populations are present in a
  voxel.
+ In this section we will discuss HARDI-based some methods presented in the
+ literature that were developed for addressing the limitations of DTI.
 \begin_inset Newline newline
 \end_inset
 
@@ -1651,23 +1663,17 @@ where
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename fig-spherical-deconvolution-b.png
-	scale 35
+	scale 65
 
 \end_inset
 
@@ -1684,7 +1690,7 @@ name "fig:signal-convolution"
 
 \end_inset
 
-Convolution assumption in q-space between the response 
+Convolution assumption in q-space between the fiber response function 
 \begin_inset Formula $R$
 \end_inset
 
@@ -1712,61 +1718,14 @@ literal "false"
 \end_inset
 
 
-\begin_inset Formula $\;\;\;$
-\end_inset
+\begin_inset Note Note
+status collapsed
 
-
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-spherical-deconvolution-a.png
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:signal-deconvolution"
-
-\end_inset
-
-Spherical deconvolution intuition to improve angular resolution of ODF reconstru
-ction.
- Assuming a particular response function, the deconvolution will remove
- the “blurry” part of the diffusion ODF to obtain a sharp fiber ODF that
- better captures the underlying fiber populations.
- Hence, a better angular resolution can be obtained, as illustrated in 
-\begin_inset Formula $45°$
-\end_inset
-
- and 
-\begin_inset Formula $60°$
-\end_inset
-
- crossing in the bottom of the figure.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1782,6 +1741,11 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1914,9 +1878,85 @@ where
 \begin_inset Formula $F$
 \end_inset
 
+, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:signal-deconvolution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
 .
  However, this SD technique is ill-posed and affected by noise.
- Later in 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-spherical-deconvolution-a.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:signal-deconvolution"
+
+\end_inset
+
+Spherical deconvolution intuition to improve angular resolution of ODF reconstru
+ction.
+ Assuming a particular response function, the deconvolution will remove
+ the “blurry” part of the diffusion ODF to obtain a sharp fiber ODF that
+ better captures the underlying fiber populations.
+ Hence, a better angular resolution can be obtained, as illustrated in 
+\begin_inset Formula $45°$
+\end_inset
+
+ and 
+\begin_inset Formula $60°$
+\end_inset
+
+ crossing in the bottom of the figure.
+ Image taken from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HARDI-Max"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Later in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CSD"
@@ -2408,9 +2448,7 @@ MRDS
 \end_layout
 
 \begin_layout Standard
-The most appropiate representation and modeling of multiple fascicles traversing
- the same voxel remains unclear.
- Actually, there is a multi-tensor based method, which represents multiple
+Actually, there is a multi-tensor based method, which represents multiple
  fascicles with multi-tensors fitted using the 
 \series bold
 M
@@ -3553,7 +3591,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename fig-tractometry-example.png
-	scale 35
+	scale 30
 
 \end_inset
 
@@ -3570,15 +3608,35 @@ name "fig:tractometry-example"
 
 \end_inset
 
-The fixel-based metric map has an image per every direction.
- Tractometry Ilustration.
- The voxel value of the rightest image is the mean of the values of the
- metric map
+Illustration of how the dMRI metrics and the tracks are combined using tractomet
+ry to get the tract profile.
+ (left) FA map.
+ (middle) tracks along the bundle.
+ (right) tract profile obtained from the tractometry.
+ Rainbow colors mark the locations along the streamlines.
+ Tract profiles can be plotted using the values along the streamlines (
+\begin_inset Formula $20$
+\end_inset
+
+ locations for this example).
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The fixel-based metric map has an image per every direction.
+ Tractometry Ilustration.
+ The voxel value of the rightest image is the mean of the values of the
+ metric map
 \end_layout
 
 \end_inset

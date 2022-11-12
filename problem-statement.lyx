@@ -123,10 +123,12 @@ Adjustment of all involved parameters to apply tractometry in real life
 
 \begin_layout Standard
 Multi-shell dMRI is now widely used.
- Nonetheless, simple models like DSI, QBI, and CSD focus on describing the
- general shape of the diffusion profile in each voxel instead of representing
- each fixel independently, and therefore they do not enable characterization
- of each individual fixel.
+ Nonetheless, the most appropiate representation and modeling of multiple
+ fascicles traversing the same voxel remains unclear.
+ Simple models like DSI, QBI, and CSD focus on describing the general shape
+ of the diffusion profile in each voxel instead of representing each fixel
+ independently, and therefore they do not enable characterization of each
+ individual fixel.
  In addition, advanced local diffusion models that allow to estimate fixel-based
  metrics are still slow and inefficient.
 \begin_inset Newline newline
