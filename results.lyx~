@@ -91,11 +91,19 @@ Preliminary Results
 Experiments on phantom
 \end_layout
 
+\begin_layout Standard
+The fixel-based pipeline shows promising results on the synthetic data set.
+\end_layout
+
 \begin_layout Subsection
 Experiments on myelo_inferno
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -177,6 +185,11 @@ status collapsed
 \begin_layout Plain Layout
 Results of the tractometry_flow on the myelo_inferno dataset along the IFOF
  fiber bundle.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
