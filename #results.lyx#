@@ -84,6 +84,785 @@ Results
 \end_layout
 
 \begin_layout Section
+Previous Results
+\end_layout
+
+\begin_layout Standard
+In this section we will brief description of the previous results already
+ published in abstracts.
+ For a more detailed explanation, we included each abstract in the Appendix
+ chapter.
+ This results have been the starting point of this work.
+\end_layout
+
+\begin_layout Subsection
+Robust Estimation of Fixed-FA on Fiber Crossing
+\end_layout
+
+\begin_layout Standard
+In this abstract, we proposed a multi-shell pipeline based on MRDS to estimate
+ the fixel-FA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abstract-ISMRM-2021"
+literal "false"
+
+\end_inset
+
+.
+ It was shown that this method is accurate and robust to noise in synthetic
+ phantoms, and in the centrum semiovale of the human brain with clinical
+ multi-shell data sets.
+ This method does not involve tractography, but instead it uses the local
+ model to recover the different bundles clustering tensors with a similarity
+ function.
+ The pipeline is similar to the one described in Figure 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+numero de figura va ponido aqui
+\end_layout
+
+\end_inset
+
+ of previous chapter, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-ismrm-2021"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pipeline-ismrm-2021"
+
+\end_inset
+
+Proposed pipeline to estimate fixel-FA for each bundle.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We already described the first 
+\begin_inset Formula $3$
+\end_inset
+
+ steps (Denoising, Bias Correction and Local Modeling with MRDS) of Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-ismrm-2021"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the last chapter.
+ The bundle segmentation step uses the dissimilarity measure described in
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "diisimilarity-measure"
+literal "false"
+
+\end_inset
+
+, which defines a distance function between two tensor 
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{T}$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+d\left(\mathbf{D},\mathbf{T}\right)=\frac{\left\Vert p\left(\mathbf{D}\right)-p\left(\mathbf{T}\right)\right\Vert }{d_{0}^{2}}+\frac{\angle\left(\mathbf{D},\mathbf{T}\right)}{\theta_{0}}+\frac{\left|FA\left(\mathbf{D}\right)-FA\left(\mathbf{T}\right)\right|}{f_{0}}+\frac{\left|MD\left(\mathbf{D}\right)-MD\left(\mathbf{T}\right)\right|}{m_{0}},\label{eq:dissimilarity-function}
+\end{equation}
+
+\end_inset
+
+where defined 
+\begin_inset Formula $d_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{0}$
+\end_inset
+
+ are constants, 
+\begin_inset Formula $p\left(\mathbf{D}\right)$
+\end_inset
+
+ is the voxel position of the tensor 
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+, 
+\begin_inset Formula $\angle\left(\mathbf{D},\mathbf{T}\right)$
+\end_inset
+
+ is the angle between the PDDs of the tensors 
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{T}$
+\end_inset
+
+, and 
+\begin_inset Formula $FA\left(\mathbf{D}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $MD\left(\mathbf{D}\right)$
+\end_inset
+
+ are the FA and MD values of the tensor 
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+, respectively.
+ Then, a similarity function is defined as following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+s\left(\mathbf{D},\mathbf{T}\right)=exp\left(-d\left(\mathbf{D},\mathbf{T}\right)\right).\label{eq:similarity-function}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The segmentation of the bundles is performed using a flood-fill based algorithm.
+ Given an random initial tensor, the algorithm starts the bundle in the
+ voxel containing that tensor.
+ Then, it looks for all the tensors in the neighboring voxels.
+ If a neighbor voxel contains a tensor 
+\begin_inset Formula $\mathbf{T}$
+\end_inset
+
+ such that 
+\begin_inset Formula $s\left(\mathbf{D},\mathbf{T}\right)>c$
+\end_inset
+
+, for some fixed threshold 
+\begin_inset Formula $c$
+\end_inset
+
+, the algorithm extends the bundle to that voxel.
+ After that, the process is recursively repeated for the new voxels in the
+ bundle, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flood-fill"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Finally, a filtering step is used to enhance the overall FA values of each
+ bundle by using the information obtained in the segmentation stage.
+ Given the separated bundles, the FA values of every tensor is averaged
+ with the FA value of its tensor neighbors within the same bundle.
+ This filtering step is helpful to remove the dispersion when estimating
+ the FA value for each tensor by keeping the local spatial properties.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flood-fill"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This pipeline was tested on the digital phantom introduced in the previous
+ chapter.
+ We set the FA values different for each bundle.
+ For bundle 1, 
+\begin_inset Formula $FA\sim0.8$
+\end_inset
+
+ with a damaged spot where 
+\begin_inset Formula $FA\sim0.6$
+\end_inset
+
+ simulating a localized damaged in the bundle.
+ For bundle 2, 
+\begin_inset Formula $FA\sim0.85$
+\end_inset
+
+ simulating a healthy bundle and, for bundle 3, 
+\begin_inset Formula $FA\sim0.6$
+\end_inset
+
+ simulating a completely damaged bundle.
+ Finally, Rician noise with 
+\begin_inset Formula $SNR=12$
+\end_inset
+
+ was added using Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rician-noise"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For the in-vivo data set, we used one of the control subjects of the myelo_infe
+rno data set and the centrum semiovale as ROI.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-flood-fill-recovered-bundles.png
+	scale 47.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flood-fill-recovered-bundles"
+
+\end_inset
+
+(up) Segmentation obtained after the segmentation stage of the pipeline.
+ Each recovered fiber bundle is colored with a different color to identify
+ each bundle.
+ The color of each fiber bundle is consistent with the colors shown in all
+ the other figures.
+ (down) Ground-truth fiber bundles.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-flood-fill-phantom-results-fa.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-flood-fill-invio-results-fa.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flood-fill-results"
+
+\end_inset
+
+FA values along each bundle results (a) for synthetic data and (b) for the
+ centrum semiovale in the in-vivo data.
+ Each row represents the FA values for a different bundle.
+ Each column represents, respectively, FA values in voxels with 1, 2 and
+ 3 tensors (i.e., FA values in each bundle are shown separated depending on
+ the number of tensors per voxel).
+ For comparison, the ground-truth FA value for each bundle was added as
+ a black horizontal line.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tractography from Gaussian Multi-Facicle ODFs
+\end_layout
+
+\begin_layout Standard
+In this abstract, we proposed a pipeline based on MRDS to compute the structural
+ connectome from dMRI data.
+ The effectiveness of the pipeline was shown in the DiSCo challenge digital
+ phantom data set 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DiSCo-challenge"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:disco-challenge-pipeline"
+
+\end_inset
+
+Proposed pipeline for the DiSCo challenge.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We showed that ODFs extracted from a multi-tensor field can be used for
+ tractography.
+ A multi-tensor image can be converted to an ODF image using the following
+ formula 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MT-2-ODF"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+ODF(n)=\sum_{i}^{N}\alpha_{i}\frac{(n^{T}\mathbf{D}_{i}^{-1}n)^{-3/2}}{4\pi\sqrt{det(\mathbf{D}_{i})}},\label{eq:MT-2-ODF}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{D}_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ are the diffusion tensor and its compartment size associated to the 
+\begin_inset Formula $i$
+\end_inset
+
+-th fixel.
+ This tractography pipeline provides competitive prediction of the connectivity
+ on state-of-the-art synthetically generated phantoms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DiSCo-challenge"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-disco-challenge-ODFs.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:disco-challenge-ODFs"
+
+\end_inset
+
+Visualization of the GT and reconstructed dODFs of the training dataset
+ of the DiSCo challenge.
+ 
+\begin_inset Formula $N_{max}$
+\end_inset
+
+ represents the maximum number of fixels in each voxel, which is determined
+ by the selector model BIC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BIC"
+literal "false"
+
+\end_inset
+
+.
+ Both CSD and MRDS are able to recover most of the orientations.
+ However, MRDS can recover orientations presented in the GT that are not
+ recovered by CSD as it is highlighted with a dashed orange square.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-disco-challenge-bundles.png
+	scale 52.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:disco-challenge-bundles"
+
+\end_inset
+
+Visual comparison of the streamlines connecting 2 ROIs (grey colored).
+ The leftmost tractogram represents the GT strands trajectories (white colored).
+ The one in the middle is the overlapped GT and CSD tractograms.
+ The rightmost represents the overlapped GT and MRDS tractograms.
+ This experiment shows the higher account of false positive connections
+ in the MRDS tractogram as well as the better overlapping with the GT.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Real-Time Rendering of Massive Multi-Tensor Fields Using Modern OpenGL
+\end_layout
+
+\begin_layout Standard
+In this abstract, we proposed an open-source and novel DTI and MTM data
+ visualizer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abstract-workshop-ISMRM-2022"
+literal "false"
+
+\end_inset
+
+ based on modern OpenGL C++ to give users a more modernized and relevant
+ view of multi-tensor fields.
+ Our approach is interactive, fast when rendering massive multi-tensor fields
+ and tries to achieve many of the constraints of the current available tensor
+ image visualizers in the state-of-the-art.
+\begin_inset Newline newline
+\end_inset
+
+The visualizer is implemented as a new set of GPU shaders for the 
+\series bold
+dmri-explorer
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dmri-explorer"
+literal "false"
+
+\end_inset
+
+, a real'time glyphs viewer described in.
+ Shaders use the tensor matrix to deform and color sphere glyphs on the
+ GPU to get diffusion tensor glyphs for DTI.
+ It supports MTM glyphs as layers of standard DTI glyphs.
+ Tensors can be colored using either the Principal Diffusion Direction (PDD)
+ of the tensor as well as the FA, MD, AD and RD values using popular color
+ maps.
+ Since the viewer is an extension of the dmri-explorer, it inherits all
+ the features allowing fast real-time slicing of the multi-tensor field
+ as well as the capability to scale, zoom in and out.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:multi-tensor-viewer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Preliminary Results
 \end_layout
 
@@ -92,12 +871,27 @@ Experiments on phantom
 \end_layout
 
 \begin_layout Standard
-The fixel-based pipeline shows promising results on the synthetic data set.
- Figure 
+For the purpose of illustrating the fitting of MRDS to a single synthetic
+ subject, in Figure , we show a comparison between the GT multi-tensor field
+ and the one obtained with MRDS.
+\end_layout
+
+\begin_layout Standard
+The results are promising on synthetic data, with the pipeline identifying
+ anomalies in concordance with the imposed damage in the bundle 
+\begin_inset Formula $2$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 Experiments on myelo_inferno
+\end_layout
+
+\begin_layout Standard
+The fixel-based pipeline shows promising results on the synthetic data set.
+ Figure 
 \end_layout
 
 \begin_layout Standard
@@ -209,6 +1003,11 @@ Expected Results
 
 \begin_layout Subsection
 Experiments on ms_6months
+\end_layout
+
+\begin_layout Standard
+Further exploration of the test-retest data set is needed to investigate
+ the repeatability of the tract profilesS.
 \end_layout
 
 \end_body

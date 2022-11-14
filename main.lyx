@@ -348,6 +348,17 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "BIC"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "CUDA"
 literal "false"
 
@@ -976,6 +987,17 @@ literal "false"
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "abstract-workshop-ISMRM-2022"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dmri-explorer"
 literal "false"
 
 \end_inset
@@ -2117,6 +2139,28 @@ Leemans, Alexander.
  Visualization of Diffusion MRI Data.
  10.1093/med/9780195369779.003.0021.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "diisimilarity-measure"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MT-2-ODF"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

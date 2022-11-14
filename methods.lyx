@@ -1522,9 +1522,9 @@ The diffusion properties are constant along the trajectories.
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\widetilde{S}\left(\mathbf{q}\right)=\sqrt{\left(S\left(\mathbf{q}\right)+\eta_{1}\right)^{2}+\eta_{2}^{2}},
-\]
+\begin{equation}
+\widetilde{S}\left(\mathbf{q}\right)=\sqrt{\left(S\left(\mathbf{q}\right)+\eta_{1}\right)^{2}+\eta_{2}^{2}},\label{eq:rician-noise}
+\end{equation}
 
 \end_inset
 
