@@ -1183,6 +1183,43 @@ Processes of the proposed pipeline.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pipeline-phantom"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Data
 \end_layout
@@ -1518,6 +1555,19 @@ The diffusion properties are constant along the trajectories.
 
  has been perturbed as in the original phantom by adding Rician noise such
  that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Arreglar esto
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

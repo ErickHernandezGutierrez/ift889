@@ -117,19 +117,19 @@ literal "false"
  model to recover the different bundles clustering tensors with a similarity
  function.
  The pipeline is similar to the one described in Figure 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-numero de figura va ponido aqui
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
  of previous chapter, see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:pipeline-ismrm-2021"
+reference "fig:pipeline-flood-fill"
 plural "false"
 caps "false"
 noprefix "false"
@@ -162,7 +162,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:pipeline-ismrm-2021"
+name "fig:pipeline-flood-fill"
 
 \end_inset
 
@@ -272,33 +272,6 @@ s\left(\mathbf{D},\mathbf{T}\right)=exp\left(-d\left(\mathbf{D},\mathbf{T}\right
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-We already described the first 
-\begin_inset Formula $3$
-\end_inset
-
- steps (Denoising, Bias Correction and Local Modeling with MRDS) of Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:pipeline-ismrm-2021"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- in the last chapter.
-\end_layout
-
-\begin_layout Plain Layout
 The segmentation of the bundles is performed using a flood-fill based algorithm.
  Given an random initial tensor, the algorithm starts the bundle in the
  voxel containing that tensor.
@@ -372,6 +345,102 @@ noprefix "false"
 .
  For the in-vivo data set, we used one of the control subjects of the myelo_infe
 rno data set and the centrum semiovale as ROI.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The obtained segmentation is visually correct, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flood-fill-recovered-bundles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Moreover, it can be observed in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flood-fill-results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that the pipeline allows for an accurate estimation of the fixel-FA profile
+ in both synthetic and in-vivo dMRI data.
+ From Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flood-fill-results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ it is easy to identify which bundle is healthy, partially damaged or globally
+ damaged.
+ The pipeline is robust to fiber crossing and high level of noise.
+ However, this pipeline requires to manually tune a large number of parameters
+ (
+\begin_inset Formula $d_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+).
+ Altogether, this pipeline showed that MRDS has potential to be combined
+ with more sophisticated methods for fiber tracking like tractography.
+ Thereby making it well suited to the goal of automatically estimating fiber
+ tract profiles by using tractometry.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+We already described the first 
+\begin_inset Formula $3$
+\end_inset
+
+ steps (Denoising, Bias Correction and Local Modeling with MRDS) of Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-flood-fill"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the last chapter.
+\end_layout
+
+\begin_layout Plain Layout
+this abstract was a great starting point for this work.
 \end_layout
 
 \end_inset
@@ -575,7 +644,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename fig-pipeline-disco-challenge.png
-	scale 50
+	scale 55
 
 \end_inset
 
@@ -655,6 +724,21 @@ literal "false"
 \end_inset
 
 .
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This abstract evidenced that the multi-tensor fields fitted by MRDS can
+ adapted to be included in a standard tractography technique.
+ That's why it marked an important previous results for out current work
+ because it could replace, for our pipeline, the CSD as local modeling in
+ Tractoflow.
+ However, the current state of the model selector in MRDS prevents to use
+ MRDS as it causes plenty of false positive streamlines.
+ But it opened the question to improve the model selector in MRDS.
 \end_layout
 
 \begin_layout Standard
@@ -904,18 +988,470 @@ Experiments on phantom
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+that MRDS can be combined with tractography to estimate fixel-based.
+\end_layout
+
+\begin_layout Plain Layout
+Taking the pipeline in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-flood-fill"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, ...
+\end_layout
+
+\begin_layout Plain Layout
 For the purpose of illustrating the fitting of MRDS to a single synthetic
- subject, in Figure , we show a comparison between the GT multi-tensor field
- and the one obtained with MRDS.
+ subject, in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MRDS-fitting-results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we show a comparison between the GT multi-tensor field and the one obtained
+ with MRDS.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MRDS-fitting-results"
+
+\end_inset
+
+Comparison between the multi-tensor field obtained with MRDS and the GT.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Similar to Figure ...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The results are promising on synthetic data, with the pipeline identifying
- anomalies in concordance with the imposed damage in the bundle 
+This section shows the results of the pipeline in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which was proposed to process the phantom and validate our tractometry
+ pipeline.
+ Note that in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we excluded a tractography process.
+ In this way, we focus on results arising from the capability of MRDS to
+ estimate the fixel-based dMRI metrics.
+ In other words, we will study the results of the tractometry pipeline assuming
+ that we have a GT tractogram without false positives, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GT-tractogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Thus, we remove any bias induced by false positives to see the best possible
+ scenario for the pipeline in terms of the fixel-based metrics estimation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-GT-tractogram.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GT-tractogram"
+
+\end_inset
+
+Ground-truth tractogram used to test the pipeline in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healthy-phantom-tract-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the tract profiles for the 
+\begin_inset Formula $26$
+\end_inset
+
+ healthy control subjects over the 
+\begin_inset Formula $3$
+\end_inset
+
+ bundles.
+ Estimated metrics correspond to the GT metrics of the phantom as we showed
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lambdas-histogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ One have to keep in mind that level of noise used in the input DWI is 
+\begin_inset Formula $SNR=12$
+\end_inset
+
+.
+ Hence, our results suggest that our pipeline is robust to high level of
+ noise variations.
+ After having validated our pipeline on the control data set, we applied
+ the pipeline to the damaged phantom data set on the 
+\begin_inset Formula $3$
+\end_inset
+
+ synthetic fascicles, where phantoms have a damaged spot around the crossing
+ of the bundle 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+ as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:phantom-damage"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Examination of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:damaged-phantom-tract-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ demonstrates that the pipeline effectively identify decreases in AD and
+ FA, and increases in RD and MD.
+ Those changes in RD values correspond to the location of the simulated
+ demyelination of the bundle 
 \begin_inset Formula $2$
 \end_inset
 
 .
+ In terms of per bundle statistics, we also note from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healthy-phantom-tract-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:damaged-phantom-tract-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that results for healthy bundles show similar results.
+ This gives indications that MRDS is robust against the fiber crossing.
+ Both Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:healthy-phantom-tract-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:damaged-phantom-tract-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ have several aggressive valleys in the tract profiles, which is consequence
+ of the unrealistic shape of the bundle 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ As we explained in the last chapter, tratometry_flow computes the centroid
+ of all the input bundles.
+ However, the circular shape of the bundle results, for locations along
+ the streamline, in a null centroid.
+ This should not be a problem in in-vivo data as there are not tracts with
+ circular shape in the human brain.
+ In summary, the results are promising on synthetic data, with the pipeline
+ identifying anomalies in concordance with the damage in the bundles while
+ being accurate and robust to noise.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-results-pipeline-damaged-phantom.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:healthy-phantom-tract-profiles"
+
+\end_inset
+
+Tract profiles obtained from the control phantom applying the tractometry
+ pipeline of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which combines the GT bundles in the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GT-tractogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with the fixel-based metrics estimated by MRDS.
+ Each row represents the tract profiles of each fixel-based metric (fixel-RD,
+ fixel-AD, fixel-FA and fixel-MD).
+ Each column represents the tract profiles for a different bundle.
+ Note that the location 
+\begin_inset Formula $1$
+\end_inset
+
+ and location 
+\begin_inset Formula $13$
+\end_inset
+
+ of the bundle 
+\begin_inset Formula $3$
+\end_inset
+
+ are the same as the bundle is a circle.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-results-pipeline-damaged-phantom.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:damaged-phantom-tract-profiles"
+
+\end_inset
+
+Tract profiles obtained with the tractometry pipeline of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which combines the GT bundles in the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GT-tractogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with the fixel-based metrics estimated by MRDS.
+ Each row represents the tract profiles of each fixel-based metric (fixel-RD,
+ fixel-AD, fixel-FA and fixel-MD).
+ Each column represents the tract profiles for a different bundle.
+ The simulated damaged in bundle 
+\begin_inset Formula $2$
+\end_inset
+
+ is highlighted in yellow.
+ Note that the location 
+\begin_inset Formula $1$
+\end_inset
+
+ and location 
+\begin_inset Formula $13$
+\end_inset
+
+ of the bundle 
+\begin_inset Formula $3$
+\end_inset
+
+ are the same as the bundle is a circle.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

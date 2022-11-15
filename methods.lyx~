@@ -1183,6 +1183,43 @@ Processes of the proposed pipeline.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phantom-pipeline"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Data
 \end_layout
@@ -1521,10 +1558,23 @@ The diffusion properties are constant along the trajectories.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Arreglar esto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\[
-\widetilde{S}\left(\mathbf{q}\right)=\sqrt{\left(S\left(\mathbf{q}\right)+\eta_{1}\right)^{2}+\eta_{2}^{2}},
-\]
+\begin{equation}
+\widetilde{S}\left(\mathbf{q}\right)=\sqrt{\left(S\left(\mathbf{q}\right)+\eta_{1}\right)^{2}+\eta_{2}^{2}},\label{eq:rician-noise}
+\end{equation}
 
 \end_inset
 
