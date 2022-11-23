@@ -83,16 +83,33 @@
 Results
 \end_layout
 
+\begin_layout Standard
+In this chapter we will report the findings of this work.
+ This includes the preliminary results already published in conferences,
+ which composed the base of the methodologies presented in the previous
+ chapters.
+ Besides, we will present the results of these methodologies as well as
+ the expected results for the experiments that remain to be carried out.
+\end_layout
+
 \begin_layout Section
-Previous Results
+Published Preliminary Results
 \end_layout
 
 \begin_layout Standard
-In this section we will brief description of the previous results already
- published in abstracts.
+In this section we will brief describe the preliminary results already published
+ in abstracts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abstract-ISMRM-2021,abstract-ISMRM-2022,abstract-workshop-ISMRM-2022"
+literal "false"
+
+\end_inset
+
+.
  For a more detailed explanation, we included each abstract in the Appendix
  chapter.
- This results have been the starting point of this work.
+ These results have been the starting point of this work.
 \end_layout
 
 \begin_layout Subsection
@@ -112,7 +129,7 @@ literal "false"
 .
  It was shown that this method is accurate and robust to noise in synthetic
  phantoms, and in the centrum semiovale of the human brain with clinical
- multi-shell data sets.
+ multi-shell datasets.
  This method does not involve tractography, but instead it uses the local
  model to recover the different bundles clustering tensors with a similarity
  function.
@@ -343,8 +360,8 @@ noprefix "false"
 \end_inset
 
 .
- For the in-vivo data set, we used one of the control subjects of the myelo_infe
-rno data set and the centrum semiovale as ROI.
+ For the in-vivo dataset, we used one of the control subjects of the myelo_infer
+no dataset and the centrum semiovale as ROI.
 \begin_inset Newline newline
 \end_inset
 
@@ -456,6 +473,112 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-flood-fill-phantom-results-fa.png
+	scale 47.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-flood-fill-invio-results-fa.png
+	scale 47.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flood-fill-results"
+
+\end_inset
+
+FA values along each bundle results (a) for synthetic data and (b) for the
+ centrum semiovale in the in-vivo data.
+ Each row represents the FA values for a different bundle.
+ Each column represents, respectively, FA values in voxels with 1, 2 and
+ 3 tensors (i.e., FA values in each bundle are shown separated depending on
+ the number of tensors per voxel).
+ For comparison, the ground-truth FA value for each bundle was added as
+ a black horizontal line.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename fig-flood-fill-recovered-bundles.png
 	scale 47.5
@@ -497,133 +620,15 @@ name "fig:flood-fill-recovered-bundles"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-flood-fill-phantom-results-fa.png
-	scale 47.5
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename fig-flood-fill-invio-results-fa.png
-	scale 47.5
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:flood-fill-results"
-
-\end_inset
-
-FA values along each bundle results (a) for synthetic data and (b) for the
- centrum semiovale in the in-vivo data.
- Each row represents the FA values for a different bundle.
- Each column represents, respectively, FA values in voxels with 1, 2 and
- 3 tensors (i.e., FA values in each bundle are shown separated depending on
- the number of tensors per voxel).
- For comparison, the ground-truth FA value for each bundle was added as
- a black horizontal line.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-Tractography from Gaussian Multi-Facicle ODFs
+Tractography from Gaussian Multi-Tensor ODFs
 \end_layout
 
 \begin_layout Standard
 In this abstract, we proposed a pipeline based on MRDS to compute the structural
  connectome from dMRI data.
  The effectiveness of the pipeline was shown in the DiSCo challenge digital
- phantom data set 
+ phantom dataset 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DiSCo-challenge"
@@ -890,16 +895,44 @@ literal "false"
 
 \end_inset
 
-, a real'time glyphs viewer described in.
+, a real-time glyphs viewer described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dmri-explorer"
+literal "false"
+
+\end_inset
+
+.
  Shaders use the tensor matrix to deform and color sphere glyphs on the
  GPU to get diffusion tensor glyphs for DTI.
- It supports MTM glyphs as layers of standard DTI glyphs.
+ It supports MTM glyphs as layers of standard DTI glyphs, see Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:multi-tensor-viewer-b"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:multi-tensor-viewer-c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  Tensors can be colored using either the Principal Diffusion Direction (PDD)
  of the tensor as well as the FA, MD, AD and RD values using popular color
  maps, see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:multi-tensor-viewer"
+reference "fig:multi-tensor-viewer-a"
 plural "false"
 caps "false"
 noprefix "false"
@@ -910,9 +943,64 @@ noprefix "false"
  Since the viewer is an extension of the dmri-explorer, it inherits all
  the features allowing fast real-time slicing of the multi-tensor field
  as well as the capability to scale, zoom in and out.
+ Rendering performance calculated with frame per second (FPS) using an Intel
+ Core i7 7700HQ and Nvidia GTX 1070 is ~
+\begin_inset Formula $1,300$
+\end_inset
+
+ FPS (
+\begin_inset Formula $1,204$
+\end_inset
+
+ tensors and 
+\begin_inset Formula $772,968$
+\end_inset
+
+ vertices) on the synthetic phantom, while with the Penthera dataset performance
+ is 
+\begin_inset Formula $\sim55$
+\end_inset
+
+ FPS (
+\begin_inset Formula $45,375$
+\end_inset
+
+ tensors and 
+\begin_inset Formula $29,130,750$
+\end_inset
+
+ vertices).
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Although there are plenty of DTI visualization software available, most
+ of them do not have or have a limited support for MTM data.
+ Overall, our viewer has shown to give high framerate when rendering massive
+ MTM fields fitted to real human brain datasets.
+ High performance is consistent even using aged portable hardware.
+ Our visualizer keeps the previous features presented in the original dmri-explo
+rer, and combines them with some new ones like PDD or FA coloring for the
+ multi-tensor glyphs.
+ This is relevant for our current work because tensors encode complex diffusion
+ information precisely.
+ Therefore, the interpretation of a tensor or multi-tensor fields is challenging.
+ Visualization of DTI and MTM data provides an intuitive understanding of
+ this type of data, which results beneficial for any study involving DTI
+ or MTM data.
+ Visualization is essential for quality assessment of tensor or multi-tensor
+ fit on new datasets, and for studying the behavior of a reconstruction
+ methodology in development.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -970,8 +1058,179 @@ ly.
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-multi-tensor-viewer-a.png
+	scale 42.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:multi-tensor-viewer-a"
+
+\end_inset
+
+Multi-tensor field fitted to the synthetic phantom 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "phantom-ISBI-2012,workshop-ISBI-2012"
+literal "false"
+
+\end_inset
+
+ is showed in different coloring modes.
+ (a) Single tensor glyphs colored using the PDD of the tensor similar to
+ the MRtrix viewer.
+ (b) Same as (a) but using multi-tensor glyphs.
+ (c,d,e) Multi-tensor glyphs colored using the AD, RD, and FA values of
+ the tensor with the Viridis, Plasma and Cool Smooth Warm color maps, respective
+ly.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-multi-tensor-viewer-b.png
+	scale 42.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:multi-tensor-viewer-b"
+
+\end_inset
+
+The multi-tensor field fitted to a control healthy subject of the myelo_inferno
+ dataset.
+ (a) 3D render of the multi-tensor field colored by the PDD.
+ (b) The viewer is interactive, so it allows rotating, translating, zooming
+ in and out.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-multi-tensor-viewer-c.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:multi-tensor-viewer-c"
+
+\end_inset
+
+In addition to 3D slide rendering, it is shown how the viewer is able to
+ render slides in 2D mode for Sagittal, Axial and Coronal views.
+ (a) Axial view of the 3D render illustrated in Fig.
+ 2.
+ (b) Zoom-in of the slide to easily explore details.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
 \end_layout
 
 \end_inset
@@ -984,7 +1243,34 @@ Preliminary Results
 \end_layout
 
 \begin_layout Subsection
-Experiments on phantom
+Tractometry Pipeline Experiments
+\end_layout
+
+\begin_layout Standard
+In this section, we validated our proposed pipeline on the digital phantom
+ that was described in the previous chapter.
+ First, we describe the experiments and results of the pipeline applied
+ to phantoms generated with normal values in the WM (control phantoms).
+ Then, we tested the pipeline with another set of synthetic phantoms, where
+ 
+\begin_inset Formula $2$
+\end_inset
+
+ of the 
+\begin_inset Formula $3$
+\end_inset
+
+ bundles have typical values in the WM and one of the bundles has a spot
+ with damaged simulating demyelination (damaged phantoms).
+ Each set has 
+\begin_inset Formula $26$
+\end_inset
+
+ phantoms to match the number of subjects in the myelo_inferno dataset.
+\end_layout
+
+\begin_layout Subsubsection
+Experiments on Synthetic Phantoms
 \end_layout
 
 \begin_layout Standard
@@ -1058,54 +1344,7 @@ Comparison between the multi-tensor field obtained with MRDS and the GT.
 Similar to Figure ...
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This section shows the results of the pipeline in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:pipeline-phantom"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, which was proposed to process the phantom and validate our tractometry
- pipeline.
- Note that in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:pipeline-phantom"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- we excluded a tractography process.
- In this way, we focus on results arising from the capability of MRDS to
- estimate the fixel-based dMRI metrics.
- In other words, we will study the results of the tractometry pipeline assuming
- that we have a GT tractogram without false positives, see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:GT-tractogram"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Thus, we remove any bias induced by false positives to see the best possible
- scenario for the pipeline in terms of the fixel-based metrics estimation.
-\end_layout
-
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -1155,6 +1394,117 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For this purpose, we had to adapt the pipeline in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:proposed-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to the phantom because, as the phantom is digitally generated, it is not
+ necessary to apply registration or deformation correction to the DWI, see
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Note that in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-phantom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we excluded the tractography process too.
+ In this way, we focus on results arising from the capability of MRDS to
+ estimate the fixel-based dMRI metrics.
+ In other words, we will study the results of the tractometry pipeline assuming
+ that we have a GT tractogram without false positives.
+ Thus, we remove any bias induced by false positives to see the best possible
+ scenario for the pipeline in terms of the fixel-based metrics estimation.
+ Additionally, we do not need ReconBundlesX as we already have the separated
+ bundles of the GT tractogram.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-pipeline-phantom.png
+	scale 52
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pipeline-phantom"
+
+\end_inset
+
+Pipeline adapted from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pipeline-flood-fill"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to process the phantom and validate our tractometry pipeline in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:proposed-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Figure 
 \begin_inset CommandInset ref
@@ -1170,7 +1520,7 @@ noprefix "false"
 \begin_inset Formula $26$
 \end_inset
 
- healthy control subjects over the 
+ healthy control phantoms over the 
 \begin_inset Formula $3$
 \end_inset
 
@@ -1194,8 +1544,8 @@ noprefix "false"
 .
  Hence, our results suggest that our pipeline is robust to high level of
  noise variations.
- After having validated our pipeline on the control data set, we applied
- the pipeline to the damaged phantom data set on the 
+ After having validated our pipeline on the control dataset, we applied
+ the pipeline to the damaged phantom dataset on the 
 \begin_inset Formula $3$
 \end_inset
 
@@ -1229,7 +1579,7 @@ noprefix "false"
 
 \end_inset
 
- demonstrates that the pipeline effectively identify decreases in AD and
+ demonstrates that the pipeline effectively identifies decreases in AD and
  FA, and increases in RD and MD.
  Those changes in RD values correspond to the location of the simulated
  demyelination of the bundle 
@@ -1305,7 +1655,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename fig-results-pipeline-damaged-phantom.png
+	filename fig-healthy-phantom-tract-profiles.png
 	scale 35
 
 \end_inset
@@ -1334,17 +1684,8 @@ noprefix "false"
 
 \end_inset
 
-, which combines the GT bundles in the Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:GT-tractogram"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- with the fixel-based metrics estimated by MRDS.
+, which combines the GT bundles with the fixel-based metrics estimated by
+ MRDS.
  Each row represents the tract profiles of each fixel-based metric (fixel-RD,
  fixel-AD, fixel-FA and fixel-MD).
  Each column represents the tract profiles for a different bundle.
@@ -1382,7 +1723,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename fig-results-pipeline-damaged-phantom.png
+	filename fig-damaged-phantom-tract-profiles.png
 	scale 35
 
 \end_inset
@@ -1410,21 +1751,12 @@ noprefix "false"
 
 \end_inset
 
-, which combines the GT bundles in the Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:GT-tractogram"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- with the fixel-based metrics estimated by MRDS.
+, which combines the GT bundles with the fixel-based metrics estimated by
+ MRDS.
  Each row represents the tract profiles of each fixel-based metric (fixel-RD,
  fixel-AD, fixel-FA and fixel-MD).
  Each column represents the tract profiles for a different bundle.
- The simulated damaged in bundle 
+ The simulated damage in bundle 
 \begin_inset Formula $2$
 \end_inset
 
@@ -1454,20 +1786,40 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsection
-Experiments on myelo_inferno
+\begin_layout Subsubsection
+Experiments on Control In-Vivo Subjects
 \end_layout
 
 \begin_layout Standard
-The fixel-based pipeline shows promising results on the synthetic data set.
- Figure 
+We tested our proposed pipeline from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:proposed-pipeline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with 
+\begin_inset Formula $24$
+\end_inset
+
+ of the 
+\begin_inset Formula $26$
+\end_inset
+
+ control healthy subjects of the the myelo_inferno dataset.
+ Two of the subjects were discarted due to problems during the acquisition.
+ For the sake of keeping a sort results report, we compared the variation
+ of fixel-specific and usual RD and FA metrics along the tracts CC_Fr, FAT,
+ FPTT, IFOF and PYT.
+ These tracts were chosen to test the effectiveness of the pipeline to deal
+ with a variaty of different tracts, including short and long tracts, with
+ contrasting curvatures and covering diverse zones of the brain.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -1483,8 +1835,8 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename G:/My Drive/SCIL/tmp_1665564161656.jpg
-	scale 50
+	filename tract-IFOF.png
+	scale 2.5
 
 \end_inset
 
@@ -1495,7 +1847,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
+IFOF
 \end_layout
 
 \end_inset
@@ -1503,10 +1855,6 @@ status collapsed
 
 \end_layout
 
-\end_inset
-
-
-\begin_inset Formula $\;\;\;$
 \end_inset
 
 
@@ -1518,8 +1866,8 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename G:/My Drive/SCIL/tmp_1665564143309.jpg
-	scale 50
+	filename tract-FAT.png
+	scale 2.5
 
 \end_inset
 
@@ -1530,7 +1878,104 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+FAT
+\end_layout
 
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tract-PYT.png
+	scale 2.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PYT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tract_CC_fr.png
+	scale 2.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CC_fr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tract-FPT.png
+	scale 2.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+FPT
 \end_layout
 
 \end_inset
@@ -1547,8 +1992,18 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Results of the tractometry_flow on the myelo_inferno dataset along the IFOF
- fiber bundle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:selected-tracts"
+
+\end_inset
+
+Comparison of the different tracts selected to test the pipeline.
+ The DWI was added as anatomical reference of for the tracts.
+ All tracts are composed of two left and right sub-tracts; except for the
+ CC_fr, which is composed of CC_fr_1 and CC_fr_2.
+ In (a,c,d,e) the sub-tracts are not visible to keep a good view of the
+ general tract, in (b) it is possible to see the two parts of the tract.
 \end_layout
 
 \end_inset
@@ -1561,22 +2016,725 @@ Results of the tractometry_flow on the myelo_inferno dataset along the IFOF
 
 \end_layout
 
+\begin_layout Standard
+For this preliminary experiments, the first and third columns of Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-RD-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-FA-profiles"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ illustrate the tract fixel-RD and fixel-FA profiles along the tracts, while
+ the second and fourth columns show the tract profiles for RD and FA.
+ Each row of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-RD-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-FA-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ represent the tract profiles for a different tract.
+ When comparing the tract RD profiles from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-RD-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with the corresponding tract profiles obtained using fixel-RD, we can observe
+ that they have very similar shapes (except for the PYT_L and IFOF_R tracts).
+ However, the standard tract RD profiles tends to have higher RD values
+ compared to their fixel-specific counterpart, which could be a consequence
+ of the fact that DTI gives plate tensors in voxels with fiber crossings.
+ 
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+Analogous to Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-RD-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:myelo-inferno-tract-FA-profiles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ it can be appreciated that voxel-wise tract FA profiles are similar in
+ shape to tract fixel-FA profiles.
+ But in the case of the fixel-specific tract profiles the FA values correspond
+ with typical values in healthy WM.
+ This is because standard tract FA profiles are biased by fiber crossing,
+ where FA values decrease.
+ This is an indicative that the pipeline is robust to fiber crossing while
+ being consistent to previous reported FA values of healthy control WM.
+ One may think that if both tract profiles for FA and fixel-FA are similar
+ in shape, this implies that fixel-FA is still suffering from the fiber
+ crossing because it has the same peaks and valleys.
+ However, as it was mentioned in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry-6"
+literal "false"
+
+\end_inset
+
+, FA increments and decrements along the tracts are not only consequence
+ of fiber crossing, but also from other factor like intermixing with neighboring
+ gray matter or regions of thicker WM where there is less partial voluming.
+ This suggests that fixel-FA remains sensitive as FA, but with the capability
+ to be specific to damages.
+\end_layout
+
+\begin_layout Subsubsection
 Expected Results
 \end_layout
 
-\begin_layout Subsection
-Experiments on ms_6months
+\begin_layout Standard
+In general, it can be said that given the strong anatomical priors injected
+ in the segmentation of WM fascicles, test-retest is critical to asses the
+ specificity and reproducibility of the extracted tracts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tractometry_flow-1"
+literal "false"
+
+\end_inset
+
+.
+ Further exploration of the test-retest dataset, i.e.
+ testing the pipeline in the different subjects including all timepoints,
+ is needed to investigate the repeatability of the tract profiles.
+ Finally, the pipeline should produce consistent results across subjects
+ in the test-retest procedure because the pipeline is based mostly in tractoflow
+ and tractometry_flow, which have shown to be reliable in clinical assessment.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Further exploration of the test-retest data set is needed to investigate
- the repeatability of the tract profilesS.
+A follow-up study investigating the application of the pipeline to relapsing
+ remitting MS could prove our hypothesis that this pipeline is useful in
+ MS.
+ For this, we will apply the pipeline to the relapsing remitting MS subjects
+ of the myelo_inferno dataset.
+ With the preliminary results in mind, we expect that the tract profiles
+ in MS to detect WM changes consistent with location of the demyelination
+ in the brain.
+ Most of all, we envision that this crossing fiber robustness will allow
+ the fixel-RD to provide a better damage detection compared with traditional
+ RD.
+ This would address the current problem in dMRI tractometry of RD being
+ inconsistent and having insufficient evidence to be favorable as a sensitive
+ and specific biomarker for demyelination.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-myelo-inferno-tract-RD-profiles.png
+	scale 27.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:myelo-inferno-tract-RD-profiles"
+
+\end_inset
+
+Tract RD profiles for 
+\begin_inset Formula $24$
+\end_inset
+
+ subjects of the myelo_inferno dataset in 
+\begin_inset Formula $5$
+\end_inset
+
+ tracts.
+ In the first two columns, images show the tract fixel-RD profile obtained
+ from the estimated fixel-RD of MRDS, while in the third and fourth columns
+ images show the tract RD profile obtained with typical the RD metric of
+ DTI.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-myelo-ifnerno-tract-FA-profiles.png
+	scale 27.5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:myelo-inferno-tract-FA-profiles"
+
+\end_inset
+
+Tract FA profiles for 
+\begin_inset Formula $24$
+\end_inset
+
+ subjects of the myelo_inferno dataset in 
+\begin_inset Formula $5$
+\end_inset
+
+ tracts.
+ In the first two columns, images show the tract fixel-FA profile obtained
+ from the estimated fixel-FA of MRDS, while in the third and fourth columns
+ images show the tract FA profile obtained with typical the FA metric of
+ DTI.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Improvements of MRDS
+\end_layout
+
+\begin_layout Subsubsection
+Parallelization of MRDS
+\end_layout
+
+\begin_layout Standard
+We are planning to accelerate the fitting of the MRDS method to the dMRI
+ data by using modern parallel computing techniques.
+ The Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows a preliminary approach to abroad this problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Require {Normalized DWI $E$ and initial diffusion parameters $
+\backslash
+xi_0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Ensure {for every voxel $N_{opt}$, $
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N_{opt}}$, $
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N_{opt}}$ and $
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N_{opt}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For{ in parallel for every voxel $v = (x,y,z)$ }
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+While{ not convergence }
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+For{ N=1,2,3 }
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+xi_{k} = 
+\backslash
+xi_0 
+\backslash
+;
+\backslash
+;
+\backslash
+; 
+\backslash
+forall k$
+\end_layout
+
+\begin_layout Plain Layout
+
+	    
+\backslash
+State Estimate $
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ and $
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ for fixed $
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State Estimate $
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ for fixed $
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$ and $
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndWhile
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $N_{opt} = modsel(
+\backslash
+left
+\backslash
+{ 
+\backslash
+theta_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}, 
+\backslash
+left
+\backslash
+{ 
+\backslash
+alpha_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N}, 
+\backslash
+left
+\backslash
+{ 
+\backslash
+xi_{k}
+\backslash
+right
+\backslash
+} _{k=1}^{N})$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndFor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:parallel-MRDS"
+
+\end_inset
+
+Algorithm in parallel fit the MRDS model.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is a direct translation of the OpenMP algorithm given in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS"
+literal "false"
+
+\end_inset
+
+.
+ Of course, this is a first approach for the parallelization of MRDS in
+ the GPU.
+ We will use the Nvidia CUDA toolkit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CUDA"
+literal "false"
+
+\end_inset
+
+ that provides a modern programming language, which allows developers to
+ use the Nvidia CUDA Cores in the Nvidia GPUs for parallel computing.
+ Every voxel computation in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ will be assigned to a single CUDA thread as every CUDA thread is executed
+ in parallel in the GPU, see Figure .
+ We still have to implement it on GPU language and test the performance.
+ We have the hypothesis that this naive approach could improve the performance
+ of the fitting process.
+ However, there are several other aspects of the algorithm that have to
+ be considered during the implementation.
+ For example, in order to efficiently use the CUDA threads, all threads
+ in the GPU should perform the same instruction at the same time.
+ Nonetheless, as every CUDA thread will manage a single voxel, it will happen
+ that some voxels will converge before others, decreasing the performance
+ because some threads will have to wait for others to finish.
+ Thus, Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:parallel-MRDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is still a naive approach, and we will have to address this and others
+ bottlenecks.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-cuda-grid.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:cuda-grid"
+
+\end_inset
+
+Illustration of how the threads are structured in a Nvidia GPU.
+ CUDA threads are grouped in CUDA blocks that are executed in parallel.
+ A CUDA block finishes its computation when all threads belonging to that
+ same CUDA block finish every instruction.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Model Selector of MRDS
+\end_layout
+
+\begin_layout Standard
+Another aspect that can be improved in MRDS is the model selector.
+ For this, it is possible to inform the model selector of MRDS with the
+ 
+\series bold
+Nu
+\series default
+mber of 
+\series bold
+F
+\series default
+iber 
+\series bold
+O
+\series default
+rientation (NuFO) map computed in the local modeling step of tractoflow,
+ which is an index of local watter matter complexity that is estimated from
+ the number of local maxima of the fODF profile in each voxel 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NuFO"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Expected Results
+\end_layout
+
+\begin_layout Standard
+We predict that the naive implementation of the parallelization of MRDS
+ will achieve a speed-up of at least 
+\begin_inset Formula $1$
+\end_inset
+
+ order of magnitude.
+ On the other hand, we expect that the use of NuFO maps will reduce the
+ data overfitting by MRDS.
+ Anyway, in the future more ideas will be explored in this part.
 \end_layout
 
 \end_body

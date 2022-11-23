@@ -12,12 +12,12 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "default" "Book Antiqua"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
@@ -84,7 +84,37 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-No conclusions yet...
+While multiple research and tools currently exist to perform dMRI tractometry.
+ Non of the these articles have presented the ability to perform analysis
+ based on fixel-specific dMRI metrics.
+ In this work we have presented a novel dMRI tractometry pipeline that can
+ combine tractography with fixel-based dMRI derived from an improved, robust
+ and accurate multi-tensor fitting to account for tract profiles.
+ Futhermore, it shows promising results on the synthetic phantoms and in-vivo
+ clinical grade data, where we saw the pipeline being sensitive and, more
+ importantly, specific to changes in the WM.
+ Besides, the results in healthy control in-vivo data shows that even without
+ the improvements of MRDS, the pipeline is robust and accurate to fiber
+ crossing.
+ Of course, it is still required to be tested on relapsing remitting MS
+ data.
+ However, the preliminary experiments point to a promising result when testing
+ the pipeline in MS data, which would be a fundamental contribution to the
+ dMRI community.
+ It is an important for the community to have a fast, accurate, robust and
+ easy-to-use pipeline for tractometry analysis that can be specific and
+ not only sensitive to WM anomalies.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our previous abstract publications made a solid starting point for this
+ work.
+ Considering the preliminary results and the given schedule for the next
+ years, make this project viable and finishable on time.
 \end_layout
 
 \end_body

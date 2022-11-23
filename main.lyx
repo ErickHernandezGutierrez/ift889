@@ -414,6 +414,25 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "Magic-DIAMOND"
+literal "false"
+
+\end_inset
+
+Reymbaut A, Caron AV, Gilbert G, Szczepankiewicz F, Nilsson M, Warfield
+ SK, Descoteaux M, Scherrer B.
+ Magic DIAMOND: Multi-fascicle diffusion compartment imaging with tensor
+ distribution modeling and tensor-valued diffusion encoding.
+ Med Image Anal.
+ 2021 May;70:101988.
+ doi: 10.1016/j.media.2021.101988.
+ Epub 2021 Feb 4.
+ PMID: 33611054.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "evaluating-accuracy-dMRI-models"
 literal "false"
 
@@ -1053,6 +1072,45 @@ https://mrtrix.readthedocs.io/en/latest/concepts/fixels_dixels.html
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "fixel-based-analysis-of-dMRI"
+literal "false"
+
+\end_inset
+
+Dhollander T, Clemente A, Singh M, Boonstra F, Civier O, Duque JD, Egorova
+ N, Enticott P, Fuelscher I, Gajamange S, Genc S, Gottlieb E, Hyde C, Imms
+ P, Kelly C, Kirkovski M, Kolbe S, Liang X, Malhotra A, Mito R, Poudel G,
+ Silk TJ, Vaughan DN, Zanin J, Raffelt D, Caeyenberghs K.
+ Fixel-based Analysis of Diffusion MRI: Methods, Applications, Challenges
+ and Opportunities.
+ Neuroimage.
+ 2021 Nov 1;241:118417.
+ doi: 10.1016/j.neuroimage.2021.118417.
+ Epub 2021 Jul 21.
+ PMID: 34298083.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "less-than-3-fixels-per-voxel"
+literal "false"
+
+\end_inset
+
+Jeurissen B, Leemans A, Tournier JD, Jones DK, Sijbers J.
+ Investigating the prevalence of complex fiber configurations in white matter
+ tissue with diffusion magnetic resonance imaging.
+ Hum Brain Mapp.
+ 2013 Nov;34(11):2747-66.
+ doi: 10.1002/hbm.22099.
+ Epub 2012 May 19.
+ PMID: 22611035; PMCID: PMC6870534.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "tractography-1"
 literal "false"
 
@@ -1671,6 +1729,43 @@ Farquharson S, Tournier JD, Calamante F, Fabinyi G, Schneider-Kolsky M,
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "tractography-wm-gm-interface"
+literal "false"
+
+\end_inset
+
+Li L, Rilling JK, Preuss TM, Glasser MF, Hu X.
+ The effects of connection reconstruction method on the interregional connectivi
+ty of brain networks via diffusion tractography.
+ Hum Brain Mapp.
+ 2012 Aug;33(8):1894-913.
+ doi: 10.1002/hbm.21332.
+ Epub 2011 Sep 16.
+ PMID: 21928316; PMCID: PMC6414228.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tractography-roi-seeding"
+literal "false"
+
+\end_inset
+
+Weiss C, Tursunova I, Neuschmelting V, Lockau H, Nettekoven C, Oros-Peusquens
+ AM, Stoffels G, Rehme AK, Faymonville AM, Shah NJ, Langen KJ, Goldbrunner
+ R, Grefkes C.
+ Improved nTMS- and DTI-derived CST tractography through anatomical ROI
+ seeding on anterior pontine level compared to internal capsule.
+ Neuroimage Clin.
+ 2015 Jan 20;7:424-37.
+ doi: 10.1016/j.nicl.2015.01.006.
+ PMID: 25685709; PMCID: PMC4314616.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "gibbs-tracking"
 literal "false"
 
@@ -1819,7 +1914,7 @@ Dell'Acqua, F., Simmons, A., Williams, S.C.
  specific index to characterize white matter diffusion.
  Hum.
  Brain Mapp., 34: 2464-2483.
- https://doi.org/10.1002/hbm.22080
+ https://doi.org/10.1002/hbm.22080.
 \end_layout
 
 \begin_layout Bibliography
@@ -2101,8 +2196,30 @@ literal "false"
 
 \end_inset
 
-Song et.
- al 2022.
+Song SK, Sun SW, Ramsbottom MJ, Chang C, Russell J, Cross AH.
+ Dysmyelination revealed through MRI as increased radial (but unchanged
+ axial) diffusion of water.
+ Neuroimage.
+ 2002 Nov;17(3):1429-36.
+ doi: 10.1006/nimg.2002.1267.
+ PMID: 12414282.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "RD-demyelination-mouse"
+literal "false"
+
+\end_inset
+
+Song SK, Yoshino J, Le TQ, Lin SJ, Sun SW, Cross AH, Armstrong RC.
+ Demyelination increases radial diffusivity in corpus callosum of mouse
+ brain.
+ Neuroimage.
+ 2005 May 15;26(1):132-40.
+ doi: 10.1016/j.neuroimage.2005.01.028.
+ PMID: 15862213.
 \end_layout
 
 \begin_layout Bibliography
@@ -2123,7 +2240,226 @@ Diffusion MRI in multiple sclerosis M.
  H.
  Miller, M.
  Filippi Neurology Nov 2005, 65 (10) 1526-1532; DOI: 10.1212/01.wnl.0000184471.83948.
-e0
+e0.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-2"
+literal "false"
+
+\end_inset
+
+Putnam TJ, The centenary of multiple sclerosis.
+ Arch Neurol Psych.
+ 1938;40(4):806-813.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-3"
+literal "false"
+
+\end_inset
+
+Dunglison R, A dictionary of medical sciences.
+ Philadelphia: Henry C.
+ Lea.
+ 1869.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-4"
+literal "false"
+
+\end_inset
+
+Carswell R, Pathological anatomy: Illustrations of the Elementary Forms
+ of the Disease.
+ London: Longman, Orme, Brown, Green and Longman.
+ 1838.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-5"
+literal "false"
+
+\end_inset
+
+Cruveilhier J, Anatomie pathologique du corps humain.
+ Paris: JB Baillière.
+ 1829-1842.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-6"
+literal "false"
+
+\end_inset
+
+Charcot JM, Histologie de la sclérose en plaques.
+ Paris: Gaz Hôp Civils Milit.
+ 1868;41:554-558.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-7"
+literal "false"
+
+\end_inset
+
+Church A, Peterson F, Nervous and mental diseases.
+ London: Rebman Publishing Company Ltd.
+ 1899:50-94.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-8"
+literal "false"
+
+\end_inset
+
+McAlpine D, Compston ND, Lumsden CE.
+ Multiple sclerosis.
+ Edinburgh: E&S Livingston.
+ 1955.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-9"
+literal "false"
+
+\end_inset
+
+Noseworthy JH, Lucchinetti C, Rodriguez M, Weinshenker BG.
+ Multiple sclerosis.
+ NEJM.
+ 2000;343:938-952.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-10"
+literal "false"
+
+\end_inset
+
+Paty DW, Ebers GC, Multiple sclerosis.
+ Philaadelphia: FA Davis.
+ 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-11"
+literal "false"
+
+\end_inset
+
+Compston A, McAlpine's multiple sclerosis.
+ London: Churchill Livingstone.
+ 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-12"
+literal "false"
+
+\end_inset
+
+Hayes CE, Cantorna MT, DeLuca HF.
+ Vitamin D and multiple sclerosis.
+ Proc Soc Exp Biol Med.
+ 1997 Oct;216(1):21-7.
+ doi: 10.3181/00379727-216-44153a.
+ PMID: 9316607.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-13"
+literal "false"
+
+\end_inset
+
+Gogolin KJ, Kolaga VJ, Baker L, Lisak RP, Zmijewski CM, Spielman RS.
+ Subtypes of HLA-DQ and -DR defined by DQB1 and DRB1 RFLPs: allele frequencies
+ in the general population and in insulin-dependent diabetes (IDDM) and
+ multiple sclerosis patients.
+ Ann Hum Genet.
+ 1989 Oct;53(4):327-38.
+ doi: 10.1111/j.1469-1809.1989.tb01802.x.
+ PMID: 2576190.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-14"
+literal "false"
+
+\end_inset
+
+Simpson CA, Newell DJ, Schapira K.
+ Smoking and multiple sclerosis.
+ Neurology.
+ 1966 Oct;16(10):1041-3 passim.
+ doi: 10.1212/wnl.16.10.1041.
+ PMID: 5950585.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-15"
+literal "false"
+
+\end_inset
+
+Harbo HF, Gold R, Tintoré M.
+ Sex and gender issues in multiple sclerosis.
+ Ther Adv Neurol Disord.
+ 2013 Jul;6(4):237-48.
+ doi: 10.1177/1756285613488434.
+ PMID: 23858327; PMCID: PMC3707353.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-16"
+literal "false"
+
+\end_inset
+
+Hauser SL, Goodwin DS.
+ Multiple sclerosis and other demyelinating diseases.
+ In: Fauci AS, Braunwald E, Kasper DL, Hauser SL, editors.
+ Harrison’s Principles of Internal Medicine.
+ 17th ed.
+ II.
+ New York: McGraw-Hill Medical; 2008.
+ pp.
+ 2611–2621.
 \end_layout
 
 \begin_layout Bibliography
@@ -2161,6 +2497,178 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-1"
+literal "false"
+
+\end_inset
+
+Cross AH, Song SK.
+ "A new imaging modality to non-invasively assess multiple sclerosis pathology".
+ J Neuroimmunol.
+ 2017 Mar 15;304:81-85.
+ doi: 10.1016/j.jneuroim.2016.10.002.
+ Epub 2016 Oct 8.
+ PMID: 27773433; PMCID: PMC5316501.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-2"
+literal "false"
+
+\end_inset
+
+Xu J, Sun SW, Naismith RT, Snyder AZ, Cross AH, Song SK.
+ Assessing optic nerve pathology with diffusion MRI: from mouse to human.
+ NMR Biomed.
+ 2008 Nov;21(9):928-40.
+ doi: 10.1002/nbm.1307.
+ PMID: 18756587; PMCID: PMC2603138.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-3"
+literal "false"
+
+\end_inset
+
+Martin AR, Aleksanderek I, Cohen-Adad J, Tarmohamed Z, Tetreault L, Smith
+ N, Cadotte DW, Crawley A, Ginsberg H, Mikulis DJ, Fehlings MG.
+ Translating state-of-the-art spinal cord MRI techniques to clinical use:
+ A systematic review of clinical studies utilizing DTI, MT, MWF, MRS, and
+ fMRI.
+ Neuroimage Clin.
+ 2015 Dec 4;10:192-238.
+ doi: 10.1016/j.nicl.2015.11.019.
+ PMID: 26862478; PMCID: PMC4708075.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-4"
+literal "false"
+
+\end_inset
+
+Wang Y, Sun P, Wang Q, Trinkaus K, Schmidt RE, Naismith RT, Cross AH, Song
+ SK.
+ Differentiation and quantification of inflammation, demyelination and axon
+ injury or loss in multiple sclerosis.
+ Brain.
+ 2015 May;138(Pt 5):1223-38.
+ doi: 10.1093/brain/awv046.
+ Epub 2015 Feb 26.
+ PMID: 25724201; PMCID: PMC4407189.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-5"
+literal "false"
+
+\end_inset
+
+Beaulieu C.
+ The basis of anisotropic water diffusion in the nervous system - a technical
+ review.
+ NMR Biomed.
+ 2002 Nov-Dec;15(7-8):435-55.
+ doi: 10.1002/nbm.782.
+ PMID: 12489094.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-6"
+literal "false"
+
+\end_inset
+
+Paus T.
+ Growth of white matter in the adolescent brain: myelin or axon? Brain Cogn.
+ 2010 Feb;72(1):26-35.
+ doi: 10.1016/j.bandc.2009.06.002.
+ Epub 2009 Oct 23.
+ PMID: 19595493.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-7"
+literal "false"
+
+\end_inset
+
+Wang Y, Wang Q, Haldar JP, Yeh FC, Xie M, Sun P, Tu TW, Trinkaus K, Klein
+ RS, Cross AH, Song SK.
+ Quantification of increased cellularity during inflammatory demyelination.
+ Brain.
+ 2011 Dec;134(Pt 12):3590-601.
+ doi: 10.1093/brain/awr307.
+ PMID: 22171354; PMCID: PMC3235568.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "multiple-sclerosis-DTI-metrics-8"
+literal "false"
+
+\end_inset
+
+Yablonskiy DA, Sukstanskii AL.
+ Theoretical models of the diffusion weighted MR signal.
+ NMR Biomed.
+ 2010 Aug;23(7):661-81.
+ doi: 10.1002/nbm.1520.
+ PMID: 20886562; PMCID: PMC6429954.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "mitacs-14"
+literal "false"
+
+\end_inset
+
+Pierpaoli C, Barnett A, Pajevic S, Chen R, Penix LR, Virta A, Basser P.
+ Water diffusion changes in Wallerian degeneration and their dependence
+ on white matter architecture.
+ Neuroimage.
+ 2001 Jun;13(6 Pt 1):1174-85.
+ doi: 10.1006/nimg.2001.0765.
+ PMID: 11352623.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "mitacs-15"
+literal "false"
+
+\end_inset
+
+Acosta-Cabronero J, Williams GB, Pengas G, Nestor PJ.
+ Absolute diffusivities define the landscape of white matter degeneration
+ in Alzheimer's disease.
+ Brain.
+ 2010 Feb;133(Pt 2):529-39.
+ doi: 10.1093/brain/awp257.
+ Epub 2009 Nov 13.
+ PMID: 19914928.
 \end_layout
 
 \end_body

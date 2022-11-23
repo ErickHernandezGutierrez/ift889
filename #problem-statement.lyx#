@@ -1,0 +1,481 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Book Antiqua"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Problem Statement
+\end_layout
+
+\begin_layout Standard
+In general, a tractometry analysis brings together the outputs of tractography
+ and advanced metrics from local diffusion models to get a measurement of
+ the physical properties of brain tracts.
+ Thus, tractometry is an important utensil to study the brain and neurodegenerat
+ive diseases.
+ However, the current tractometry frameworks are based on metrics derived
+ from single tensor or fixel-based metrics derived from methods other than
+ dMRI.
+ Besides, there are several challenges facing researchers who use tractometry
+ such that:
+\end_layout
+
+\begin_layout Itemize
+Need of cutting edge multi-shell acquisition schemes of dMRI.
+\end_layout
+
+\begin_layout Itemize
+There are many ways to model or represent dMRI data.
+ This includes different sophisticated local diffusion models at the level
+ of individual voxels, and different parameters configurations of the same
+ model.
+\end_layout
+
+\begin_layout Itemize
+Tracking techniques to reconstruct the WM fascicles, which involves also
+ a large number of parameters.
+ These fascicles are hard to define and recover robustly because have variable
+ spatial extent and.
+\end_layout
+
+\begin_layout Itemize
+Robust multi-parameter approaches to classify whole brain tractograms into
+ major white matter bundles.
+\end_layout
+
+\begin_layout Itemize
+Adjustment of all involved parameters to apply tractometry beyond phantoms,
+ i.e.
+ in real life applications like MS.
+\end_layout
+
+\begin_layout Standard
+Multi-shell dMRI is now widely used.
+ Nonetheless, the most appropiate representation and modeling of multiple
+ fascicles traversing the same voxel remains unclear.
+ Simple models like DSI and QBI do not make assumptions on the dMRI data
+ and are sensitive to fiber crossing, but they focus on describing the general
+ shape of the diffusion profile in each voxel instead of representing each
+ fixel independently, and therefore they do not enable characterization
+ of each individual fixel.
+ On the other hand, spherical deconvolution methods provide fixel-based
+ metrics and orientations, but they are not capable of proving metrics like
+ fixel-RD, which is ideal for MS applications as it aims of be characterize
+ the demyelination.
+ In addition, advanced local diffusion models like MRDS and DIAMOND that
+ allow to estimate fixel-based dMRI metrics are still slow and inefficient.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tractometry analysis informed with fixel-based dMRI metrics needs to be
+ translated to MS and other neurodegenerative diseases, and this is still
+ a very important open problem.
+ That's why it is important to study a tractometry pipeline informed with
+ fixel-based dMRI metrics like fixel-RD, which aims to achieve the crossing
+ fiber limitations of dMRI metrics derived from single tensor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Besides, despite the notable available tractometry pipelines in the state-of-the
+-art, methods that use dMRI metrics like RD, AD, FA and MD are derived from
+ single tensor.
+ The metrics usually extracted from DTI tend to lack specificity to characterize
+ the underlying microstructure, and are very sensitive to white matter anomalies
+ [
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+add ref 14,15,16 from Mitacs
+\end_layout
+
+\end_inset
+
+].
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Classical measures like FA with DTI are very sensitive to white matter anomalies
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+add ref 14,15,16 from Mitacs
+\end_layout
+
+\end_inset
+
+.
+ However, it is now very well-known that FA is not specific, i.e.
+ several different microstructure scenarios may lead to the same FA, see
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:different-FA-scenarios"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For example, the following scenarios could lead to the same FA of 
+\begin_inset Formula $0.4$
+\end_inset
+
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+add refs 19,20,21,22,23 of Mitacs
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Crossing fiber voxel.
+\end_layout
+
+\begin_layout Itemize
+Single fiber population demyelinating (going from FA of ~0.7 to 0.4).
+\end_layout
+
+\begin_layout Itemize
+Voxel that has partial volume with a CSF.
+\end_layout
+
+\begin_layout Itemize
+Isotropic freewater from neuroinflammation contaminating the voxel leading
+ to a drop of a high FA voxel to a low FA of 0.4.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-different-FA-scenarios.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Limitations of DTI and potential of advanced diffusion MRI modeling for
+ improved brain connectivity mapping and track-specific white matter tissue
+ assessment.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+It is thus clear that each fascicle that traverses a voxel should have its
+ diffusivities (fascicle-MD, fascicle-AD and fascicle-RD) and fiber-specific
+ FA (fascicle-FA), which is recently also coined fixel-based FA (a fixel
+ is a fiber element) 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+add ref 24 from Mitacs
+\end_layout
+
+\end_inset
+
+.
+ Fixel-based analysis needs to be translated to neurodegenerative diseases
+ and this is still a very important open problem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Mention that most of them do not give information about micro-structure.
+\end_layout
+
+\begin_layout Plain Layout
+Mention the constrains of using DTI and fODF.
+ Mention that MTM could solve the problem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+fixel-based metrics analysis should minimized the influence of fibre crossing
+ to the estimation of ...
+\end_layout
+
+\begin_layout Itemize
+this significant difference between healthy subjects and patients affected
+ by MS is not evident, when quantifying with standard dMRI metrics instead
+ of fixel-based dMRI metrics.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Objective
+\end_layout
+
+\begin_layout Standard
+Our main objective is to setup a robust (to noise and crossing fibers) pipeline
+ for the automatic extraction and statistical analysis of track-specific
+ white matter measures, which will be useful in MS to characterize demyelination.
+ Estimated fixel-based orientations and metrics will be used as indirect
+ proxies to axon loss, demyelination and neuroinflammation.
+ In particular, we envision that the fixel-based RD (fixel-RD) could help
+ to account for demyelination 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "profilometry"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to achieve our main objective, we will face several challenges.
+ The first one is to select a method to estimate the fixel-based dMRI metrics.
+ Both MRDS and DIAMOND can estimate fixel-based dMRI profiles.
+ But we decided to use the MRDS method instead of DIAMOND to estimate the
+ fixel-based dMRI metrics.
+ MRDS is a simpler model than DIAMOND when representing the dMRI data.
+ However, MRDS needs less parameters compared with DIAMOND.
+ Thus, we have the hypothesis that MRDS is a viable trade-off between complexity
+ and number of parameters for clinic data.
+ Besides, MRDS has been shown to be more robust to noise than DIAMOND when
+ estimating the orientations of the fixels 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MRDS-rats"
+literal "false"
+
+\end_inset
+
+.
+ On the other hand, CSD is not an option in this case as it is unable to
+ estimate fixel-RD metrics.
+ On the whole, there are 
+\begin_inset Formula $3$
+\end_inset
+
+ main problems that have to be addressed:
+\end_layout
+
+\begin_layout Enumerate
+Fast, accurate and robust (against noise and fiber crossing) estimation
+ of fixel-based dMRI metrics from the dMRI data using the multi-tensor based
+ method MRDS.
+ This, by itself, implies several challenges:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Improve the model selector in MRDS to better estimate the number of tensors
+ per voxel.
+ MRDS tends to overfit the number of tensors per voxel.
+\end_layout
+
+\begin_layout Enumerate
+Parallelization of MRDS using modern GPU parallel programming techniques
+ to ensure fast fitting of the MRDS method to the dMRI data.
+ Currently, MRDS faces long fitting times.
+ For some real human brain data sets it takes 
+\begin_inset Formula $2$
+\end_inset
+
+ entire days for fitting a single brain, using modern CPU with tens of cores.
+\end_layout
+
+\begin_layout Enumerate
+Validate the new model selector and the parallelization implementation using
+ synthetic phantoms.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Multimetric analysis of white matter tracts in different fiber bundles.
+ It's required to adapt the tractometry_flow pipeline to integrate the fixel-bas
+ed MRDS metrics into the statistical analysis.
+\end_layout
+
+\begin_layout Enumerate
+Build and validate a new tractometry pipeline with MRDS and tractometry_flow
+ by adding the previous improvements and including other steps based on
+ methods in the state-of-the-art that we will describe in the next chapter.
+\end_layout
+
+\begin_layout Enumerate
+Perform a MS study by applying this new pipeline.
+ Although this new pipeline for automating tract-profiling in the white
+ matter could improve brain connectivity mapping through crossing fiber
+ regions and pathologies in the human brain, we will focus to demostrate
+ the application of our pipeline to relapsing remitting MS with a unique
+ acquisition paradigm of 
+\begin_inset Formula $5$
+\end_inset
+
+ timepoints over 
+\begin_inset Formula $6$
+\end_inset
+
+ months with MS-based dMRI and myelin-based MRI.
+\end_layout
+
+\begin_layout Standard
+Lastly, together the optimizations for MRDS in points 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+ will result in a journal publication.
+ Besides, the pipeline resulting pipeline in point 
+\begin_inset Formula $3$
+\end_inset
+
+ will generate another journal publication.
+\end_layout
+
+\end_body
+\end_document
